@@ -1,0 +1,10 @@
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\bin\Debug\WorkshopGame.exe.config
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\obj\Debug\WorkshopGame.csprojResolveAssemblyReference.cache
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\obj\Debug\WorkshopGame.g.resources
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\obj\Debug\WorkshopGame.UI.GameWindow.resources
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\obj\Debug\WorkshopGame.Properties.Resources.resources
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\obj\Debug\WorkshopGame.csproj.GenerateResource.Cache
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\bin\Debug\WorkshopGame.exe
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\bin\Debug\WorkshopGame.pdb
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\obj\Debug\WorkshopGame.exe
+C:\Users\Vera\Documents\OOP\NetharionProject\Game\WorkshopGame-Skeleton\WorkshopGame\obj\Debug\WorkshopGame.pdb
