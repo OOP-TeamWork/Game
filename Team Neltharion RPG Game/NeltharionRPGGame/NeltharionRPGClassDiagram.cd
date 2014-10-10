@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="WorkshopGame.UI.KeyboardMouseController" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="NeltharionRPGGame.UI.KeyboardMouseController" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAECAEAAAAAAAAAAAAAAAAAAACAA=</HashCode>
@@ -8,14 +8,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="WorkshopGame.UI.GameWindow" Collapsed="true">
+  <Class Name="NeltharionRPGGame.UI.GameWindow" Collapsed="true">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAIIAAAIAAAAAAAEA=</HashCode>
       <FileName>UI\GameWindow.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WorkshopGame.UI.PaintBrush" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="NeltharionRPGGame.UI.PaintBrush" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="7.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gIAUBiQQACAEgCIAAAIAAAgABAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -23,14 +23,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="WorkshopGame.EntryPoint" Collapsed="true">
+  <Class Name="NeltharionRPGGame.EntryPoint" Collapsed="true">
     <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>EntryPoint.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WorkshopGame.GameObject" Collapsed="true">
+  <Class Name="NeltharionRPGGame.GameObject" Collapsed="true">
     <Position X="6.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAYAA=</HashCode>
@@ -38,71 +38,85 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="WorkshopGame.Mage" Collapsed="true">
-    <Position X="6.5" Y="6.75" Width="1.5" />
+  <Class Name="NeltharionRPGGame.Mage" Collapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIACAAAAAAAAAAAAIAAAAAAMAAAAAAAAABBAAAAAAAA=</HashCode>
+      <HashCode>AIACAAAAAAAAAQAAIAAAAAAMAAAAAAAAABBAAAAAAAA=</HashCode>
       <FileName>Structure\Mage.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WorkshopGame.Unit" Collapsed="true">
-    <Position X="6.5" Y="5.25" Width="1.5" />
+  <Class Name="NeltharionRPGGame.Creature" Collapsed="true">
+    <Position X="6.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BQAAQAAAAMAAAAAAAAAAAAAIAAgAAAAABAAwAUAAAAA=</HashCode>
-      <FileName>Structure\Unit.cs</FileName>
+      <HashCode>BQAABAIIQKAgAQAAAAAAFABJAAgAAAAABAAwAUAAAAA=</HashCode>
+      <FileName>Structure\Creature.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="WorkshopGame.GameEngine.Engine" Collapsed="true">
+  <Class Name="NeltharionRPGGame.GameEngine.Engine" Collapsed="true">
     <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABBAEBAAAAAAAAABAAACgEABAAAABAgQAAAAEAAI=</HashCode>
       <FileName>GameEngine\Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="WorkshopGame.IMovable" Collapsed="true">
+  <Class Name="NeltharionRPGGame.Weapon">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeltharionRPGGame.Enemy">
+    <Position X="8.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="NeltharionRPGGame.IMovable" Collapsed="true">
     <Position X="0.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAAAAwAAAAAAA=</HashCode>
       <FileName>Interfaces\IMovable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WorkshopGame.Interfaces.IGameObject" Collapsed="true">
+  <Interface Name="NeltharionRPGGame.Interfaces.IGameObject" Collapsed="true">
     <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAYAA=</HashCode>
       <FileName>Interfaces\IGameObject.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WorkshopGame.Interfaces.IPaintInterface" Collapsed="true">
+  <Interface Name="NeltharionRPGGame.Interfaces.IPaintInterface" Collapsed="true">
     <Position X="2.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAACAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IPaint.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WorkshopGame.Interfaces.IRenderable" Collapsed="true">
+  <Interface Name="NeltharionRPGGame.Interfaces.IRenderable" Collapsed="true">
     <Position X="1.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Interfaces\IRenderable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WorkshopGame.Interfaces.IUnit" Collapsed="true">
+  <Interface Name="NeltharionRPGGame.Interfaces.ICreature" Collapsed="true">
     <Position X="3.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAEAAAAAAAAAAAAAIAAAAAAAAAAAAAQAAAAA=</HashCode>
-      <FileName>Interfaces\IUnit.cs</FileName>
+      <HashCode>BAAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Interfaces\ICreature.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WorkshopGame.Interfaces.IUserInputInterface" Collapsed="true">
+  <Interface Name="NeltharionRPGGame.Interfaces.IUserInputInterface" Collapsed="true">
     <Position X="4.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAEAAEAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Interfaces\IUserInputInterface.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="WorkshopGame.Structure.SpriteType" Collapsed="true">
+  <Enum Name="NeltharionRPGGame.Structure.SpriteType" Collapsed="true">
     <Position X="8" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>

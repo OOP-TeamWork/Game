@@ -1,8 +1,8 @@
 ﻿namespace NeltharionRPGGame.Interfaces
 {
-    public interface IUnit : IGameObject
+    public interface ICreature : IGameObject
     {
-        int CurrentHealthPoints { get; set; }
+        int HealthPoints { get; set; }
 
         int MaximumHealthPoints { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace NeltharionRPGGame
 {
-    public class Mage : Unit
+    public class Mage : Creature
     {
         public const int MageSizeX = 70;
         public const int MageSizeY = 70;
@@ -17,6 +17,11 @@ namespace NeltharionRPGGame
             : base(x, y, MageSizeX, MageSizeY, MageHealthPoints, MageDefensePoints, 
             MageAttackPoints, MageMovementSpeed, MageAttackRange, MageSpriteType)
         {
+        }
+
+        public override void UseWeaponHeld()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

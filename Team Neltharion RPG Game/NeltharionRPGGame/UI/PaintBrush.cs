@@ -34,9 +34,9 @@ namespace NeltharionRPGGame.UI
         public void AddObject(IRenderable renderableObject)
         {
             this.CreatePictureBox(renderableObject);
-            if (renderableObject is Unit)
+            if (renderableObject is Creature)
             {
-                this.CreateProgressBar(renderableObject as Unit);
+                this.CreateProgressBar(renderableObject as Creature);
             }
         }
 
@@ -45,9 +45,9 @@ namespace NeltharionRPGGame.UI
             var picBox = GetPictureBoxByObject(renderableObject);
             this.gameWindow.Controls.Remove(picBox);
             this.pictureBoxes.Remove(picBox);
-            if (renderableObject is Unit)
+            if (renderableObject is Creature)
             {
-                var progressBar = GetProgressBarByObject(renderableObject as Unit);
+                var progressBar = GetProgressBarByObject(renderableObject as Creature);
                 this.gameWindow.Controls.Remove(progressBar);
                 this.progressBars.Remove(progressBar);
             }
@@ -59,22 +59,22 @@ namespace NeltharionRPGGame.UI
             var picBox = GetPictureBoxByObject(objectToBeRedrawn);
             picBox.Location = newCoordinates;
 
-            if (objectToBeRedrawn is Unit)
+            if (objectToBeRedrawn is Creature)
             {
-                var unit = objectToBeRedrawn as Unit;
+                var unit = objectToBeRedrawn as Creature;
                 var progressBar = GetProgressBarByObject(unit);
                 this.SetProgressBarLocation(unit, progressBar);
-                progressBar.Value = unit.CurrentHealthPoints;
+                progressBar.Value = unit.HealthPoints;
             }
         }
 
-        private void CreateProgressBar(Unit unit)
+        private void CreateProgressBar(Creature unit)
         {
             var progressBar = new ProgressBar();
             progressBar.Size = new Size(ProgressBarSizeX, ProgressBarSizeY);
             this.SetProgressBarLocation(unit, progressBar);
             progressBar.Maximum = unit.MaximumHealthPoints;
-            progressBar.Value = unit.CurrentHealthPoints;
+            progressBar.Value = unit.HealthPoints;
             progressBar.Tag = unit;
             progressBars.Add(progressBar);
             this.gameWindow.Controls.Add(progressBar);
@@ -94,7 +94,7 @@ namespace NeltharionRPGGame.UI
             this.gameWindow.Controls.Add(picBox);
         }
 
-        private void SetProgressBarLocation(Unit unit, ProgressBar progressBar)
+        private void SetProgressBarLocation(Creature unit, ProgressBar progressBar)
         {
             progressBar.Location = new Point(unit.X + ProgressBarOffsetX, unit.Y + ProgressBarOffsetY);
         }
@@ -119,7 +119,7 @@ namespace NeltharionRPGGame.UI
             return this.pictureBoxes.First(p => p.Tag == renderableObject);
         }
 
-        private ProgressBar GetProgressBarByObject(Unit unit)
+        private ProgressBar GetProgressBarByObject(Creature unit)
         {
             return this.progressBars.First(p => p.Tag == unit);
         }

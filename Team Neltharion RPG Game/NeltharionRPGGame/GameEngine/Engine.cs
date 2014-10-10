@@ -6,8 +6,8 @@ namespace NeltharionRPGGame.GameEngine
     public class Engine
     {
         private IPaintInterface painter;
-        private ICollection<IUnit> unitList;
-        private Unit player; // Unit is the base type, in our model that was "Creature", maybe we can change it later...
+        private ICollection<ICreature> unitList;
+        private Creature player;
         private int interval;
 
         public void InitializeWorld(IUserInputInterface controller, IPaintInterface painter)
@@ -28,7 +28,7 @@ namespace NeltharionRPGGame.GameEngine
 
         private void InitializeVariables()
         {
-            this.unitList = new List<IUnit>();
+            this.unitList = new List<ICreature>();
         }
 
         public void PlayNextTurn()
