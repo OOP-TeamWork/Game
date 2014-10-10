@@ -44,16 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enemy.cs" />
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="Interfaces\ICreature.cs" />
     <Compile Include="Structure\Creature.cs" />
+    <Compile Include="Structure\Enemy.cs" />
     <Compile Include="Structure\GameObject.cs" />
     <Compile Include="Structure\Mage.cs" />
     <Compile Include="Structure\SpriteType.cs" />
     <Compile Include="Controllers\KeyboardMouseController.cs" />
+    <Compile Include="Structure\Weapon.cs" />
     <Compile Include="UI\PaintBrush.cs" />
     <Compile Include="UI\GameWindow.cs">
       <SubType>Form</SubType>
@@ -66,7 +67,6 @@
     <Compile Include="Interfaces\IUserInputInterface.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Weapon.cs" />
     <EmbeddedResource Include="UI\GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </EmbeddedResource>

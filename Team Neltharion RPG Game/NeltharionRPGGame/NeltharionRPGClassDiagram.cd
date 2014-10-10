@@ -60,18 +60,18 @@
       <FileName>GameEngine\Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeltharionRPGGame.Weapon">
-    <Position X="4" Y="5.5" Width="1.5" />
+  <Class Name="NeltharionRPGGame.Structure.Weapon" Collapsed="true">
+    <Position X="4.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Weapon.cs</FileName>
+      <FileName>Structure\Weapon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeltharionRPGGame.Enemy">
-    <Position X="8.75" Y="7.5" Width="1.5" />
+  <Class Name="NeltharionRPGGame.Structure.Enemy" Collapsed="true">
+    <Position X="8.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Enemy.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Structure\Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="NeltharionRPGGame.IMovable" Collapsed="true">
