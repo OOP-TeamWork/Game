@@ -1,6 +1,6 @@
 ﻿namespace NeltharionRPGGame.Structure
 {
-    class Weapon
+    class Weapon : NeltharionRPGGame.GameObject
     {
     }
 }

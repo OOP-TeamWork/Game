@@ -1,21 +1,20 @@
-﻿using System.Security.AccessControl;
+﻿using NeltharionRPGGame.Interfaces;
+using NeltharionRPGGame.Structure;
 
 namespace NeltharionRPGGame
 {
-    using NeltharionRPGGame.Interfaces;
-    using NeltharionRPGGame.Structure;
-
+    
     public abstract class Creature : GameObject, IMovable, IRenderable, ICreature
     {
-        private SpriteType _spriteType;
-        private int _maxHealthPoints;
-        private int _healthPoints;
-        private int _defensePoints;
-        private int _attackPoints;
-        private int _movementSpeed;
-        private int _attackRange;
-        private bool _isAlive;
-        private Weapon _weaponHeld;
+        private SpriteType spriteType;
+        private int maxHealthPoints;
+        private int healthPoints;
+        private int defensePoints;
+        private int attackPoints;
+        private int movementSpeed;
+        private int attackRange;
+        private bool isAlive;
+        private Weapon weaponHeld;
 
         protected Creature(int x, int y, int sizeX, int sizeY,
             int healthPoints, int defensePoints, int attackPoints, int movementSpeed,
@@ -36,12 +35,12 @@ namespace NeltharionRPGGame
         {
             get
             {
-                return this._spriteType;
+                return this.spriteType;
             }
 
             set
             {
-                this._spriteType = value;
+                this.spriteType = value;
             }
         }
 
@@ -49,12 +48,12 @@ namespace NeltharionRPGGame
         {
             get
             {
-                return this._maxHealthPoints;
+                return this.maxHealthPoints;
             }
 
             set
             {
-                this._maxHealthPoints = value;
+                this.maxHealthPoints = value;
             }
         }
 
@@ -62,17 +61,17 @@ namespace NeltharionRPGGame
         {
             get
             {
-                return this._healthPoints;
+                return this.healthPoints;
             }
 
             set
             {
-                this._healthPoints = value;
-                if (this._healthPoints > this._maxHealthPoints)
+                this.healthPoints = value;
+                if (this.healthPoints > this.maxHealthPoints)
                 {
-                    this._healthPoints = this._maxHealthPoints;
+                    this.healthPoints = this.maxHealthPoints;
                 }
-                if (this._healthPoints <= 0)
+                if (this.healthPoints <= 0)
                 {
                     this.IsAlive = false;
                 }
@@ -83,12 +82,12 @@ namespace NeltharionRPGGame
         {
             get
             {
-                return this._defensePoints;
+                return this.defensePoints;
             }
 
             set
             {
-                this._defensePoints = value;
+                this.defensePoints = value;
             }
         }
 
@@ -96,12 +95,12 @@ namespace NeltharionRPGGame
         {
             get
             {
-                return this._attackPoints;
+                return this.attackPoints;
             }
 
             set
             {
-                this._attackPoints = value;
+                this.attackPoints = value;
             }
         }
 
@@ -109,12 +108,12 @@ namespace NeltharionRPGGame
         {
             get
             {
-                return this._attackRange;
+                return this.attackRange;
             }
 
             set
             {
-                this._attackRange = value;
+                this.attackRange = value;
             }
         }
 
@@ -122,12 +121,12 @@ namespace NeltharionRPGGame
         {
             get
             {
-                return this._movementSpeed;
+                return this.movementSpeed;
             }
 
             set
             {
-                this._movementSpeed = value;
+                this.movementSpeed = value;
             }
         }
 
@@ -135,12 +134,12 @@ namespace NeltharionRPGGame
         {
             get
             {
-                return this._isAlive;
+                return this.isAlive;
             }
 
             set
             {
-                this._isAlive = value;
+                this.isAlive = value;
             }
         }
 
@@ -160,13 +159,13 @@ namespace NeltharionRPGGame
         /// <example>
         ///public abstract void UseWeaponHeld()
         ///{
-        ///    if (this._weaponHeld != null)
+        ///    if (this.weaponHeld != null)
         ///    {
-        ///        if (this._weaponHeld is Spell)
+        ///        if (this.weaponHeld is Spell)
         ///        {
         ///            this.CastSpell();
         ///        }
-        ///        if (this._weaponHeld is FightWeapon)
+        ///        if (this.weaponHeld is FightWeapon)
         ///        {
         ///            this.Fight();
         ///        }
