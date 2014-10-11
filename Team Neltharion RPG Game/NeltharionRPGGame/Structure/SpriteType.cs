@@ -2,6 +2,8 @@
 {
     public enum SpriteType
     {
-        Mage
+        Mage,
+        Witch,
+        Fighter
     }
 }

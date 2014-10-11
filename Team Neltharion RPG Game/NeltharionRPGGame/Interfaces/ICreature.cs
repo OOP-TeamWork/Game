@@ -2,9 +2,9 @@
 {
     public interface ICreature : IGameObject
     {
-        int HealthPoints { get; set; }
+        int HealthPoints { get; }
 
-        int MaximumHealthPoints { get; set; }
+        int MaximumHealthPoints { get; }
 
         int DefensePoints { get; set; }
 

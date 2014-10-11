@@ -18,7 +18,7 @@
   <Class Name="NeltharionRPGGame.UI.PaintBrush" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="7.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gIAUBiQQACAEgCIAAAIAAAgABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gIAcBiRQACAEgCIAAAIAAAgABAAAAAAAIAAAAAAAAEA=</HashCode>
       <FileName>UI\PaintBrush.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -48,7 +48,7 @@
   <Class Name="NeltharionRPGGame.Creature" Collapsed="true">
     <Position X="7" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BQAABAIIQKAgAQAAAAAAFABJAAgAAAAABAAwAUAAAAA=</HashCode>
+      <HashCode>BQAIAAAAQIBAAUAABQgAAQAIAAgEAAAIBAAwAUEAAAA=</HashCode>
       <FileName>Structure\Creature.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -70,8 +70,23 @@
   <Class Name="NeltharionRPGGame.Structure.Enemy" Collapsed="true">
     <Position X="8.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAJAAEAAAAAAAAAAAAAACAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Structure\Enemy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NeltharionRPGGame.Witch" Collapsed="true">
+    <Position X="7.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAGAAAAAQBAAAAAAAAEAAAgAAAAAEgAAAAAAgA=</HashCode>
+      <FileName>Structure\Witch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeltharionRPGGame.Structure.Fighter" Collapsed="true">
+    <Position X="9.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAABAAAAAAQAAAAAAAEAAACAAEAAAAAAgAAACAgA=</HashCode>
+      <FileName>Structure\Fighter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="NeltharionRPGGame.IMovable" Collapsed="true">
@@ -119,7 +134,7 @@
   <Enum Name="NeltharionRPGGame.Structure.SpriteType" Collapsed="true">
     <Position X="8" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Structure\SpriteType.cs</FileName>
     </TypeIdentifier>
   </Enum>

@@ -1,19 +1,44 @@
-﻿namespace NeltharionRPGGame.Structure
+﻿using System;
+using NeltharionRPGGame.Interfaces;
+
+namespace NeltharionRPGGame.Structure
 {
-    class Enemy : NeltharionRPGGame.Creature
+    public abstract class Enemy : Creature, IArtificialIntelligent
     {
-        public Enemy(int x, int y, int sizeX, int sizeY,
+        // This the weapon that player wins when enemy is dead
+        private Weapon bonusWeaponHeald;
+        protected static Random RandomGenerator = new Random();
+
+        protected Enemy(int x, int y, int sizeX, int sizeY,
             int healthPoints, int defensePoints, int attackPoints, int movementSpeed,
-            int attackRange, SpriteType spriteType) 
+            int attackRange, SpriteType spriteType, Weapon bonusWeaponHeld) 
             : base(x, y, sizeX, sizeY,
             healthPoints, defensePoints, attackPoints, movementSpeed,
             attackRange, spriteType)
         {
+            this.BonusWeaponHeld = bonusWeaponHeld;
         }
 
-        public override void UseWeaponHeld()
+        public Weapon BonusWeaponHeld
         {
-            throw new System.NotImplementedException();
+            get
+            {
+                return this.bonusWeaponHeald;
+            }
+
+            private set
+            {
+                this.bonusWeaponHeald = value;
+            }
+        }
+
+        public abstract NextMoveDecision DecideNextMove();
+
+        public override void Move()
+        {
+            this.DirX = RandomGenerator.Next(-1, 2);
+            this.DirY = RandomGenerator.Next(-1, 2);
+            base.Move();
         }
     }
 }

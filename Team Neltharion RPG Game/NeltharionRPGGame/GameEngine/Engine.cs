@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using NeltharionRPGGame.Interfaces;
+using NeltharionRPGGame.Structure;
 
 namespace NeltharionRPGGame.GameEngine
 {
     public class Engine
     {
         private IPaintInterface painter;
-        private ICollection<ICreature> unitList;
+        private ICollection<Creature> unitList;
         private Creature player;
         private int interval;
 
@@ -16,19 +17,26 @@ namespace NeltharionRPGGame.GameEngine
             SubscribeToUserInput(controller);
             InitializeCharacters();
             this.painter = painter;
-            this.painter.AddObject(player);
+            foreach (Creature creature in unitList)
+            {
+                this.painter.AddObject(creature);
+            }
         }
 
         private void InitializeCharacters()
         {
             var playerCharacter = new Mage(100, 100);
+            var witch = new Witch(650, 150);
+            var fighetr = new Fighter(300, 300);
             player = playerCharacter;
             unitList.Add(player);
+            unitList.Add(witch);
+            unitList.Add(fighetr);
         }
 
         private void InitializeVariables()
         {
-            this.unitList = new List<ICreature>();
+            this.unitList = new List<Creature>();
         }
 
         public void PlayNextTurn()

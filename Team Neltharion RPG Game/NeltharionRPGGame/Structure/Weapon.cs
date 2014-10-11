@@ -1,6 +1,10 @@
 ﻿namespace NeltharionRPGGame.Structure
 {
-    class Weapon : NeltharionRPGGame.GameObject
+    public class Weapon : GameObject
     {
+        public Weapon(int x, int y, int sizeX, int sizeY)
+            : base(x, y, sizeX, sizeY)
+        {
+        }
     }
 }

@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
-
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
 
@@ -16,9 +15,13 @@ namespace NeltharionRPGGame.UI
         private const int ProgressBarOffsetY = -10;
 
         private const string MageImagePath = "../../Graphics/mage.png";
+        private const string WitchImagePath = "../../Graphics/witch.png";
+        private const string FighterImagePath = "../../Graphics/fighter.png";
         // load additional images here and add them to GetSpriteImage method
 
         private Image mageImage;
+        private Image witchImage;
+        private Image fighetrImage;
         private GameWindow gameWindow;
         private List<PictureBox> pictureBoxes;
         private List<ProgressBar> progressBars;
@@ -107,6 +110,12 @@ namespace NeltharionRPGGame.UI
                 case SpriteType.Mage:
                     image = this.mageImage;
                     break;
+                case SpriteType.Witch:
+                    image = this.witchImage;
+                    break;
+                case SpriteType.Fighter:
+                    image = this.fighetrImage;
+                    break;
                 default:
                     image = null; 
                     break;
@@ -127,6 +136,8 @@ namespace NeltharionRPGGame.UI
         public void LoadResources()
         {
             this.mageImage = Image.FromFile(MageImagePath);
+            this.witchImage = Image.FromFile(WitchImagePath);
+            this.fighetrImage = Image.FromFile(FighterImagePath);
         }
     }
 }
