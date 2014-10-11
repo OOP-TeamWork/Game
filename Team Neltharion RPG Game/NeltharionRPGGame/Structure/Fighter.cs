@@ -12,14 +12,10 @@
         public const SpriteType FighterSpriteType = SpriteType.Fighter;
 
         public Fighter(int x, int y)
-            : base(x, y, FighterSizeX, FighterSizeY, FighterHealthPoints, FighterDefensePoints, FighterAttackPoints, FighterMovementSpeed,
-            FighterAttackRange, FighterSpriteType, new Weapon(0, 0, 0, 0))
+            : base(x, y, FighterSizeX, FighterSizeY, FighterSpriteType,
+            FighterHealthPoints, FighterDefensePoints, FighterAttackPoints, FighterMovementSpeed,
+            FighterAttackRange, new Weapon(0, 0, 0, 0), new Weapon(0, 0, 0, 0))
         {
-        }
-
-        public override void UseWeaponHeld()
-        {
-            // TODO Start fight
         }
 
         public override NextMoveDecision DecideNextMove()

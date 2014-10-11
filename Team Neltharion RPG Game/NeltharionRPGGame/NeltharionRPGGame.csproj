@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Events\BonusDroppedEventArgs.cs" />
-    <Compile Include="Events\BonusDroppedEventHandler.cs" />
+    <Compile Include="Events\WeaponDroppedEventArgs.cs" />
+    <Compile Include="Events\WeaponDroppedEventHandler.cs" />
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="Interfaces\IArtificialIntelligent.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />

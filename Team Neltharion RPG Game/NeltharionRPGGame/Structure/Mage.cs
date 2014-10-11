@@ -14,14 +14,9 @@ namespace NeltharionRPGGame
         public const SpriteType MageSpriteType = SpriteType.Mage;
 
         public Mage(int x, int y)
-            : base(x, y, MageSizeX, MageSizeY, MageHealthPoints, MageDefensePoints, 
-            MageAttackPoints, MageMovementSpeed, MageAttackRange, MageSpriteType)
+            : base(x, y, MageSizeX, MageSizeY, MageSpriteType, MageHealthPoints, MageDefensePoints, 
+            MageAttackPoints, MageMovementSpeed, MageAttackRange)
         {
-        }
-
-        public override void UseWeaponHeld()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

@@ -15,15 +15,10 @@ namespace NeltharionRPGGame
         public const SpriteType WitchSpriteType = SpriteType.Witch;
 
         public Witch(int x, int y)
-            : base(x, y, WitchSizeX, WitchSizeY, WitchHealthPoints, WitchDefensePoints, WitchAttackPoints, WitchMovementSpeed,
-            WitchAttackRange, WitchSpriteType, new Weapon(0, 0, 0, 0))
+            : base(x, y, WitchSizeX, WitchSizeY, WitchSpriteType,
+            WitchHealthPoints, WitchDefensePoints, WitchAttackPoints, WitchMovementSpeed,
+            WitchAttackRange, new Weapon(0, 0, 0, 0), new Weapon(0, 0, 0, 0))
         {
-        }
-
-
-        public override void UseWeaponHeld()
-        {
-            // TODO Cast Magic
         }
 
         public override NextMoveDecision DecideNextMove()

@@ -1,4 +1,5 @@
-﻿using NeltharionRPGGame.Structure;
+﻿using NeltharionRPGGame.Events;
+using NeltharionRPGGame.Structure;
 
 namespace NeltharionRPGGame.Interfaces
 {
@@ -11,5 +12,9 @@ namespace NeltharionRPGGame.Interfaces
         int DefensePoints { get; set; }
 
         int AttackPoints { get; set; }
+
+        event WeaponDroppedEventHandler weaponDropped;
+
+        Weapon UseWeaponHeld();
     }
 }

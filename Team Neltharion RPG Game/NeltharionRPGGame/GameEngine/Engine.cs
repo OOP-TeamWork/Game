@@ -10,8 +10,8 @@ namespace NeltharionRPGGame.GameEngine
     {
         private IPaintInterface painter;
         private List<Creature> creaturesInWorld;
-        private List<Weapon> droppedWeaponsFromEnemies;
-        private List<Weapon> droppedWeaponsFromCharacters; 
+        private List<Weapon> droppedWeaponsByEnemies;
+        private Weapon droppedWeaponByPlayer; 
         private Creature player;
         private int interval;
 
@@ -25,6 +25,16 @@ namespace NeltharionRPGGame.GameEngine
             {
                 this.painter.AddObject(creature);
             }
+        }
+
+        public void PlayNextTurn()
+        {
+            RemoveDeadCreatures();
+            ProcessArtificialIntelligentCreatures();
+            this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
+            // Remove comments when inventory is ready
+            // this.droppedWeaponsByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
+            // this.painter.RemoveObject(this.droppedWeaponByPlayer));
         }
 
         private void InitializeCharacters()
@@ -41,16 +51,6 @@ namespace NeltharionRPGGame.GameEngine
         private void InitializeVariables()
         {
             this.creaturesInWorld = new List<Creature>();
-        }
-
-        public void PlayNextTurn()
-        {
-            RemoveDeadCreatures();
-            ProcessArtificialIntelligentCreatures();
-            this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
-            // Remove comments when inventory is ready
-            //this.droppedWeaponsFromEnemies.ForEach(weapon => this.painter.AddObject(weapon));
-            //this.droppedWeaponsFromCharacters.ForEach(weapon => this.painter.RemoveObject(weapon));
         }
 
         private void RemoveDeadCreatures()
@@ -151,14 +151,14 @@ namespace NeltharionRPGGame.GameEngine
                 {
                     creature.weaponDropped += (sender, args) =>
                     {
-                        this.droppedWeaponsFromEnemies.Add(args.BonusDropped);
+                        this.droppedWeaponsByEnemies.Add(args.WeaponDropped);
                     };
                 }
                 else
                 {
                     creature.weaponDropped += (sender, args) =>
                     {
-                        this.droppedWeaponsFromCharacters.Add(args.BonusDropped);
+                        this.droppedWeaponByPlayer = args.WeaponDropped;
                     };
                 }
             }
