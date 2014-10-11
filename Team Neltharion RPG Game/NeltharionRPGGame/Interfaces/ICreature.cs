@@ -1,4 +1,6 @@
-﻿namespace NeltharionRPGGame.Interfaces
+﻿using NeltharionRPGGame.Structure;
+
+namespace NeltharionRPGGame.Interfaces
 {
     public interface ICreature : IGameObject
     {

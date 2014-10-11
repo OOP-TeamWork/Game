@@ -5,6 +5,7 @@ namespace NeltharionRPGGame
 {
     public abstract class Creature : GameObject, IMovable, IRenderable, ICreature
     {
+        
         private SpriteType spriteType;
         private int maxHealthPoints;
         private int healthPoints;
@@ -14,6 +15,7 @@ namespace NeltharionRPGGame
         private int attackRange;
         private bool isAlive;
         private Weapon weaponHeld;
+        public event BonusDroppedEventHandler weaponDropped;
 
         protected Creature(int x, int y, int sizeX, int sizeY,
             int healthPoints, int defensePoints, int attackPoints, int movementSpeed,

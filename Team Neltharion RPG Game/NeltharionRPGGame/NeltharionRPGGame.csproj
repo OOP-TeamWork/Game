@@ -58,6 +58,8 @@
     <Compile Include="Structure\SpriteType.cs" />
     <Compile Include="Controllers\KeyboardMouseController.cs" />
     <Compile Include="Structure\Weapon.cs" />
+    <Compile Include="Structure\WeaponDroppedEventArgs.cs" />
+    <Compile Include="Structure\BonusDroppedEventHandler.cs" />
     <Compile Include="UI\PaintBrush.cs" />
     <Compile Include="UI\GameWindow.cs">
       <SubType>Form</SubType>
