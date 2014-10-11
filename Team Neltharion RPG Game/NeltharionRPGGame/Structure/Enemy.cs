@@ -1,4 +1,5 @@
 ﻿using System;
+using NeltharionRPGGame.Events;
 using NeltharionRPGGame.Interfaces;
 
 namespace NeltharionRPGGame.Structure
@@ -44,17 +45,17 @@ namespace NeltharionRPGGame.Structure
 
         public override void UpdateHealthPoints(int healthPointsEffect)
         {
-            OnWeaponDropped();
+            OnBonusDropped();
             base.UpdateHealthPoints(healthPointsEffect);
         }
 
-        public void OnWeaponDropped()
+        public void OnBonusDropped()
         {
             if (weaponDropped != null)
             {
-                WeaponDroppedEventArgs weaponDroppedEventArgs =
-                    new WeaponDroppedEventArgs(this.BonusWeaponHeld);
-                weaponDropped(this, weaponDroppedEventArgs);
+                BonusDroppedEventArgs bonusDroppedEventArgs =
+                    new BonusDroppedEventArgs(this.BonusWeaponHeld);
+                weaponDropped(this, bonusDroppedEventArgs);
             }
         }
     }

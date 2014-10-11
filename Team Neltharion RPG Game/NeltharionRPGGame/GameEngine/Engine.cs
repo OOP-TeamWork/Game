@@ -151,14 +151,14 @@ namespace NeltharionRPGGame.GameEngine
                 {
                     creature.weaponDropped += (sender, args) =>
                     {
-                        this.droppedWeaponsFromEnemies.Add(args.WeaponDropped);
+                        this.droppedWeaponsFromEnemies.Add(args.BonusDropped);
                     };
                 }
                 else
                 {
                     creature.weaponDropped += (sender, args) =>
                     {
-                        this.droppedWeaponsFromCharacters.Add(args.WeaponDropped);
+                        this.droppedWeaponsFromCharacters.Add(args.BonusDropped);
                     };
                 }
             }
