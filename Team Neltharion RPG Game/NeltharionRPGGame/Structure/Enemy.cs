@@ -21,6 +21,8 @@ namespace NeltharionRPGGame.Structure
             this.BonusWeaponHeld = bonusWeaponHeld;
         }
 
+        public override bool IsAlive { get; set; }
+
         public Weapon BonusWeaponHeld
         {
             get
@@ -31,6 +33,10 @@ namespace NeltharionRPGGame.Structure
             private set
             {
                 this.bonusWeaponHeald = value;
+                if (!this.IsAlive)
+                {
+                    OnBonusDropped();
+                }
             }
         }
 
@@ -45,7 +51,6 @@ namespace NeltharionRPGGame.Structure
 
         public override void UpdateHealthPoints(int healthPointsEffect)
         {
-            OnBonusDropped();
             base.UpdateHealthPoints(healthPointsEffect);
         }
 

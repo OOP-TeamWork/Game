@@ -166,7 +166,7 @@ namespace NeltharionRPGGame
             }
         }
 
-        public bool IsAlive
+        public virtual bool IsAlive
         {
             get
             {

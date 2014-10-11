@@ -12,7 +12,8 @@ namespace NeltharionRPGGame.Events
             this.BonusDropped = bonus;
         }
 
-        public Weapon BonusDropped
+        public Weapon BonusDropped 
+
         {
             get
             {
