@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="Interfaces\ICreature.cs" />
+    <Compile Include="Structure\Character.cs" />
     <Compile Include="Structure\Creature.cs" />
     <Compile Include="Structure\Enemy.cs" />
     <Compile Include="Structure\Fighter.cs" />
