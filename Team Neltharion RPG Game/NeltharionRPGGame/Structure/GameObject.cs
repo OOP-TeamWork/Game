@@ -2,7 +2,7 @@
 
 namespace NeltharionRPGGame
 {
-    public abstract class GameObject : IGameObject
+    public abstract class GameObject : IGameObject, IRenderable
     {
         protected GameObject(int x, int y, int sizeX, int sizeY)
         {

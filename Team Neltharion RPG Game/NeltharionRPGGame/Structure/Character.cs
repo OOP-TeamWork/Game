@@ -5,7 +5,7 @@ namespace NeltharionRPGGame.Structure
 {
     public abstract class Character : Creature
     {
-        private Weapon[] inventory = new Weapon[3];
+        private Weapon[] inventory;
 
         protected Character(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
@@ -13,6 +13,16 @@ namespace NeltharionRPGGame.Structure
             : base(x, y, sizeX, sizeY, spriteType, healthPoints,
             defensePoints, attackPoints, movementSpeed, attackRange)
         {
+            this.Inventory = new Weapon[3];
+        }
+
+        public Weapon[] Inventory
+        {
+            get { return this.inventory; }
+            private set
+            {
+                this.inventory = value;
+            }
         }
 
         public override void Move()
@@ -49,6 +59,19 @@ namespace NeltharionRPGGame.Structure
         public override Weapon UseWeaponHeld()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void pickWeapon(Weapon weapon)
+        {
+            for (int i = 0; i < this.inventory.Length; i++)
+            {
+                if (this.inventory[i] == null)
+                {
+                    this.inventory[i] = weapon;
+                    break;
+                }
+
+            }
         }
     }
 }
