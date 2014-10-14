@@ -13,7 +13,7 @@ namespace NeltharionRPGGame.GameEngine
         private List<Creature> creaturesInWorld;
         private List<Weapon> droppedWeaponsByEnemies;
         private Weapon droppedWeaponByPlayer; 
-        private Creature player;
+        private Character player;
         private int interval;
 
         public void InitializeWorld(IInputInterface controller, IDrawable painter)
@@ -25,6 +25,11 @@ namespace NeltharionRPGGame.GameEngine
             foreach (Creature creature in creaturesInWorld)
             {
                 this.painter.AddObject(creature);
+            }
+
+            foreach (var item in player.Inventory)
+            {
+                this.painter.AddObject(item);
             }
         }
 

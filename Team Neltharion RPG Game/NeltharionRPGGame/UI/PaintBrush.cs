@@ -17,11 +17,13 @@ namespace NeltharionRPGGame.UI
         private const string MageImagePath = "../../Graphics/mage.png";
         private const string WitchImagePath = "../../Graphics/witch.png";
         private const string FighterImagePath = "../../Graphics/fighter.png";
+        private const string SwordImagePath = "../../Graphics/itemsRPG.png";
         // load additional images here and add them to GetSpriteImage method
 
         private Image mageImage;
         private Image witchImage;
-        private Image fighetrImage;
+        private Image fighterImage;
+        private Image swordImage;
         private GameWindow gameWindow;
         private List<PictureBox> pictureBoxes;
         private List<ProgressBar> progressBars;
@@ -114,7 +116,10 @@ namespace NeltharionRPGGame.UI
                     image = this.witchImage;
                     break;
                 case SpriteType.Fighter:
-                    image = this.fighetrImage;
+                    image = this.fighterImage;
+                    break;
+                case SpriteType.Sword:
+                    image = this.swordImage;
                     break;
                 default:
                     image = null; 
@@ -137,7 +142,8 @@ namespace NeltharionRPGGame.UI
         {
             this.mageImage = Image.FromFile(MageImagePath);
             this.witchImage = Image.FromFile(WitchImagePath);
-            this.fighetrImage = Image.FromFile(FighterImagePath);
+            this.fighterImage = Image.FromFile(FighterImagePath);
+            this.swordImage = Image.FromFile(SwordImagePath);
         }
     }
 }

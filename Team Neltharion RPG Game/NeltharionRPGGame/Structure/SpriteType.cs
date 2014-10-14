@@ -4,6 +4,7 @@
     {
         Mage,
         Witch,
-        Fighter
+        Fighter, 
+        Sword
     }
 }
