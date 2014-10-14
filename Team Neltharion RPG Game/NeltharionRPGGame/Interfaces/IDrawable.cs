@@ -2,10 +2,10 @@
 {
     public interface IDrawable
     {
-        void AddObject(IRenderable renderableObject);
+        void AddObject(GameObject renderableObject);
 
-        void RemoveObject(IRenderable renderableObject);
+        void RemoveObject(GameObject renderableObject);
 
-        void RedrawObject(IRenderable renderableObject);
+        void RedrawObject(GameObject renderableObject);
     }
 }

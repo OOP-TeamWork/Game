@@ -4,14 +4,13 @@ using NeltharionRPGGame.Structure;
 
 namespace NeltharionRPGGame
 {
-    public abstract class Creature : GameObject, IMovable, IRenderable, ICreature
+    public abstract class Creature : GameObject, IMovable
     {
         private const int AttackPointsCap = 5000;
         private const int DefensePointsCap = 5000;
         private const int MovementSpeedCap = 1000;
         private const int AttackRangeCap = 500;
 
-        private SpriteType spriteType;
         private int maxHealthPoints;
         private int healthPoints;
         private int defensePoints;
@@ -24,7 +23,7 @@ namespace NeltharionRPGGame
         protected Creature(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
             int attackPoints, int movementSpeed, int attackRange, Weapon weaponHeld = null)
-            : base(x, y, sizeX, sizeY)
+            : base(x, y, sizeX, sizeY, spriteType)
         {
             this.SpriteType = spriteType;
             this.MaximumHealthPoints = healthPoints;
@@ -39,14 +38,9 @@ namespace NeltharionRPGGame
 
         public event WeaponDroppedEventHandler weaponDropped;
 
-        public SpriteType SpriteType { get; set; }
-
         public int MaximumHealthPoints
         {
-            get
-            {
-                return this.maxHealthPoints;
-            }
+            get { return this.maxHealthPoints; }
 
             private set
             {
@@ -57,12 +51,9 @@ namespace NeltharionRPGGame
             }
         }
 
-        public int HealthPoints 
+        public int HealthPoints
         {
-            get
-            {
-                return this.healthPoints;
-            }
+            get { return this.healthPoints; }
 
             set
             {
@@ -76,16 +67,13 @@ namespace NeltharionRPGGame
                 if (this.healthPoints <= 0)
                 {
                     this.IsAlive = false;
-                }            
+                }
             }
         }
 
         public int DefensePoints
         {
-            get
-            {
-                return this.defensePoints;
-            }
+            get { return this.defensePoints; }
 
             set
             {
@@ -105,10 +93,7 @@ namespace NeltharionRPGGame
 
         public int AttackPoints
         {
-            get
-            {
-                return this.attackPoints;
-            }
+            get { return this.attackPoints; }
 
             set
             {
@@ -128,10 +113,7 @@ namespace NeltharionRPGGame
 
         public int AttackRange
         {
-            get
-            {
-                return this.attackRange;
-            }
+            get { return this.attackRange; }
 
             set
             {
@@ -151,10 +133,7 @@ namespace NeltharionRPGGame
 
         public int MovementSpeed
         {
-            get
-            {
-                return this.movementSpeed;
-            }
+            get { return this.movementSpeed; }
 
             set
             {
@@ -192,8 +171,8 @@ namespace NeltharionRPGGame
 
         public virtual void Move()
         {
-            this.X += this.DirX * this.MovementSpeed;
-            this.Y += this.DirY * this.MovementSpeed;
+            this.X += this.DirX*this.MovementSpeed;
+            this.Y += this.DirY*this.MovementSpeed;
         }
 
         public virtual Weapon UseWeaponHeld()
@@ -212,6 +191,6 @@ namespace NeltharionRPGGame
         {
             this.DefensePoints += defencePoints;
         }
-    }                              
+    }
 }
                                    

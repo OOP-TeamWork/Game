@@ -28,7 +28,10 @@ namespace NeltharionRPGGame.GameEngine
 
             foreach (var item in player.Inventory)
             {
-                this.painter.AddObject(item);
+                if (item != null)
+                {
+                    this.painter.AddObject(item);
+                }
             }
         }
 
@@ -91,7 +94,7 @@ namespace NeltharionRPGGame.GameEngine
             moveableObj.Move();
         }
 
-        private void ProcessWeaponUsage(ICreature creature)
+        private void ProcessWeaponUsage(Creature creature)
         {
             // TODO Call UseWeaponHeld for each creature
         }

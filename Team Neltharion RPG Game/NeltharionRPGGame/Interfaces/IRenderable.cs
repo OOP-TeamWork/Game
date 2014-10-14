@@ -2,7 +2,7 @@
 
 namespace NeltharionRPGGame.Interfaces
 {
-    public interface IRenderable : IGameObject
+    public interface IRenderable
     {
         SpriteType SpriteType { get; set; }
     }

@@ -36,7 +36,7 @@ namespace NeltharionRPGGame.UI
             this.progressBars = new List<ProgressBar>();
         }
 
-        public void AddObject(IRenderable renderableObject)
+        public void AddObject(GameObject renderableObject)
         {
             this.CreatePictureBox(renderableObject);
             if (renderableObject is Creature)
@@ -45,7 +45,7 @@ namespace NeltharionRPGGame.UI
             }
         }
 
-        public void RemoveObject(IRenderable renderableObject)
+        public void RemoveObject(GameObject renderableObject)
         {
             var picBox = GetPictureBoxByObject(renderableObject);
             this.gameWindow.Controls.Remove(picBox);
@@ -58,7 +58,7 @@ namespace NeltharionRPGGame.UI
             }
         }
 
-        public void RedrawObject(IRenderable objectToBeRedrawn)
+        public void RedrawObject(GameObject objectToBeRedrawn)
         {
             var newCoordinates = new Point(objectToBeRedrawn.X, objectToBeRedrawn.Y);
             var picBox = GetPictureBoxByObject(objectToBeRedrawn);
@@ -85,7 +85,7 @@ namespace NeltharionRPGGame.UI
             this.gameWindow.Controls.Add(progressBar);
         }
 
-        private void CreatePictureBox(IRenderable renderableObject)
+        private void CreatePictureBox(GameObject renderableObject)
         {
             var spriteImage = GetSpriteImage(renderableObject);
             var picBox = new PictureBox();

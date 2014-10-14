@@ -3,7 +3,7 @@
   <Class Name="NeltharionRPGGame.UI.KeyboardMouseController" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAECAEAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Controllers\KeyboardMouseController.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -18,7 +18,7 @@
   <Class Name="NeltharionRPGGame.UI.PaintBrush" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="7.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gIAcBiRQACAEgCIAAAIAAAgABAAAAAAAIAAAAAAAAEA=</HashCode>
+      <HashCode>gIAcBiRQACAEgCIECgIAAAgABAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>UI\PaintBrush.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -33,7 +33,7 @@
   <Class Name="NeltharionRPGGame.GameObject" Collapsed="true">
     <Position X="6.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAYAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAFAAYAA=</HashCode>
       <FileName>Structure\GameObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -56,7 +56,7 @@
   <Class Name="NeltharionRPGGame.GameEngine.Engine" Collapsed="true">
     <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAgBBAEBAAAAgAAAAAAIICgUABAAEABAgQAAAAEAAI=</HashCode>
+      <HashCode>AEAgBBAEBAAAIgAAAAAAIICgQABAAEABAAAAAAAAAAI=</HashCode>
       <FileName>GameEngine\Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -96,28 +96,28 @@
       <FileName>Interfaces\IMovable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="NeltharionRPGGame.Interfaces.IGameObject" Collapsed="true">
+  <Interface Name="NeltharionRPGGame.Interfaces.IGameObject">
     <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAYAA=</HashCode>
       <FileName>Interfaces\IGameObject.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="NeltharionRPGGame.Interfaces.IDrawable" Collapsed="true">
+  <Interface Name="NeltharionRPGGame.Interfaces.IDrawable">
     <Position X="2.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAACAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IDrawable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="NeltharionRPGGame.Interfaces.IRenderable" Collapsed="true">
+  <Interface Name="NeltharionRPGGame.Interfaces.IRenderable">
     <Position X="1.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Interfaces\IRenderable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="NeltharionRPGGame.Interfaces.ICreature" Collapsed="true">
+  <Interface Name="NeltharionRPGGame.Interfaces.ICreature">
     <Position X="3.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAQAAAAQAAAAAIAAAIAAAAAAAAAAAAAQAAAAA=</HashCode>
@@ -127,14 +127,14 @@
   <Interface Name="NeltharionRPGGame.Interfaces.IInputInterface" Collapsed="true">
     <Position X="4.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAEAAEAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IInputInterface.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="NeltharionRPGGame.Structure.SpriteType" Collapsed="true">
     <Position X="8" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Structure\SpriteType.cs</FileName>
     </TypeIdentifier>
   </Enum>
