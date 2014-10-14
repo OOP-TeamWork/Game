@@ -6,7 +6,7 @@ using NeltharionRPGGame.Structure;
 
 namespace NeltharionRPGGame.GameEngine
 {
-    public class Engine
+    public class Engine : Form
     {
         private IDrawable painter;
         private List<Creature> creaturesInWorld;
@@ -40,6 +40,10 @@ namespace NeltharionRPGGame.GameEngine
             RemoveDeadCreatures();
             ProcessArtificialIntelligentCreatures();
             this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
+            foreach (var weapon in player.Inventory)
+            {
+                this.painter.RedrawObject(weapon);
+            }
             // Remove comments when inventory is ready
             // this.droppedWeaponsByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
             // this.painter.RemoveObject(this.droppedWeaponByPlayer));
@@ -47,7 +51,9 @@ namespace NeltharionRPGGame.GameEngine
 
         private void InitializeCharacters()
         {
-            var playerCharacter = new Mage(100, 100);
+            Weapon sword = new Sword(200, 200);
+            Weapon[] weapons = new Weapon[] { sword, sword, sword};
+            var playerCharacter = new Mage(100, 100, weapons);
             var witch = new Witch(650, 150);
             var fighetr = new Fighter(300, 300);
             player = playerCharacter;
@@ -104,6 +110,26 @@ namespace NeltharionRPGGame.GameEngine
             userInteface.OnLeftMouseClicked += (sender, args) =>
             {
                 this.MovePlayer(args);
+            };
+
+            userInteface.OnRightMouseClicked += (sender, args) =>
+            {
+                MessageBox.Show(player.Inventory[0].ToString());
+            };
+
+            userInteface.OnKeyOnePressed += (sender, args) =>
+            {
+                player.DropWeapon(0);
+            };
+
+            userInteface.OnKeyTwoPressed += (sender, args) =>
+            {
+                player.DropWeapon(1);
+            };
+
+            userInteface.OnKeyThreePressed += (sender, args) =>
+            {
+                player.DropWeapon(2);
             };
         }
 

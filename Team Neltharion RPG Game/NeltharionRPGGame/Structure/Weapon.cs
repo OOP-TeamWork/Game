@@ -2,8 +2,8 @@
 {
     public abstract class Weapon : GameObject
     {
-        public const int SizeX = 30;
-        public const int SizeY = 30;
+        public const int SizeX = 40;
+        public const int SizeY = 40;
 
         public Weapon(int x, int y, SpriteType weaponSpriteType)
             : base(x, y, SizeX, SizeY, weaponSpriteType)

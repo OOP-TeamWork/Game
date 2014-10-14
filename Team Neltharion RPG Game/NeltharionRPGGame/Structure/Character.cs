@@ -9,11 +9,19 @@ namespace NeltharionRPGGame.Structure
 
         protected Character(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
-            int attackPoints, int movementSpeed, int attackRange)
+            int attackPoints, int movementSpeed, int attackRange, Weapon[] inventory)
             : base(x, y, sizeX, sizeY, spriteType, healthPoints,
             defensePoints, attackPoints, movementSpeed, attackRange)
         {
-            this.Inventory = new Weapon[3];
+            this.Inventory = inventory;
+        }
+
+        public void DropWeapon(int indexInventory)
+        {
+            if (inventory[indexInventory] != null)
+            {
+                inventory[indexInventory] = null;
+            }
         }
 
         public Weapon[] Inventory
