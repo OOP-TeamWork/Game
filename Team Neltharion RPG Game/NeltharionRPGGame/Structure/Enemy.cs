@@ -57,7 +57,7 @@ namespace NeltharionRPGGame.Structure
             int nextRandomXPosition = RandomGenerator.Next(-1, 2);
             int nextRandomYPosition = RandomGenerator.Next(-1, 2);
 
-            if ((this.X + nextRandomXPosition) < GlobalData.WindowWidth - this.SizeY &&
+            if ((this.X + nextRandomXPosition) < (GlobalData.WindowWidth - this.SizeY) &&
                 this.X + nextRandomXPosition > 0)
             {
                 this.DirX = nextRandomXPosition;
@@ -67,7 +67,7 @@ namespace NeltharionRPGGame.Structure
                 this.DirX = 0;
             }
 
-            if ((this.Y + nextRandomYPosition) < GlobalData.WindowHeight - this.SizeX &&
+            if ((this.Y + nextRandomYPosition) < (GlobalData.WindowHeight - this.SizeX) &&
                 this.Y + nextRandomYPosition > 0)
             {
                 this.DirY = nextRandomYPosition;

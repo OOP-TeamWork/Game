@@ -70,7 +70,6 @@ namespace NeltharionRPGGame.Structure
                     this.inventory[i] = weapon;
                     break;
                 }
-
             }
         }
     }
