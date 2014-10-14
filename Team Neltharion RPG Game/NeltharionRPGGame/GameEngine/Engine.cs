@@ -6,33 +6,26 @@ using NeltharionRPGGame.Structure;
 
 namespace NeltharionRPGGame.GameEngine
 {
-    public class Engine : Form
+    public class Engine
     {
         private IDrawable painter;
         private List<Creature> creaturesInWorld;
-        private List<Item> droppedWeaponsByEnemies;
-        private Item _droppedItemByPlayer; 
+        private List<Weapon> droppedWeaponsByEnemies;
         private Character player;
         private int interval;
 
         public void InitializeWorld(IInputInterface controller, IDrawable painter)
         {
+            this.painter = painter;
             InitializeVariables();
             SubscribeToUserInput(controller);
             InitializeCharacters();
-            this.painter = painter;
+            SubscribeToWeaponDropped(creaturesInWorld);
             foreach (Creature creature in creaturesInWorld)
             {
                 this.painter.AddObject(creature);
             }
-
-            foreach (var item in player.Inventory)
-            {
-                if (item != null)
-                {
-                    this.painter.AddObject(item);
-                }
-            }
+            this.painter.DrawInventoryBar(player.Inventory);
         }
 
         public void PlayNextTurn()
@@ -40,20 +33,18 @@ namespace NeltharionRPGGame.GameEngine
             RemoveDeadCreatures();
             ProcessArtificialIntelligentCreatures();
             this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
-            foreach (var weapon in player.Inventory)
-            {
-                this.painter.RedrawObject(weapon);
-            }
+            this.painter.DrawInventoryBar(this.player.Inventory);
             // Remove comments when inventory is ready
-            // this.droppedWeaponsByEnemies.ForEach(Item => this.painter.AddObject(Item));
-            // this.painter.RemoveObject(this._droppedItemByPlayer));
+            // this.droppedWeaponsByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
         }
 
         private void InitializeCharacters()
         {
-            Item sword = new Sword(200, 200);
-            Item[] items = new Item[] { sword, sword, sword};
-            var playerCharacter = new Mage(100, 100, items);
+            Weapon sword = new Sword(0, 0);
+            Weapon sword1 = new Sword(30, 0);
+            Weapon sword2 = new Sword(60, 0);
+            Weapon[] weapons = { sword, sword1, sword2};
+            var playerCharacter = new Mage(100, 100, weapons);
             var witch = new Witch(650, 150);
             var fighetr = new Fighter(300, 300);
             player = playerCharacter;
@@ -112,11 +103,6 @@ namespace NeltharionRPGGame.GameEngine
                 this.MovePlayer(args);
             };
 
-            userInteface.OnRightMouseClicked += (sender, args) =>
-            {
-                MessageBox.Show(player.Inventory[0].ToString());
-            };
-
             userInteface.OnKeyOnePressed += (sender, args) =>
             {
                 player.DropWeapon(0);
@@ -153,14 +139,7 @@ namespace NeltharionRPGGame.GameEngine
                 {
                     creature.weaponDropped += (sender, args) =>
                     {
-                        this.droppedWeaponsByEnemies.Add(args.ItemDropped);
-                    };
-                }
-                else
-                {
-                    creature.weaponDropped += (sender, args) =>
-                    {
-                        this._droppedItemByPlayer = args.ItemDropped;
+                        this.droppedWeaponsByEnemies.Add(args.WeaponDropped);
                     };
                 }
             }

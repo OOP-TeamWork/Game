@@ -16,7 +16,7 @@ namespace NeltharionRPGGame.UI
         }
 
         private void GameWindow_Load(object sender, EventArgs e)
-        {           
+        {
             Timer timer = new Timer();
             timer.Interval = RefreshInterval;
             timer.Tick += OnTimerTick;

@@ -13,7 +13,7 @@ namespace NeltharionRPGGame
         public const int MageAttackRange = 250;
         public const SpriteType MageSpriteType = SpriteType.Mage;
 
-        public Mage(int x, int y, Item[] inventory)
+        public Mage(int x, int y, Weapon[] inventory)
             : base(x, y, MageSizeX, MageSizeY, MageSpriteType, MageHealthPoints, MageDefensePoints, 
             MageAttackPoints, MageMovementSpeed, MageAttackRange, inventory)
         {

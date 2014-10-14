@@ -46,9 +46,7 @@
   <ItemGroup>
     <Compile Include="Events\WeaponDroppedEventArgs.cs" />
     <Compile Include="Events\WeaponDroppedEventHandler.cs" />
-    <Compile Include="GameEngine\Engine.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="Helper\GlobalData.cs" />
     <Compile Include="Interfaces\IArtificialIntelligence.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
@@ -64,7 +62,7 @@
     <Compile Include="Structure\SpriteType.cs" />
     <Compile Include="Controllers\KeyboardMouseController.cs" />
     <Compile Include="Structure\Sword.cs" />
-    <Compile Include="Structure\Item.cs" />
+    <Compile Include="Structure\Weapon.cs" />
     <Compile Include="UI\PaintBrush.cs" />
     <Compile Include="UI\GameWindow.cs">
       <SubType>Form</SubType>

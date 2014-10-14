@@ -2,7 +2,7 @@
 
 namespace NeltharionRPGGame.Structure
 {
-    class Sword : Item
+    class Sword : Weapon
     {
         public const SpriteType WeaponSpriteType = SpriteType.Sword;
         

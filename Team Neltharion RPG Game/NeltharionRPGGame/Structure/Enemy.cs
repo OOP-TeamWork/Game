@@ -8,16 +8,16 @@ namespace NeltharionRPGGame.Structure
     {
         protected static Random RandomGenerator = new Random();
 
-        private Item _bonusItemHeld;
+        private Weapon bonusWeaponHeld;
 
         protected Enemy(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
-            int attackPoints, int movementSpeed, int attackRange, Item itemHeld, Item _bonusItemHeld) 
+            int attackPoints, int movementSpeed, int attackRange, Weapon weaponHeld, Weapon bonusWeaponHeld) 
             : base(x, y, sizeX, sizeY,
             spriteType, healthPoints, defensePoints,
-            attackPoints, movementSpeed, attackRange, itemHeld)
+            attackPoints, movementSpeed, attackRange, weaponHeld)
         {
-            this.BonusItemHeld = _bonusItemHeld;
+            this.BonusWeaponHeld = bonusWeaponHeld;
         }
 
         public new bool IsAlive
@@ -37,16 +37,16 @@ namespace NeltharionRPGGame.Structure
             }
         }
 
-        public Item BonusItemHeld
+        public Weapon BonusWeaponHeld
         {
             get
             {
-                return this._bonusItemHeld;
+                return this.bonusWeaponHeld;
             }
 
             private set
             {
-                this._bonusItemHeld = value;
+                this.bonusWeaponHeld = value;
             }
         }
 

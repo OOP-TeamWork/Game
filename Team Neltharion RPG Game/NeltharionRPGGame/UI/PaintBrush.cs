@@ -9,40 +9,42 @@ namespace NeltharionRPGGame.UI
 {
     public class PaintBrush : IDrawable
     {
-        private const int ProgressBarSizeX = 60;
-        private const int ProgressBarSizeY = 8;
-        private const int ProgressBarOffsetX = -3;
-        private const int ProgressBarOffsetY = -10;
+        // Weapon bar data
+        private const int WeaponBoxSizeX = 40;
+        private const int WeaponBoxSizeY = 40;
+        private const int WeaponFieldsCount = 3;
+
+        // Health Points Bar Data
+        private const int HealthPointsFieldsCount = 3;
 
         private const string MageImagePath = "../../Graphics/mage.png";
         private const string WitchImagePath = "../../Graphics/witch.png";
         private const string FighterImagePath = "../../Graphics/fighter.png";
         private const string SwordImagePath = "../../Graphics/sword.png";
+        private const string DefaulthWeaponImagePath = "../../Graphics/default.png";
         // load additional images here and add them to GetSpriteImage method
 
         private Image mageImage;
         private Image witchImage;
         private Image fighterImage;
         private Image swordImage;
+        private Image defaultWeaponImage;
         private GameWindow gameWindow;
         private List<PictureBox> pictureBoxes;
-        private List<ProgressBar> progressBars;
+        private PictureBox[] weaponFields; 
 
         public void InitializeField(GameWindow window)
         {
             this.gameWindow = window;
             this.LoadResources();
             this.pictureBoxes = new List<PictureBox>();
-            this.progressBars = new List<ProgressBar>();
+            this.weaponFields = new PictureBox[WeaponFieldsCount];
+            CreateInventoryBar(this.weaponFields);
         }
 
         public void AddObject(GameObject renderableObject)
         {
             this.CreatePictureBox(renderableObject);
-            if (renderableObject is Creature)
-            {
-                this.CreateProgressBar(renderableObject as Creature);
-            }
         }
 
         public void RemoveObject(GameObject renderableObject)
@@ -50,12 +52,6 @@ namespace NeltharionRPGGame.UI
             var picBox = GetPictureBoxByObject(renderableObject);
             this.gameWindow.Controls.Remove(picBox);
             this.pictureBoxes.Remove(picBox);
-            if (renderableObject is Creature)
-            {
-                var progressBar = GetProgressBarByObject(renderableObject as Creature);
-                this.gameWindow.Controls.Remove(progressBar);
-                this.progressBars.Remove(progressBar);
-            }
         }
 
         public void RedrawObject(GameObject objectToBeRedrawn)
@@ -63,26 +59,53 @@ namespace NeltharionRPGGame.UI
             var newCoordinates = new Point(objectToBeRedrawn.X, objectToBeRedrawn.Y);
             var picBox = GetPictureBoxByObject(objectToBeRedrawn);
             picBox.Location = newCoordinates;
+        }
 
-            if (objectToBeRedrawn is Creature)
+        public void DrawInventoryBar(Weapon[] weapons)
+        {
+            for (int field = 0; field < WeaponFieldsCount; field++)
             {
-                var unit = objectToBeRedrawn as Creature;
-                var progressBar = GetProgressBarByObject(unit);
-                this.SetProgressBarLocation(unit, progressBar);
-                progressBar.Value = unit.HealthPoints;
+                if (weapons[field] != null)
+                {
+                    this.weaponFields[field].Tag = weapons[field];
+                    this.weaponFields[field].Image = GetSpriteImage(weapons[field]);
+                }
+                else
+                {
+                    weaponFields[field].Tag = null;
+                    weaponFields[field].Image = defaultWeaponImage;
+                }
             }
         }
 
-        private void CreateProgressBar(Creature unit)
+        public void DrawHealthPointsBar(int maxHealthPoints, int healthPoints)
         {
-            var progressBar = new ProgressBar();
-            progressBar.Size = new Size(ProgressBarSizeX, ProgressBarSizeY);
-            this.SetProgressBarLocation(unit, progressBar);
-            progressBar.Maximum = unit.MaximumHealthPoints;
-            progressBar.Value = unit.HealthPoints;
-            progressBar.Tag = unit;
-            progressBars.Add(progressBar);
-            this.gameWindow.Controls.Add(progressBar);
+            throw new System.NotImplementedException();
+        }
+
+        private void CreateInventoryBar(PictureBox[] weaponFields)
+        {
+            PictureBox weaponField;
+            for (int field = 0; field < WeaponFieldsCount; field++)
+            {
+                weaponField = new PictureBox();
+                int leftGameFieldOffset = field*WeaponBoxSizeX;
+                weaponField.Size = new Size(WeaponBoxSizeX, WeaponBoxSizeY);
+                weaponField.Location = new Point(leftGameFieldOffset, 0);
+                weaponField.Parent = this.gameWindow;
+                weaponFields[field] = weaponField;
+                this.gameWindow.Controls.Add(weaponField);
+            }
+        }
+
+        private void CreateHealthPointsBar()
+        {
+            PictureBox healthPointsField;
+            for (int field = 0; field < HealthPointsFieldsCount; field++)
+            {
+                healthPointsField = new PictureBox();
+                healthPointsField.Size = new Size(WeaponBoxSizeX, WeaponBoxSizeY);
+            }
         }
 
         private void CreatePictureBox(GameObject renderableObject)
@@ -97,11 +120,6 @@ namespace NeltharionRPGGame.UI
             picBox.Tag = renderableObject;
             this.pictureBoxes.Add(picBox);
             this.gameWindow.Controls.Add(picBox);
-        }
-
-        private void SetProgressBarLocation(Creature unit, ProgressBar progressBar)
-        {
-            progressBar.Location = new Point(unit.X + ProgressBarOffsetX, unit.Y + ProgressBarOffsetY);
         }
 
         private Image GetSpriteImage(IRenderable renderableObject)
@@ -133,17 +151,13 @@ namespace NeltharionRPGGame.UI
             return this.pictureBoxes.First(p => p.Tag == renderableObject);
         }
 
-        private ProgressBar GetProgressBarByObject(Creature unit)
-        {
-            return this.progressBars.First(p => p.Tag == unit);
-        }
-
         public void LoadResources()
         {
             this.mageImage = Image.FromFile(MageImagePath);
             this.witchImage = Image.FromFile(WitchImagePath);
             this.fighterImage = Image.FromFile(FighterImagePath);
             this.swordImage = Image.FromFile(SwordImagePath);
+            this.defaultWeaponImage = Image.FromFile(DefaulthWeaponImagePath);
         }
     }
 }

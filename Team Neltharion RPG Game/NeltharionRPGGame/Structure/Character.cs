@@ -5,11 +5,11 @@ namespace NeltharionRPGGame.Structure
 {
     public abstract class Character : Creature
     {
-        private Item[] inventory;
+        private Weapon[] inventory;
 
         protected Character(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
-            int attackPoints, int movementSpeed, int attackRange, Item[] inventory)
+            int attackPoints, int movementSpeed, int attackRange, Weapon[] inventory)
             : base(x, y, sizeX, sizeY, spriteType, healthPoints,
             defensePoints, attackPoints, movementSpeed, attackRange)
         {
@@ -18,13 +18,10 @@ namespace NeltharionRPGGame.Structure
 
         public void DropWeapon(int indexInventory)
         {
-            if (inventory[indexInventory] != null)
-            {
-                inventory[indexInventory] = null;
-            }
+            inventory[indexInventory] = null;
         }
 
-        public Item[] Inventory
+        public Weapon[] Inventory
         {
             get { return this.inventory; }
             private set
@@ -64,18 +61,18 @@ namespace NeltharionRPGGame.Structure
             }
         }
 
-        public override Item UseWeaponHeld()
+        public override Weapon UseWeaponHeld()
         {
             throw new System.NotImplementedException();
         }
 
-        public void pickWeapon(Item item)
+        public void pickWeapon(Weapon weapon)
         {
             for (int i = 0; i < this.inventory.Length; i++)
             {
                 if (this.inventory[i] == null)
                 {
-                    this.inventory[i] = item;
+                    this.inventory[i] = weapon;
                     break;
                 }
             }

@@ -5,6 +5,7 @@
         Mage,
         Witch,
         Fighter, 
-        Sword
+        Sword,
+        DefaultWeapon
     }
 }
