@@ -7,7 +7,7 @@ using NeltharionRPGGame.Structure;
 
 namespace NeltharionRPGGame.UI
 {
-    public class PaintBrush : IPaintInterface
+    public class PaintBrush : IDrawable
     {
         private const int ProgressBarSizeX = 60;
         private const int ProgressBarSizeY = 8;

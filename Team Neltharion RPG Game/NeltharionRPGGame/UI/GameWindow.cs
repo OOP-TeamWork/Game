@@ -23,7 +23,7 @@ namespace NeltharionRPGGame.UI
             timer.Tick += OnTimerTick; // OnTimerTick is called every N miliseconds
 
             
-            IUserInputInterface controller = new KeyboardMouseController(this); 
+            IInputInterface controller = new KeyboardMouseController(this); 
             PaintBrush painter = new PaintBrush();
             painter.InitializeField(this);
             this.gameEngine = new Engine();

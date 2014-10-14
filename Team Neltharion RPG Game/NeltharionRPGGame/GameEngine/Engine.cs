@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Drawing.Printing;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
 
@@ -8,14 +9,14 @@ namespace NeltharionRPGGame.GameEngine
 {
     public class Engine
     {
-        private IPaintInterface painter;
+        private IDrawable painter;
         private List<Creature> creaturesInWorld;
         private List<Weapon> droppedWeaponsByEnemies;
         private Weapon droppedWeaponByPlayer; 
         private Creature player;
         private int interval;
 
-        public void InitializeWorld(IUserInputInterface controller, IPaintInterface painter)
+        public void InitializeWorld(IInputInterface controller, IDrawable painter)
         {
             InitializeVariables();
             SubscribeToUserInput(controller);
@@ -81,66 +82,34 @@ namespace NeltharionRPGGame.GameEngine
             }
         }
 
-        private void ProcessMovement(IMovable movableObject)
+        private void ProcessMovement(IMovable moveableObj)
         {
-            movableObject.Move();
+            moveableObj.Move();
         }
 
         private void ProcessWeaponUsage(ICreature creature)
         {
             // TODO Call UseWeaponHeld for each creature
         }
-
-        // The methods below set unit`s next move so that IMoveable.Move() method can add these values to the unit`s current X, Y
-        private void MovePlayerRight()
+       
+        private void SubscribeToUserInput(IInputInterface userInteface)
         {
-            this.player.DirX = 1;
-            this.player.DirY = 0;
-            ProcessMovement(player);
+            userInteface.OnLeftMouseClicked += (sender, args) =>
+            {
+                this.MovePlayer(args);
+            };
         }
 
-        private void MovePlayerDown()
+        private void MovePlayer(EventArgs args)
         {
-            this.player.DirX = 0;
-            this.player.DirY = 1;
-            ProcessMovement(player);
-        }
+            MouseEventArgs mouseArgs = args as MouseEventArgs;
 
-        private void MovePlayerUp()
-        {
-            this.player.DirX = 0;
-            this.player.DirY = -1;
-            ProcessMovement(player);
-        }
-
-        private void MovePlayerLeft()
-        {
-            this.player.DirX = -1;
-            this.player.DirY = 0;
-            ProcessMovement(player);
-        }
-
-        private void SubscribeToUserInput(IUserInputInterface userInteface)
-        {
-            userInteface.OnUpPressed += (sender, args) =>
+            if (mouseArgs != null)
             {
-                this.MovePlayerUp(); // this method will be called when the OnUpPressed event fires
-            };
-
-            userInteface.OnDownPressed += (sender, args) =>
-            {
-                this.MovePlayerDown();
-            };
-
-            userInteface.OnLeftPressed += (sender, args) =>
-            {
-                this.MovePlayerLeft();
-            };
-
-            userInteface.OnRightPressed += (sender, args) =>
-            {
-                this.MovePlayerRight();
-            };
+                this.player.DirX = mouseArgs.X;
+                this.player.DirY = mouseArgs.Y;
+                ProcessMovement(player);
+            }
         }
 
         private void SubscribeToWeaponDropped(List<Creature> creatures)

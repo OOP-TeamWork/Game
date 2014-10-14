@@ -4,7 +4,7 @@ using NeltharionRPGGame.Interfaces;
 
 namespace NeltharionRPGGame.UI
 {
-    public class KeyboardMouseController : IUserInputInterface
+    public class KeyboardMouseController : IInputInterface
     {
         public event EventHandler OnRightPressed;
 
@@ -14,11 +14,29 @@ namespace NeltharionRPGGame.UI
 
         public event EventHandler OnDownPressed;
 
+        public event EventHandler OnLeftMouseClicked;
+
         // the constructor binds our FormKeyDown method to Windows.Forms.OnKeyDown event, so we can handle the event from the form
         // using our delegates OnRightPressed, OnLeftPressed, OnUpPressed, OnDownPressed
         public KeyboardMouseController(Form form)
         {
             form.KeyDown += FormKeyDown;
+            form.MouseClick += MouseClicked;
+        }
+
+        private void MouseClicked(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    if (this.OnLeftMouseClicked != null)
+                    {
+                        this.OnLeftMouseClicked(sender, e);
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void FormKeyDown(object sender, KeyEventArgs e)

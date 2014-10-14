@@ -1,6 +1,6 @@
 ﻿namespace NeltharionRPGGame.Interfaces
 {
-    public interface IPaintInterface
+    public interface IDrawable
     {
         void AddObject(IRenderable renderableObject);
 

@@ -41,6 +41,7 @@
                         break;
                 }
             }
+
             return nextMove;
         }
     }

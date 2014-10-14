@@ -2,7 +2,7 @@
 
 namespace NeltharionRPGGame
 {
-    public class Mage : Creature
+    public class Mage : Character
     {
         public const int MageSizeX = 70;
         public const int MageSizeY = 70;

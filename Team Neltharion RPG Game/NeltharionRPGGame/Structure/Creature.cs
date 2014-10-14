@@ -6,7 +6,11 @@ namespace NeltharionRPGGame
 {
     public abstract class Creature : GameObject, IMovable, IRenderable, ICreature
     {
-        // Fields
+        private const int AttackPointsCap = 5000;
+        private const int DefensePointsCap = 5000;
+        private const int MovementSpeedCap = 1000;
+        private const int AttackRangeCap = 500;
+
         private SpriteType spriteType;
         private int maxHealthPoints;
         private int healthPoints;
@@ -17,7 +21,6 @@ namespace NeltharionRPGGame
         private bool isAlive;
         private Weapon weaponHeld;
 
-        // Constructor
         protected Creature(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
             int attackPoints, int movementSpeed, int attackRange, Weapon weaponHeld = null)
@@ -30,26 +33,13 @@ namespace NeltharionRPGGame
             this.AttackPoints = attackPoints;
             this.MovementSpeed = movementSpeed;
             this.AttackRange = attackRange;
-            this.isAlive = true;
+            this.IsAlive = true;
             this.WeaponHeld = weaponHeld;
         }
 
-        // Events
         public event WeaponDroppedEventHandler weaponDropped;
 
-        // Properties
-        public SpriteType SpriteType
-        {
-            get
-            {
-                return this.spriteType;
-            }
-
-            set
-            {
-                this.spriteType = value;
-            }
-        }
+        public SpriteType SpriteType { get; set; }
 
         public int MaximumHealthPoints
         {
@@ -74,20 +64,19 @@ namespace NeltharionRPGGame
                 return this.healthPoints;
             }
 
-            private set
+            set
             {
-                checked
+                this.healthPoints = value;
+
+                if (this.healthPoints > this.maxHealthPoints)
                 {
-                    this.healthPoints = value;
-                    if (this.healthPoints > this.maxHealthPoints)
-                    {
-                        this.healthPoints = this.maxHealthPoints;
-                    }
-                    if (this.healthPoints <= 0)
-                    {
-                        this.IsAlive = false;
-                    }
+                    this.healthPoints = this.maxHealthPoints;
                 }
+
+                if (this.healthPoints <= 0)
+                {
+                    this.IsAlive = false;
+                }            
             }
         }
 
@@ -100,14 +89,17 @@ namespace NeltharionRPGGame
 
             set
             {
-                checked
+                if (value > DefensePointsCap)
                 {
-                    if (value <= 0)
-                    {
-                        this.defensePoints = 0;
-                    }
-                    this.defensePoints = value;
+                    value = DefensePointsCap;
                 }
+
+                if (value <= 0)
+                {
+                    this.defensePoints = 0;
+                }
+
+                this.defensePoints = value;
             }
         }
 
@@ -120,14 +112,17 @@ namespace NeltharionRPGGame
 
             set
             {
-                checked
+                if (value > AttackPointsCap)
                 {
-                    if (value <= 0)
-                    {
-                        this.attackPoints = 0;
-                    }
-                    this.attackPoints = value;
-                } 
+                    value = AttackPointsCap;
+                }
+
+                if (value <= 0)
+                {
+                    this.attackPoints = 0;
+                }
+
+                this.attackPoints = value;
             }
         }
 
@@ -140,14 +135,17 @@ namespace NeltharionRPGGame
 
             set
             {
-                checked
+                if (value > AttackRangeCap)
                 {
-                    if (value <= 0)
-                    {
-                        this.attackRange = 0;
-                    }
-                    this.attackRange = value;
+                    value = AttackRangeCap;
                 }
+
+                if (value <= 0)
+                {
+                    this.attackRange = 0;
+                }
+
+                this.attackRange = value;
             }
         }
 
@@ -160,48 +158,28 @@ namespace NeltharionRPGGame
 
             set
             {
-                checked
+                if (value > MovementSpeedCap)
                 {
-                    if (value <= 0)
-                    {
-                        this.movementSpeed = 0;
-                    }
-                    this.movementSpeed = value;
+                    value = MovementSpeedCap;
                 }
+
+                if (value <= 0)
+                {
+                    this.movementSpeed = 0;
+                }
+
+                this.movementSpeed = value;
             }
         }
 
-        public virtual bool IsAlive
-        {
-            get
-            {
-                return this.isAlive;
-            }
+        public bool IsAlive { get; set; }
 
-            set
-            {
-                this.isAlive = value;
-            }
-        }
-
-        public Weapon WeaponHeld
-        {
-            get
-            {
-                return weaponHeld;
-            }
-
-            set
-            {
-                weaponHeld = value;
-            }
-        }
+        public Weapon WeaponHeld { get; set; }
 
         public int DirX { get; set; }
 
         public int DirY { get; set; }
 
-        // Methods
         public void OnWeaponDropped()
         {
             if (weaponDropped != null)
@@ -223,7 +201,7 @@ namespace NeltharionRPGGame
             return this.WeaponHeld;
         }
 
-        // The value for this mehtod is generated by
+        // The value for this method is generated by
         // the Combat system
         public virtual void UpdateHealthPoints(int healthPointsEffect)
         {

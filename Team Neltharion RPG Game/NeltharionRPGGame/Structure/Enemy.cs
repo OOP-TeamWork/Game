@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Windows.Forms;
 using NeltharionRPGGame.Events;
 using NeltharionRPGGame.Interfaces;
+using NeltharionRPGGame.UI;
 
 namespace NeltharionRPGGame.Structure
 {
-    public abstract class Enemy : Creature, IArtificialIntelligent
+    public abstract class Enemy : Creature, IArtificialIntelligence
     {
         protected static Random RandomGenerator = new Random();
 
@@ -20,7 +22,7 @@ namespace NeltharionRPGGame.Structure
             this.BonusWeaponHeld = bonusWeaponHeld;
         }
 
-        public override bool IsAlive
+        public new bool IsAlive
         {
             get
             {
@@ -54,8 +56,22 @@ namespace NeltharionRPGGame.Structure
 
         public override void Move()
         {
-            this.DirX = RandomGenerator.Next(-1, 2);
-            this.DirY = RandomGenerator.Next(-1, 2);
+            int randomXPosition = RandomGenerator.Next(-1, 2);
+            int randomYPosition = RandomGenerator.Next(-1, 2);
+            Form active = GameWindow.ActiveForm;
+
+            if ((this.X + randomXPosition) < active.Size.Width - this.SizeX &&
+                this.X + randomXPosition > 0)
+            {
+                this.DirX += randomXPosition;
+            }
+
+            if ((this.Y + randomYPosition) < active.Size.Height - this.SizeY &&
+                this.Y + randomYPosition > 0)
+            {
+                this.DirY += randomYPosition;
+            }
+            
             base.Move();
         }
     }
