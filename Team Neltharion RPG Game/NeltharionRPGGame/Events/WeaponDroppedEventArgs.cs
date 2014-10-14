@@ -5,24 +5,24 @@ namespace NeltharionRPGGame.Events
 {
     public class WeaponDroppedEventArgs : EventArgs
     {
-        private Weapon weaponDropped;
+        private Item _itemDropped;
 
-        public WeaponDroppedEventArgs(Weapon weapon)
+        public WeaponDroppedEventArgs(Item item)
         {
-            this.WeaponDropped = weapon;
+            this.ItemDropped = item;
         }
 
-        public Weapon WeaponDropped 
+        public Item ItemDropped 
 
         {
             get
             {
-                return this.weaponDropped;
+                return this._itemDropped;
             }
 
             set
             {
-                this.weaponDropped = value;
+                this._itemDropped = value;
             }
         }
     }

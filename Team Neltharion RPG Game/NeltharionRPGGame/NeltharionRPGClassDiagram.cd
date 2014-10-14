@@ -3,7 +3,7 @@
   <Class Name="NeltharionRPGGame.UI.KeyboardMouseController" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAIAACgAAAAAAAAgAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Controllers\KeyboardMouseController.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -48,7 +48,7 @@
   <Class Name="NeltharionRPGGame.Creature" Collapsed="true">
     <Position X="7" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BQAIAAEAQIBBAUAABQgIAQAIAggEAAAIBAAwAUEAAQA=</HashCode>
+      <HashCode>BQAIAAEAQIAAAUAABAgIAQAIAggEAABIBAAwQQEAAQA=</HashCode>
       <FileName>Structure\Creature.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -56,21 +56,21 @@
   <Class Name="NeltharionRPGGame.GameEngine.Engine" Collapsed="true">
     <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAgBBAEBAAAIgAAAAAAIICgQABAAEABAAAAAAAAAAI=</HashCode>
+      <HashCode>AEAgBBAEBAAAIgAAAAAAIICgAABAAEABAAAAAAAAAAI=</HashCode>
       <FileName>GameEngine\Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeltharionRPGGame.Structure.Weapon" Collapsed="true">
+  <Class Name="NeltharionRPGGame.Structure.Item" Collapsed="true">
     <Position X="3.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Structure\Weapon.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAAAA=</HashCode>
+      <FileName>Structure\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Structure.Enemy" Collapsed="true">
     <Position X="8.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAJAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAgA=</HashCode>
+      <HashCode>AQAAAAAAAJAAAAAAAAAAAIAABAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Structure\Enemy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -127,7 +127,7 @@
   <Interface Name="NeltharionRPGGame.Interfaces.IInputInterface" Collapsed="true">
     <Position X="4.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAIAACAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IInputInterface.cs</FileName>
     </TypeIdentifier>
   </Interface>

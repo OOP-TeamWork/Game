@@ -10,8 +10,8 @@ namespace NeltharionRPGGame.GameEngine
     {
         private IDrawable painter;
         private List<Creature> creaturesInWorld;
-        private List<Weapon> droppedWeaponsByEnemies;
-        private Weapon droppedWeaponByPlayer; 
+        private List<Item> droppedWeaponsByEnemies;
+        private Item _droppedItemByPlayer; 
         private Character player;
         private int interval;
 
@@ -45,15 +45,15 @@ namespace NeltharionRPGGame.GameEngine
                 this.painter.RedrawObject(weapon);
             }
             // Remove comments when inventory is ready
-            // this.droppedWeaponsByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
-            // this.painter.RemoveObject(this.droppedWeaponByPlayer));
+            // this.droppedWeaponsByEnemies.ForEach(Item => this.painter.AddObject(Item));
+            // this.painter.RemoveObject(this._droppedItemByPlayer));
         }
 
         private void InitializeCharacters()
         {
-            Weapon sword = new Sword(200, 200);
-            Weapon[] weapons = new Weapon[] { sword, sword, sword};
-            var playerCharacter = new Mage(100, 100, weapons);
+            Item sword = new Sword(200, 200);
+            Item[] items = new Item[] { sword, sword, sword};
+            var playerCharacter = new Mage(100, 100, items);
             var witch = new Witch(650, 150);
             var fighetr = new Fighter(300, 300);
             player = playerCharacter;
@@ -153,14 +153,14 @@ namespace NeltharionRPGGame.GameEngine
                 {
                     creature.weaponDropped += (sender, args) =>
                     {
-                        this.droppedWeaponsByEnemies.Add(args.WeaponDropped);
+                        this.droppedWeaponsByEnemies.Add(args.ItemDropped);
                     };
                 }
                 else
                 {
                     creature.weaponDropped += (sender, args) =>
                     {
-                        this.droppedWeaponByPlayer = args.WeaponDropped;
+                        this._droppedItemByPlayer = args.ItemDropped;
                     };
                 }
             }

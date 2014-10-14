@@ -15,6 +15,6 @@ namespace NeltharionRPGGame.Interfaces
 
         event WeaponDroppedEventHandler weaponDropped;
 
-        Weapon UseWeaponHeld();
+        Item UseWeaponHeld();
     }
 }
