@@ -15,14 +15,12 @@ namespace NeltharionRPGGame.UI
             InitializeComponent();   
         }
 
-        // "Infinite Game loop" implemented in windows forms
         private void GameWindow_Load(object sender, EventArgs e)
         {           
             Timer timer = new Timer();
             timer.Interval = RefreshInterval;
-            timer.Tick += OnTimerTick; // OnTimerTick is called every N miliseconds
-
-            
+            timer.Tick += OnTimerTick;
+          
             IInputInterface controller = new KeyboardMouseController(this); 
             PaintBrush painter = new PaintBrush();
             painter.InitializeField(this);

@@ -47,6 +47,7 @@
     <Compile Include="Events\WeaponDroppedEventArgs.cs" />
     <Compile Include="Events\WeaponDroppedEventHandler.cs" />
     <Compile Include="GameEngine\Engine.cs" />
+    <Compile Include="Helper\GlobalData.cs" />
     <Compile Include="Interfaces\IArtificialIntelligence.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IMovable.cs" />

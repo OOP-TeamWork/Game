@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
-using NeltharionRPGGame.Events;
+using NeltharionRPGGame.Helper;
 using NeltharionRPGGame.Interfaces;
-using NeltharionRPGGame.UI;
 
 namespace NeltharionRPGGame.Structure
 {
@@ -56,20 +54,27 @@ namespace NeltharionRPGGame.Structure
 
         public override void Move()
         {
-            int randomXPosition = RandomGenerator.Next(-1, 2);
-            int randomYPosition = RandomGenerator.Next(-1, 2);
-            Form active = GameWindow.ActiveForm;
+            int nextRandomXPosition = RandomGenerator.Next(-1, 2);
+            int nextRandomYPosition = RandomGenerator.Next(-1, 2);
 
-            if ((this.X + randomXPosition) < active.Size.Width - this.SizeX &&
-                this.X + randomXPosition > 0)
+            if ((this.X + nextRandomXPosition) < GlobalData.WindowWidth - this.SizeY &&
+                this.X + nextRandomXPosition > 0)
             {
-                this.DirX += randomXPosition;
+                this.DirX = nextRandomXPosition;
+            }
+            else
+            {
+                this.DirX = 0;
             }
 
-            if ((this.Y + randomYPosition) < active.Size.Height - this.SizeY &&
-                this.Y + randomYPosition > 0)
+            if ((this.Y + nextRandomYPosition) < GlobalData.WindowHeight - this.SizeX &&
+                this.Y + nextRandomYPosition > 0)
             {
-                this.DirY += randomYPosition;
+                this.DirY = nextRandomYPosition;
+            }
+            else
+            {
+                this.DirY = 0;
             }
             
             base.Move();

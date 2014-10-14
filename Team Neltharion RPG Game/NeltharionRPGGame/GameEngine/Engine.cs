@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
 
-
 namespace NeltharionRPGGame.GameEngine
 {
     public class Engine
