@@ -17,7 +17,7 @@ namespace NeltharionRPGGame.UI
         private const string MageImagePath = "../../Graphics/mage.png";
         private const string WitchImagePath = "../../Graphics/witch.png";
         private const string FighterImagePath = "../../Graphics/fighter.png";
-        private const string SwordImagePath = "../../Graphics/itemsRPG.png";
+        private const string SwordImagePath = "../../Graphics/sword.png";
         // load additional images here and add them to GetSpriteImage method
 
         private Image mageImage;
