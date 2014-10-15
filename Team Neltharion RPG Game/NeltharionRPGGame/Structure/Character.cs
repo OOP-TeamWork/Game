@@ -61,9 +61,8 @@ namespace NeltharionRPGGame.Structure
             }
         }
 
-        public override Weapon UseWeaponHeld()
+        public override void UseWeaponHeld()
         {
-            throw new System.NotImplementedException();
         }
 
         public void pickWeapon(Weapon weapon)

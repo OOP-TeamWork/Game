@@ -1,41 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
+using NeltharionRPGGame.UI;
 
 namespace NeltharionRPGGame.GameEngine
 {
     public class Engine
     {
-        private IDrawable painter;
+        private PaintBrush painter;
         private List<Creature> creaturesInWorld;
         private List<Weapon> droppedWeaponsByEnemies;
         private Character player;
         private int interval;
 
-        public void InitializeWorld(IInputInterface controller, IDrawable painter)
+        public void InitializeWorld(IInputInterface controller, PaintBrush painter)
         {
             this.painter = painter;
             InitializeVariables();
             SubscribeToUserInput(controller);
             InitializeCharacters();
-            SubscribeToWeaponDropped(creaturesInWorld);
-            foreach (Creature creature in creaturesInWorld)
-            {
-                this.painter.AddObject(creature);
-            }
+            creaturesInWorld
+                .ForEach(creature => this.painter.AddObject(creature));
             this.painter.DrawInventoryBar(player.Inventory);
+            this.painter.DrawHealthPointsBar(
+                player.MaximumHealthPoints, player.HealthPoints);
         }
 
         public void PlayNextTurn()
         {
+            GetBonusesFromDeadEnemies();
             RemoveDeadCreatures();
             ProcessArtificialIntelligentCreatures();
             this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
             this.painter.DrawInventoryBar(this.player.Inventory);
-            // Remove comments when inventory is ready
-            // this.droppedWeaponsByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
+            this.droppedWeaponsByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
+            droppedWeaponsByEnemies.Clear();
         }
 
         private void InitializeCharacters()
@@ -56,11 +58,27 @@ namespace NeltharionRPGGame.GameEngine
         private void InitializeVariables()
         {
             this.creaturesInWorld = new List<Creature>();
+            this.droppedWeaponsByEnemies = new List<Weapon>();
         }
 
         private void RemoveDeadCreatures()
         {
+            this.creaturesInWorld.Where(creature => !creature.IsAlive).ToList()
+                .ForEach(deadCreature => this.painter.RemoveObject(deadCreature));
             this.creaturesInWorld.RemoveAll(creature => !creature.IsAlive);
+            
+        }
+
+        private void GetBonusesFromDeadEnemies()
+        {
+            foreach (Creature creature in this.creaturesInWorld)
+            {
+                if (creature is Enemy && !creature.IsAlive)
+                {
+                    Enemy creatureAsenemy = creature as Enemy;
+                    this.droppedWeaponsByEnemies.Add(creatureAsenemy.DropBonus());
+                }
+            }
         }
 
         private void ProcessArtificialIntelligentCreatures()
@@ -93,7 +111,10 @@ namespace NeltharionRPGGame.GameEngine
 
         private void ProcessWeaponUsage(Creature creature)
         {
-            // TODO Call UseWeaponHeld for each creature
+            creature.UseWeaponHeld();
+            // CombatSystem(this.player);
+            // This system will check if there are
+            // targets to attack
         }
        
         private void SubscribeToUserInput(IInputInterface userInteface)
@@ -101,21 +122,33 @@ namespace NeltharionRPGGame.GameEngine
             userInteface.OnLeftMouseClicked += (sender, args) =>
             {
                 this.MovePlayer(args);
+                // Process Weapon Usage(this.player);
+                Witch withch = this.creaturesInWorld[1] as Witch;
+                if (withch != null)
+                {
+                    withch.UpdateHealthPoints(-320);
+                }
             };
 
-            userInteface.OnKeyOnePressed += (sender, args) =>
+            userInteface.OnKeyAPressed += (sender, args) =>
             {
                 player.DropWeapon(0);
             };
 
-            userInteface.OnKeyTwoPressed += (sender, args) =>
+            userInteface.OnKeyWPressed += (sender, args) =>
             {
                 player.DropWeapon(1);
             };
 
-            userInteface.OnKeyThreePressed += (sender, args) =>
+            userInteface.OnKeyDPressed += (sender, args) =>
             {
                 player.DropWeapon(2);
+            };
+
+            // For Debugging
+            userInteface.OnSpacePressed += (sender, args) =>
+            {
+                PlayNextTurn();
             };
         }
 
@@ -128,20 +161,6 @@ namespace NeltharionRPGGame.GameEngine
                 this.player.DirX = mouseArgs.X;
                 this.player.DirY = mouseArgs.Y;
                 ProcessMovement(player);
-            }
-        }
-
-        private void SubscribeToWeaponDropped(List<Creature> creatures)
-        {
-            foreach (Creature creature in creatures)
-            {
-                if (creature is Enemy)
-                {
-                    creature.weaponDropped += (sender, args) =>
-                    {
-                        this.droppedWeaponsByEnemies.Add(args.WeaponDropped);
-                    };
-                }
             }
         }
     }

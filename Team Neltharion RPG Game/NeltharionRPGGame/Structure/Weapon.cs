@@ -8,7 +8,6 @@
         public Weapon(int x, int y, SpriteType weaponSpriteType)
             : base(x, y, SizeX, SizeY, weaponSpriteType)
         {
-
         }
     }
 }

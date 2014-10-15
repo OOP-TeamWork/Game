@@ -24,16 +24,12 @@ namespace NeltharionRPGGame.Structure
         {
             get
             {
-                return base.IsAlive; // Test this
+                return base.IsAlive;
             }
 
             set
             {
                 base.IsAlive = value;
-                if (!IsAlive)
-                {
-                    OnWeaponDropped();
-                }
             }
         }
 
@@ -48,6 +44,11 @@ namespace NeltharionRPGGame.Structure
             {
                 this.bonusWeaponHeld = value;
             }
+        }
+
+        public Weapon DropBonus()
+        {
+            return this.bonusWeaponHeld;
         }
 
         public abstract NextMoveDecision DecideNextMove();

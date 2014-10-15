@@ -7,9 +7,10 @@ namespace NeltharionRPGGame.UI
     public class KeyboardMouseController : IInputInterface
     {
         public event EventHandler OnLeftMouseClicked;
-        public event EventHandler OnKeyOnePressed;
-        public event EventHandler OnKeyTwoPressed;
-        public event EventHandler OnKeyThreePressed;
+        public event EventHandler OnKeyAPressed;
+        public event EventHandler OnKeyWPressed;
+        public event EventHandler OnKeyDPressed;
+        public event EventHandler OnSpacePressed; //  This Event is only for debugging usage
 
         public KeyboardMouseController(Form form)
         {
@@ -37,21 +38,27 @@ namespace NeltharionRPGGame.UI
             switch (e.KeyCode)
             {
                 case Keys.A:
-                    if (OnKeyOnePressed != null)
+                    if (OnKeyAPressed != null)
                     {
-                        this.OnKeyOnePressed(this, new EventArgs());
+                        this.OnKeyAPressed(this, new EventArgs());
                     }
                     break;
                 case Keys.W:
-                    if (OnKeyTwoPressed != null)
+                    if (OnKeyWPressed != null)
                     {
-                        this.OnKeyTwoPressed(this, new EventArgs());
+                        this.OnKeyWPressed(this, new EventArgs());
                     }
                     break;
                 case Keys.D:
-                    if (OnKeyThreePressed != null)
+                    if (OnKeyDPressed != null)
                     {
-                        this.OnKeyThreePressed(this, new EventArgs());
+                        this.OnKeyDPressed(this, new EventArgs());
+                    }
+                    break;
+                case Keys.Space:
+                    if (OnSpacePressed != null)
+                    {
+                        this.OnSpacePressed(this, new EventArgs());
                     }
                     break;
             }

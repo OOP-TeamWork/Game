@@ -17,6 +17,9 @@ namespace NeltharionRPGGame.UI
 
         private void GameWindow_Load(object sender, EventArgs e)
         {
+            // For Debugging Timer Is Disabled
+            // Just Comment Timer
+
             Timer timer = new Timer();
             timer.Interval = RefreshInterval;
             timer.Tick += OnTimerTick;
