@@ -48,11 +48,15 @@ namespace NeltharionRPGGame.GameEngine
             Weapon[] weapons = { sword, sword1, sword2};
             var playerCharacter = new Mage(100, 100, weapons);
             var witch = new Witch(650, 150);
+            var witch2 = new Witch(350, 150);
             var fighetr = new Fighter(300, 300);
+            var fighetr1 = new Fighter(200, 320);
             player = playerCharacter;
             creaturesInWorld.Add(player);
             creaturesInWorld.Add(witch);
+            creaturesInWorld.Add(witch2);
             creaturesInWorld.Add(fighetr);
+            creaturesInWorld.Add(fighetr1);
         }
 
         private void InitializeVariables()

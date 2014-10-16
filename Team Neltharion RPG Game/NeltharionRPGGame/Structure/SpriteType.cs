@@ -2,6 +2,7 @@
 {
     public enum SpriteType
     {
+        Axe,
         Mage,
         Witch,
         Fighter, 
