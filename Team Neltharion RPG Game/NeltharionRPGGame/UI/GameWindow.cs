@@ -42,7 +42,9 @@ namespace NeltharionRPGGame.UI
 
         public bool PreFilterMessage(ref Message m)
         {
-            if (m.Msg == 0x0204)
+            const int MessageCodeRighttMouseClick = 0x0204;
+
+            if (m.Msg == MessageCodeRighttMouseClick)
             {
                 this.controller.MouseClicked(
                     this, new MouseEventArgs(
