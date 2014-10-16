@@ -46,30 +46,31 @@
   <ItemGroup>
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="Helper\GlobalData.cs" />
+    <Compile Include="Helper\ImageLoader.cs" />
     <Compile Include="Interfaces\IArtificialIntelligence.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="Interfaces\ICreature.cs" />
-    <Compile Include="Structure\Axe.cs" />
-    <Compile Include="Structure\Bow.cs" />
-    <Compile Include="Structure\Character.cs" />
-    <Compile Include="Structure\Club.cs" />
+    <Compile Include="Structure\Items\Axe.cs" />
+    <Compile Include="Structure\Items\Bow.cs" />
+    <Compile Include="Structure\Creatures\Character.cs" />
+    <Compile Include="Structure\Items\Club.cs" />
     <Compile Include="Structure\Creature.cs" />
-    <Compile Include="Structure\Enemy.cs" />
-    <Compile Include="Structure\Fighter.cs" />
+    <Compile Include="Structure\Creatures\Enemy.cs" />
+    <Compile Include="Structure\Creatures\Fighter.cs" />
     <Compile Include="Structure\GameObject.cs" />
     <Compile Include="Structure\Item.cs" />
-    <Compile Include="Structure\Mage.cs" />
-    <Compile Include="Structure\NextMoveDecision.cs" />
-    <Compile Include="Structure\Pike.cs" />
-    <Compile Include="Structure\PoleArm.cs" />
-    <Compile Include="Structure\Potion.cs" />
-    <Compile Include="Structure\SightDirection.cs" />
-    <Compile Include="Structure\SpriteType.cs" />
+    <Compile Include="Structure\Creatures\Mage.cs" />
+    <Compile Include="Structure\Enumerable Game Data\NextMoveDecision.cs" />
+    <Compile Include="Structure\Items\Pike.cs" />
+    <Compile Include="Structure\Items\PoleArm.cs" />
+    <Compile Include="Structure\Items\Potion.cs" />
+    <Compile Include="Structure\Enumerable Game Data\SightDirection.cs" />
+    <Compile Include="Structure\Enumerable Game Data\SpriteType.cs" />
     <Compile Include="Controllers\KeyboardMouseController.cs" />
-    <Compile Include="Structure\Stuff.cs" />
-    <Compile Include="Structure\Sword.cs" />
-    <Compile Include="Structure\Weapon.cs" />
+    <Compile Include="Structure\Items\Staff.cs" />
+    <Compile Include="Structure\Items\Sword.cs" />
+    <Compile Include="Structure\Items\Weapon.cs" />
     <Compile Include="UI\PaintBrush.cs" />
     <Compile Include="UI\GameWindow.cs">
       <SubType>Form</SubType>
@@ -82,7 +83,7 @@
     <Compile Include="Interfaces\IInputInterface.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Structure\Witch.cs" />
+    <Compile Include="Structure\Creatures\Witch.cs" />
     <EmbeddedResource Include="UI\GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </EmbeddedResource>

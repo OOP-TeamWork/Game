@@ -20,57 +20,20 @@ namespace NeltharionRPGGame.UI
         private const int HeallthPointsBoxesSizeX = 40;
         private const int HeallthPointsBoxesSizeY = 40;
 
-        private const string MageImagePath = "../../Graphics/mage.png";
-        private const string WitchImagePath = "../../Graphics/witch.png";
-        private const string FighterImagePath = "../../Graphics/fighter.png";
-        private const string SwordImagePath = "../../Graphics/sword.png";
-        private const string DefaulthWeaponImagePath = "../../Graphics/default.png";
-        private const string RedHealthHeartImagePath = "../../Graphics/redHeart.png";
-        private const string BlackHealthHeartImagePath = "../../Graphics/blackHeart.png";
-        private const string AxeImagePath = "../../Graphics/axe.png";
-        private const string BowImagePath = "../../Graphics/bow.png";
-        private const string ClubImagePath = "../../Graphics/club.png";
-        private const string PikeImagePath = "../../Graphics/pike.png";
-        private const string PoleArmImagePath = "../../Graphics/poleArm.png";
-        private const string PotionImagePath = "../../Graphics/potion.png";
-        private const string StuffImagePath = "../../Graphics/stuff.png";
-        // load additional images here and add them to GetSpriteImage method
-
         private List<PictureBox> pictureBoxes;
-        private Image mageImage;
-        private Image witchImage;
-        private Image fighterImage;
-        private Image swordImage;
-        private Image defaultWeaponImage;
-        private Image redHeartImage;
-        private Image blackHeartImage;
-        private Image axeImage;
-        private Image bowImage;
-        private Image clubImage;
-        private Image pikeImage;
-        private Image poleArmImage;
-        private Image PotionImage;
-        private Image StuffImage;
         private GameWindow gameWindow;
         private PictureBox[] weaponBoxes;
         private PictureBox[] healthPointsBoxes;
 
-        public List<PictureBox> PictureBoxes
-        {
-            get
-            {
-                return this.pictureBoxes;
-            }
-        }
+        public List<PictureBox> PictureBoxes { get; private set; }
 
         public void InitializeField(GameWindow window)
         {
             this.gameWindow = window;
-            this.LoadResources();
             this.pictureBoxes = new List<PictureBox>();
             this.weaponBoxes = new PictureBox[WeaponBoxesCount];
-            CreateInventoryBar();
             this.healthPointsBoxes = new PictureBox[HealthPointsBoxesCount];
+            CreateInventoryBar();
             CreateHealthPointsBar();
         }
 
@@ -100,12 +63,12 @@ namespace NeltharionRPGGame.UI
                 if (weapons[box] != null)
                 {
                     this.weaponBoxes[box].Tag = weapons[box];
-                    this.weaponBoxes[box].Image = GetSpriteImage(weapons[box]);
+                    this.weaponBoxes[box].Image = ImageLoader.GetObjectImage(weapons[box].SpriteType);
                 }
                 else
                 {
                     weaponBoxes[box].Tag = null;
-                    weaponBoxes[box].Image = defaultWeaponImage;
+                    weaponBoxes[box].Image = ImageLoader.GetObjectImage(SpriteType.DefaultWeapon);
                 }
             }
         }
@@ -113,20 +76,21 @@ namespace NeltharionRPGGame.UI
         public void DrawHealthPointsBar(int maxHealthPoints, int healthPoints)
         {
             int firstHearthMaxValue = maxHealthPoints/HealthPointsBoxesCount;
-            int secondHearthMaxValue = firstHearthMaxValue*2;
+            int secondHearthMaxValue = firstHearthMaxValue * 2;
+
             if (healthPoints > secondHearthMaxValue)
             {
-                this.healthPointsBoxes[0].Image = this.redHeartImage;
-                this.healthPointsBoxes[1].Image = this.redHeartImage;
-                this.healthPointsBoxes[2].Image = this.redHeartImage;
+                this.healthPointsBoxes[0].Image = ImageLoader.GetObjectImage(SpriteType.RedHeart);
+                this.healthPointsBoxes[1].Image = ImageLoader.GetObjectImage(SpriteType.RedHeart);
+                this.healthPointsBoxes[2].Image = ImageLoader.GetObjectImage(SpriteType.RedHeart);
             }
             else if (healthPoints > firstHearthMaxValue)
             {
-                this.healthPointsBoxes[2].Image = this.blackHeartImage;
+                this.healthPointsBoxes[2].Image = ImageLoader.GetObjectImage(SpriteType.BlackHeart);
             }
             else
             {
-                this.healthPointsBoxes[1].Image = this.blackHeartImage;
+                this.healthPointsBoxes[1].Image = ImageLoader.GetObjectImage(SpriteType.BlackHeart);
             }
         }
 
@@ -138,14 +102,17 @@ namespace NeltharionRPGGame.UI
         private void CreateInventoryBar()
         {
             PictureBox weaponBox;
+
             for (int field = 0; field < WeaponBoxesCount; field++)
             {
                 weaponBox = new PictureBox();
+
                 int leftGameFieldOffset = field*WeaponBoxSizeX;
                 weaponBox.Size = new Size(WeaponBoxSizeX, WeaponBoxSizeY);
                 weaponBox.Location = new Point(leftGameFieldOffset, 0);
                 weaponBox.Parent = this.gameWindow;
                 this.weaponBoxes[field] = weaponBox;
+
                 this.gameWindow.Controls.Add(weaponBox);
             }
         }
@@ -153,95 +120,37 @@ namespace NeltharionRPGGame.UI
         private void CreateHealthPointsBar()
         {
             PictureBox healthPointsBox;
-            int leftGameeFieldOffset = WeaponBoxSizeX*WeaponBoxesCount + 10;
+            int leftGameeFieldOffset = WeaponBoxSizeX * WeaponBoxesCount + 10;
+
             for (int box = 0; box < HealthPointsBoxesCount; box++)
             {
-                int boxXCoordinate = leftGameeFieldOffset + HeallthPointsBoxesSizeX*box;
+                int boxXCoordinate = leftGameeFieldOffset + HeallthPointsBoxesSizeX * box;
+
                 healthPointsBox = new PictureBox();
                 healthPointsBox.Size = new Size(
                     HeallthPointsBoxesSizeX, HeallthPointsBoxesSizeY);
                 healthPointsBox.Location = new Point(boxXCoordinate, 0);
                 healthPointsBox.Parent = this.gameWindow;
                 healthPointsBoxes[box] = healthPointsBox;
+
                 this.gameWindow.Controls.Add(healthPointsBox);
             }
         }
 
         private void CreatePictureBox(GameObject renderableObject)
         {
-            var spriteImage = GetSpriteImage(renderableObject);
+            var spriteImage = ImageLoader.GetObjectImage(renderableObject.SpriteType);
             var picBox = new PictureBox();
+
             picBox.BackColor = Color.Transparent;
             picBox.Image = spriteImage;
             picBox.Parent = this.gameWindow;
             picBox.Location = new Point(renderableObject.X, renderableObject.Y);
             picBox.Size = new Size(renderableObject.SizeX, renderableObject.SizeY);
             picBox.Tag = renderableObject;
+
             this.pictureBoxes.Add(picBox);
             this.gameWindow.Controls.Add(picBox);
-        }
-
-        private Image GetSpriteImage(IRenderable renderableObject)
-        {
-            Image image;
-            switch (renderableObject.SpriteType)
-            {
-                case SpriteType.Mage:
-                    image = this.mageImage;
-                    break;
-                case SpriteType.Witch:
-                    image = this.witchImage;
-                    break;
-                case SpriteType.Fighter:
-                    image = this.fighterImage;
-                    break;
-                case SpriteType.Sword:
-                    image = this.swordImage;
-                    break;
-                case SpriteType.Axe:
-                    image = this.axeImage;
-                    break;
-                case SpriteType.Bow:
-                    image = this.bowImage;
-                    break;
-                case SpriteType.Club:
-                    image = this.clubImage;
-                    break;
-                case SpriteType.Pike:
-                    image = this.pikeImage;
-                    break;
-                case SpriteType.PoleArm:
-                    image = this.poleArmImage;
-                    break;
-                case SpriteType.Potion:
-                    image = this.PotionImage;
-                    break;
-                case SpriteType.Stuff:
-                    image = this.StuffImage;
-                    break;
-                default:
-                    image = null; 
-                    break;
-            }
-            return image;
-        }
-
-        public void LoadResources()
-        {
-            this.mageImage = Image.FromFile(MageImagePath);
-            this.witchImage = Image.FromFile(WitchImagePath);
-            this.fighterImage = Image.FromFile(FighterImagePath);
-            this.swordImage = Image.FromFile(SwordImagePath);
-            this.defaultWeaponImage = Image.FromFile(DefaulthWeaponImagePath);
-            this.redHeartImage = Image.FromFile(RedHealthHeartImagePath);
-            this.blackHeartImage = Image.FromFile(BlackHealthHeartImagePath);
-            this.axeImage = Image.FromFile(AxeImagePath);
-            this.bowImage = Image.FromFile(BowImagePath);
-            this.clubImage = Image.FromFile(ClubImagePath);
-            this.pikeImage = Image.FromFile(PikeImagePath);
-            this.poleArmImage = Image.FromFile(PoleArmImagePath);
-            this.PotionImage = Image.FromFile(PotionImagePath);
-            this.StuffImage = Image.FromFile(StuffImagePath);
-        }
+        } 
     }
 }

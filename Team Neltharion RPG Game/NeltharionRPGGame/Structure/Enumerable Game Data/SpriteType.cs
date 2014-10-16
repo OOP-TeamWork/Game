@@ -10,9 +10,11 @@
         Potion,
         Mage,
         Witch,
-        Fighter, 
+        Fighter,
         Stuff,
         Sword,
-        DefaultWeapon
+        DefaultWeapon,
+        RedHeart,
+        BlackHeart
     }
 }

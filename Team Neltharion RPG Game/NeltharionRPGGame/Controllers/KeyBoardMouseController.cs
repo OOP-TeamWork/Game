@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using NeltharionRPGGame.Interfaces;
 
-namespace NeltharionRPGGame.UI
+namespace NeltharionRPGGame.Controllers
 {
     public class KeyboardMouseController : IInputInterface
     {
@@ -12,7 +12,6 @@ namespace NeltharionRPGGame.UI
         public event EventHandler OnKeyTwoPressed;
         public event EventHandler OnKeyThreePressed;
         public event EventHandler OnSpacePressed; //  This Event is only for debugging usage
-
 
         public KeyboardMouseController(Form form)
         {

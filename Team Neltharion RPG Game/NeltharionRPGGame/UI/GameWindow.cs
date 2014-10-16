@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using NeltharionRPGGame.Controllers;
 using NeltharionRPGGame.GameEngine;
-using NeltharionRPGGame.Interfaces;
 
 namespace NeltharionRPGGame.UI
 {

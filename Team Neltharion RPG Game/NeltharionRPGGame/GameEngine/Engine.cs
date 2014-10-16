@@ -43,7 +43,7 @@ namespace NeltharionRPGGame.GameEngine
 
         private void InitializeCharacters()
         {
-            Weapon stuff = new Stuff(0, 0);
+            Weapon stuff = new Staff(0, 0);
             Weapon poleArm = new PoleArm(30, 0);
             Weapon potion = new Potion(60, 0);
             Weapon[] weapons = { stuff, poleArm, potion};
@@ -167,6 +167,7 @@ namespace NeltharionRPGGame.GameEngine
         private Weapon GetWeaponPicked(Point playerClickPosition)
         {
             Weapon weaponPicked = null;
+
             foreach (var weapon in droppedWeaponsByEnemies)
             {
                 // compare weaponInput.
@@ -184,6 +185,7 @@ namespace NeltharionRPGGame.GameEngine
                     break;
                 }
             }
+
             return weaponPicked;
         }
 
@@ -195,6 +197,7 @@ namespace NeltharionRPGGame.GameEngine
             {
                 this.player.DirX = mouseArgs.X;
                 this.player.DirY = mouseArgs.Y;
+
                 ProcessMovement(player);
             }
         }
