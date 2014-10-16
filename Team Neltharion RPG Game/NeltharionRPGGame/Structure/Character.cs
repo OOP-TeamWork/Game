@@ -36,6 +36,7 @@ namespace NeltharionRPGGame.Structure
             asd.Interval = 30;
             asd.Tick += TakeASingleStepToDestination;
             asd.Start();
+            base.UpdateSightDirection();
         }
 
         private void TakeASingleStepToDestination(object obj, EventArgs e)

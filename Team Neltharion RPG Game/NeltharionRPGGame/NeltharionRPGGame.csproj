@@ -64,6 +64,7 @@
     <Compile Include="Structure\Pike.cs" />
     <Compile Include="Structure\PoleArm.cs" />
     <Compile Include="Structure\Potion.cs" />
+    <Compile Include="Structure\SightDirection.cs" />
     <Compile Include="Structure\SpriteType.cs" />
     <Compile Include="Controllers\KeyboardMouseController.cs" />
     <Compile Include="Structure\Stuff.cs" />

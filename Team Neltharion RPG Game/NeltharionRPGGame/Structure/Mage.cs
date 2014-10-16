@@ -17,6 +17,7 @@ namespace NeltharionRPGGame
             : base(x, y, MageSizeX, MageSizeY, MageSpriteType, MageHealthPoints, MageDefensePoints, 
             MageAttackPoints, MageMovementSpeed, MageAttackRange, inventory)
         {
+            base.SightDirection = SightDirection.Right;
         }
     }
 }

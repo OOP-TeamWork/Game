@@ -17,6 +17,7 @@ namespace NeltharionRPGGame
         private int attackRange;
         private bool isAlive;
         private Weapon weaponHeld;
+        private SightDirection sightDirection;
 
         protected Creature(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
@@ -157,12 +158,26 @@ namespace NeltharionRPGGame
 
         public Weapon WeaponHeld { get; set; }
 
+        public SightDirection SightDirection
+        {
+            get
+            {
+                return this.sightDirection;
+            }
+
+            set
+            {
+                this.sightDirection = value;
+            }
+        }
+
         public int DirX { get; set; }
 
         public int DirY { get; set; }
 
         public virtual void Move()
         {
+            UpdateSightDirection();
             this.X += this.DirX*this.MovementSpeed;
             this.Y += this.DirY*this.MovementSpeed;
         }
@@ -181,6 +196,18 @@ namespace NeltharionRPGGame
         public virtual void UpdateDefencePoints(int defencePoints)
         {
             this.DefensePoints += defencePoints;
+        }
+
+        protected virtual void UpdateSightDirection()
+        {
+            if (this.DirX > this.X)
+            {
+                this.SightDirection = SightDirection.Right;
+            }
+            else if (this.DirX < this.Y)
+            {
+                this.SightDirection = SightDirection.Left;
+            }
         }
     }
 }
