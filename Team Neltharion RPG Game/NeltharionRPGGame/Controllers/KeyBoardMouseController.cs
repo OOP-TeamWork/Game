@@ -7,10 +7,12 @@ namespace NeltharionRPGGame.UI
     public class KeyboardMouseController : IInputInterface
     {
         public event EventHandler OnLeftMouseClicked;
-        public event EventHandler OnKeyAPressed;
-        public event EventHandler OnKeyWPressed;
-        public event EventHandler OnKeyDPressed;
+        public event EventHandler OnRightMouseClicked;
+        public event EventHandler OnKeyOnePressed;
+        public event EventHandler OnKeyTwoPressed;
+        public event EventHandler OnKeyThreePressed;
         public event EventHandler OnSpacePressed; //  This Event is only for debugging usage
+
 
         public KeyboardMouseController(Form form)
         {
@@ -18,7 +20,7 @@ namespace NeltharionRPGGame.UI
             form.MouseClick += MouseClicked;
         }
 
-        private void MouseClicked(object sender, MouseEventArgs e)
+        public void MouseClicked(object sender, MouseEventArgs e)
         {
             switch (e.Button)
             {
@@ -26,6 +28,12 @@ namespace NeltharionRPGGame.UI
                     if (this.OnLeftMouseClicked != null)
                     {
                         this.OnLeftMouseClicked(sender, e);
+                    }
+                    break;
+                case MouseButtons.Right:
+                    if (this.OnRightMouseClicked != null)
+                    {
+                        this.OnRightMouseClicked(sender, e);
                     }
                     break;
                 default:
@@ -37,22 +45,22 @@ namespace NeltharionRPGGame.UI
         {
             switch (e.KeyCode)
             {
-                case Keys.A:
-                    if (OnKeyAPressed != null)
+                case Keys.D1:
+                    if (OnKeyOnePressed != null)
                     {
-                        this.OnKeyAPressed(this, new EventArgs());
+                        this.OnKeyOnePressed(this, new EventArgs());
                     }
                     break;
-                case Keys.W:
-                    if (OnKeyWPressed != null)
+                case Keys.D2:
+                    if (OnKeyTwoPressed != null)
                     {
-                        this.OnKeyWPressed(this, new EventArgs());
+                        this.OnKeyTwoPressed(this, new EventArgs());
                     }
                     break;
-                case Keys.D:
-                    if (OnKeyDPressed != null)
+                case Keys.D3:
+                    if (OnKeyThreePressed != null)
                     {
-                        this.OnKeyDPressed(this, new EventArgs());
+                        this.OnKeyThreePressed(this, new EventArgs());
                     }
                     break;
                 case Keys.Space:

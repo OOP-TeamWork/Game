@@ -58,6 +58,7 @@
     <Compile Include="Structure\Enemy.cs" />
     <Compile Include="Structure\Fighter.cs" />
     <Compile Include="Structure\GameObject.cs" />
+    <Compile Include="Structure\Item.cs" />
     <Compile Include="Structure\Mage.cs" />
     <Compile Include="Structure\NextMoveDecision.cs" />
     <Compile Include="Structure\Pike.cs" />

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
 using NeltharionRPGGame.UI;
+using System.Drawing;
 
 namespace NeltharionRPGGame.GameEngine
 {
@@ -134,17 +135,24 @@ namespace NeltharionRPGGame.GameEngine
                 }
             };
 
-            userInteface.OnKeyAPressed += (sender, args) =>
+            userInteface.OnRightMouseClicked += (sender, args) =>
+            {
+                MouseEventArgs userArgs = args as MouseEventArgs;
+                Weapon weaponPicked = GetWeaponPicked(new Point(userArgs.X, userArgs.Y));
+                this.player.pickWeapon(weaponPicked);
+            };
+
+            userInteface.OnKeyOnePressed += (sender, args) =>
             {
                 player.DropWeapon(0);
             };
 
-            userInteface.OnKeyWPressed += (sender, args) =>
+            userInteface.OnKeyTwoPressed += (sender, args) =>
             {
                 player.DropWeapon(1);
             };
 
-            userInteface.OnKeyDPressed += (sender, args) =>
+            userInteface.OnKeyThreePressed += (sender, args) =>
             {
                 player.DropWeapon(2);
             };
@@ -154,6 +162,29 @@ namespace NeltharionRPGGame.GameEngine
             {
                 PlayNextTurn();
             };
+        }
+
+        private Weapon GetWeaponPicked(Point playerClickPosition)
+        {
+            Weapon weaponPicked = null;
+            foreach (var weapon in droppedWeaponsByEnemies)
+            {
+                // compare weaponInput.
+                bool isBelowTopBorder = weapon.TopLeftPoint.Y >= playerClickPosition.Y;
+                bool isInsideLeftBorder = weapon.TopLeftPoint.X >= playerClickPosition.X;
+                bool isAboveBottomBorder = weapon.BottomLeftPoint.Y <= playerClickPosition.Y;
+                bool isInsideRightBorder = weapon.BottomRightPoint.X <= playerClickPosition.X;
+
+                bool isSelectedWeapon = isBelowTopBorder && isInsideLeftBorder &&
+                                        isAboveBottomBorder && isInsideRightBorder;
+
+                if (isSelectedWeapon)
+                {
+                    weaponPicked = weapon;
+                    break;
+                }
+            }
+            return weaponPicked;
         }
 
         private void MovePlayer(EventArgs args)

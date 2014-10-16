@@ -5,14 +5,17 @@ using NeltharionRPGGame.Interfaces;
 
 namespace NeltharionRPGGame.UI
 {
-    public partial class GameWindow : Form
+    public partial class GameWindow : Form, IMessageFilter
     {
         public const int RefreshInterval = 50;
+
+        private KeyboardMouseController controller;
         public Engine gameEngine;
 
         public GameWindow()
         {
             InitializeComponent();   
+            Application.AddMessageFilter(this);
         }
 
         private void GameWindow_Load(object sender, EventArgs e)
@@ -24,7 +27,7 @@ namespace NeltharionRPGGame.UI
             timer.Interval = RefreshInterval;
             timer.Tick += OnTimerTick;
           
-            IInputInterface controller = new KeyboardMouseController(this); 
+            controller = new KeyboardMouseController(this); 
             PaintBrush painter = new PaintBrush();
             painter.InitializeField(this);
             this.gameEngine = new Engine();
@@ -35,6 +38,18 @@ namespace NeltharionRPGGame.UI
         private void OnTimerTick(object sender, EventArgs e)
         {
             this.gameEngine.PlayNextTurn();
+        }
+
+        public bool PreFilterMessage(ref Message m)
+        {
+            if (m.Msg == 0x0204)
+            {
+                this.controller.MouseClicked(
+                    this, new MouseEventArgs(
+                        MouseButtons.Right, 1, Control.MousePosition.X, Control.MousePosition.Y, 0));
+                return true;
+            }
+            return false;
         }
     }
 }
