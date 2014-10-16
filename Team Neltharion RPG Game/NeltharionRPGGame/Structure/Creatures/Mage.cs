@@ -4,8 +4,8 @@ namespace NeltharionRPGGame
 {
     public class Mage : Character
     {
-        public const int MageSizeX = 70;
-        public const int MageSizeY = 70;
+        public const int MageSizeX = 130;
+        public const int MageSizeY = 130;
         public const int MageHealthPoints = 300;
         public const int MageDefensePoints = 50;
         public const int MageAttackPoints = 150;

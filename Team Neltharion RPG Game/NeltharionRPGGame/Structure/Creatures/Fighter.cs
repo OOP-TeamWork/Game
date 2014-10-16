@@ -2,8 +2,8 @@
 {
     class Fighter : Enemy
     {
-        public const int FighterSizeX = 70;
-        public const int FighterSizeY = 70;
+        public const int FighterSizeX = 130;
+        public const int FighterSizeY = 130;
         public const int FighterHealthPoints = 300;
         public const int FighterDefensePoints = 50;
         public const int FighterAttackPoints = 150;

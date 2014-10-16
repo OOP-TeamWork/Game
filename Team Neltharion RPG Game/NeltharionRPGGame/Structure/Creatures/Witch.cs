@@ -4,8 +4,8 @@ namespace NeltharionRPGGame
 {
     public class Witch : Enemy
     {
-        public const int WitchSizeX = 70;
-        public const int WitchSizeY = 70;
+        public const int WitchSizeX = 130;
+        public const int WitchSizeY = 130;
         public const int WitchHealthPoints = 300;
         public const int WitchDefensePoints = 50;
         public const int WitchAttackPoints = 150;
