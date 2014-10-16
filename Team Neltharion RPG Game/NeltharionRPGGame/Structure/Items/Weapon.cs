@@ -31,7 +31,7 @@ namespace NeltharionRPGGame.Structure
         {
             get
             {
-                return new Point(this.X, this.Y - SizeY);
+                return new Point(this.X, this.Y + SizeY);
             }
         }
 

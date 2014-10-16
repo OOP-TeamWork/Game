@@ -46,9 +46,10 @@ namespace NeltharionRPGGame.UI
 
             if (m.Msg == MessageCodeRighttMouseClick)
             {
+                var userClick = this.PointToClient(Cursor.Position);
                 this.controller.MouseClicked(
                     this, new MouseEventArgs(
-                        MouseButtons.Right, 1, Control.MousePosition.X, Control.MousePosition.Y, 0));
+                        MouseButtons.Right, 1, userClick.X, userClick.Y, 0));
                 return true;
             }
             return false;

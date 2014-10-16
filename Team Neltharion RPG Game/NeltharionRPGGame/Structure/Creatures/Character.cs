@@ -71,14 +71,17 @@ namespace NeltharionRPGGame.Structure
         {
         }
 
-        public void pickWeapon(Weapon weapon)
+        public void pickWeapon(Weapon weaponPicked)
         {
-            for (int i = 0; i < this.inventory.Length; i++)
+            if (weaponPicked != null)
             {
-                if (this.inventory[i] == null)
+                for (int weapon = 0; weapon < this.inventory.Length; weapon++)
                 {
-                    this.inventory[i] = weapon;
-                    break;
+                    if (this.inventory[weapon] == null)
+                    {
+                        this.inventory[weapon] = weaponPicked;
+                        break;
+                    }
                 }
             }
         }

@@ -38,7 +38,6 @@ namespace NeltharionRPGGame.GameEngine
             this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
             this.painter.DrawInventoryBar(this.player.Inventory);
             this.droppedWeaponsByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
-            droppedWeaponsByEnemies.Clear();
         }
 
         private void InitializeCharacters()
@@ -137,9 +136,14 @@ namespace NeltharionRPGGame.GameEngine
 
             userInteface.OnRightMouseClicked += (sender, args) =>
             {
-                MouseEventArgs userArgs = args as MouseEventArgs;
-                Weapon weaponPicked = GetWeaponPicked(new Point(userArgs.X, userArgs.Y));
-                this.player.pickWeapon(weaponPicked);
+                if (this.droppedWeaponsByEnemies.Count > 0)
+                {
+                    MouseEventArgs userArgs = args as MouseEventArgs;
+                    Weapon weaponPicked = GetWeaponPicked(new Point(userArgs.X, userArgs.Y));
+                    this.player.pickWeapon(weaponPicked);
+                    this.painter.RemoveObject(weaponPicked);
+                    this.droppedWeaponsByEnemies.Remove(weaponPicked);
+                }
             };
 
             userInteface.OnKeyOnePressed += (sender, args) =>
@@ -170,11 +174,10 @@ namespace NeltharionRPGGame.GameEngine
 
             foreach (var weapon in droppedWeaponsByEnemies)
             {
-                // compare weaponInput.
-                bool isBelowTopBorder = weapon.TopLeftPoint.Y >= playerClickPosition.Y;
-                bool isInsideLeftBorder = weapon.TopLeftPoint.X >= playerClickPosition.X;
-                bool isAboveBottomBorder = weapon.BottomLeftPoint.Y <= playerClickPosition.Y;
-                bool isInsideRightBorder = weapon.BottomRightPoint.X <= playerClickPosition.X;
+                bool isBelowTopBorder = playerClickPosition.Y >= weapon.TopLeftPoint.Y;
+                bool isInsideLeftBorder = playerClickPosition.X >= weapon.TopLeftPoint.X;
+                bool isAboveBottomBorder = playerClickPosition.Y <= weapon.BottomLeftPoint.Y;
+                bool isInsideRightBorder = playerClickPosition.X <= weapon.BottomRightPoint.X;
 
                 bool isSelectedWeapon = isBelowTopBorder && isInsideLeftBorder &&
                                         isAboveBottomBorder && isInsideRightBorder;
