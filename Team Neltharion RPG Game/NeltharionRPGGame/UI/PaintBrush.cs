@@ -27,6 +27,13 @@ namespace NeltharionRPGGame.UI
         private const string DefaulthWeaponImagePath = "../../Graphics/default.png";
         private const string RedHealthHeartImagePath = "../../Graphics/redHeart.png";
         private const string BlackHealthHeartImagePath = "../../Graphics/blackHeart.png";
+        private const string AxeImagePath = "../../Graphics/axe.png";
+        private const string BowImagePath = "../../Graphics/bow.png";
+        private const string ClubImagePath = "../../Graphics/club.png";
+        private const string PikeImagePath = "../../Graphics/pike.png";
+        private const string PoleArmImagePath = "../../Graphics/poleArm.png";
+        private const string PotionImagePath = "../../Graphics/potion.png";
+        private const string StuffImagePath = "../../Graphics/stuff.png";
         // load additional images here and add them to GetSpriteImage method
 
         private List<PictureBox> pictureBoxes;
@@ -37,6 +44,13 @@ namespace NeltharionRPGGame.UI
         private Image defaultWeaponImage;
         private Image redHeartImage;
         private Image blackHeartImage;
+        private Image axeImage;
+        private Image bowImage;
+        private Image clubImage;
+        private Image pikeImage;
+        private Image poleArmImage;
+        private Image PotionImage;
+        private Image StuffImage;
         private GameWindow gameWindow;
         private PictureBox[] weaponBoxes;
         private PictureBox[] healthPointsBoxes;
@@ -184,6 +198,27 @@ namespace NeltharionRPGGame.UI
                 case SpriteType.Sword:
                     image = this.swordImage;
                     break;
+                case SpriteType.Axe:
+                    image = this.axeImage;
+                    break;
+                case SpriteType.Bow:
+                    image = this.bowImage;
+                    break;
+                case SpriteType.Club:
+                    image = this.clubImage;
+                    break;
+                case SpriteType.Pike:
+                    image = this.pikeImage;
+                    break;
+                case SpriteType.PoleArm:
+                    image = this.poleArmImage;
+                    break;
+                case SpriteType.Potion:
+                    image = this.PotionImage;
+                    break;
+                case SpriteType.Stuff:
+                    image = this.StuffImage;
+                    break;
                 default:
                     image = null; 
                     break;
@@ -200,6 +235,13 @@ namespace NeltharionRPGGame.UI
             this.defaultWeaponImage = Image.FromFile(DefaulthWeaponImagePath);
             this.redHeartImage = Image.FromFile(RedHealthHeartImagePath);
             this.blackHeartImage = Image.FromFile(BlackHealthHeartImagePath);
+            this.axeImage = Image.FromFile(AxeImagePath);
+            this.bowImage = Image.FromFile(BowImagePath);
+            this.clubImage = Image.FromFile(ClubImagePath);
+            this.pikeImage = Image.FromFile(PikeImagePath);
+            this.poleArmImage = Image.FromFile(PoleArmImagePath);
+            this.PotionImage = Image.FromFile(PotionImagePath);
+            this.StuffImage = Image.FromFile(StuffImagePath);
         }
     }
 }

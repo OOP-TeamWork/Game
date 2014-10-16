@@ -42,10 +42,10 @@ namespace NeltharionRPGGame.GameEngine
 
         private void InitializeCharacters()
         {
-            Weapon sword = new Sword(0, 0);
-            Weapon sword1 = new Sword(30, 0);
-            Weapon sword2 = new Sword(60, 0);
-            Weapon[] weapons = { sword, sword1, sword2};
+            Weapon stuff = new Stuff(0, 0);
+            Weapon poleArm = new PoleArm(30, 0);
+            Weapon potion = new Potion(60, 0);
+            Weapon[] weapons = { stuff, poleArm, potion};
             var playerCharacter = new Mage(100, 100, weapons);
             var witch = new Witch(650, 150);
             var witch2 = new Witch(350, 150);

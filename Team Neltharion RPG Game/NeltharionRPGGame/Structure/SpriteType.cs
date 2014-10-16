@@ -3,9 +3,15 @@
     public enum SpriteType
     {
         Axe,
+        Bow,
+        Club,
+        Pike,
+        PoleArm,
+        Potion,
         Mage,
         Witch,
         Fighter, 
+        Stuff,
         Sword,
         DefaultWeapon
     }

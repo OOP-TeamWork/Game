@@ -89,6 +89,13 @@
       <FileName>Structure\Fighter.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="NeltharionRPGGame.Structure.Sword" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Structure\Sword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="NeltharionRPGGame.IMovable" Collapsed="true">
     <Position X="0.5" Y="4" Width="1.5" />
     <TypeIdentifier>
@@ -134,7 +141,7 @@
   <Enum Name="NeltharionRPGGame.Structure.SpriteType" Collapsed="true">
     <Position X="6" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAQAAAAACAAAAAAAACAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAiAAAIEAAAAAQAABAACAAAACIAACAAAAAAAAKAAAA=</HashCode>
       <FileName>Structure\SpriteType.cs</FileName>
     </TypeIdentifier>
   </Enum>
