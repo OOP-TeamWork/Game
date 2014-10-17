@@ -71,8 +71,10 @@ namespace NeltharionRPGGame.Structure
         {
         }
 
-        public void pickWeapon(Weapon weaponPicked)
+        public bool TryPickAWeapon(Weapon weaponPicked)
         {
+            bool weaponPickedSuccessfully = false;
+
             if (weaponPicked != null)
             {
                 for (int weapon = 0; weapon < this.inventory.Length; weapon++)
@@ -80,10 +82,13 @@ namespace NeltharionRPGGame.Structure
                     if (this.inventory[weapon] == null)
                     {
                         this.inventory[weapon] = weaponPicked;
+                        weaponPickedSuccessfully = true;
                         break;
                     }
                 }
             }
+
+            return weaponPickedSuccessfully;
         }
     }
 }

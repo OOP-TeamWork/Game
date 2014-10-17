@@ -140,9 +140,12 @@ namespace NeltharionRPGGame.GameEngine
                 {
                     MouseEventArgs userArgs = args as MouseEventArgs;
                     Weapon weaponPicked = GetWeaponPicked(new Point(userArgs.X, userArgs.Y));
-                    this.player.pickWeapon(weaponPicked);
-                    this.painter.RemoveObject(weaponPicked);
-                    this.droppedWeaponsByEnemies.Remove(weaponPicked);
+                    bool weapponPickedSuccessfully = this.player.TryPickAWeapon(weaponPicked);
+                    if (weapponPickedSuccessfully)
+                    {
+                        this.painter.RemoveObject(weaponPicked);
+                        this.droppedWeaponsByEnemies.Remove(weaponPicked);
+                    }
                 }
             };
 
