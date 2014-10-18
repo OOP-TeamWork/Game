@@ -14,7 +14,8 @@ namespace NeltharionRPGGame.GameEngine
     {
         private PaintBrush painter;
         private List<Creature> creaturesInWorld;
-        private List<Item> droppedWeaponsByEnemies;
+        private List<Item> newBonusesDroppedByEnemies;
+        private List<Item> allBonusesDroppedByEnemiesCopy;
         private Character player;
         private int interval;
 
@@ -38,7 +39,8 @@ namespace NeltharionRPGGame.GameEngine
             ProcessArtificialIntelligentCreatures();
             this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
             this.painter.DrawInventoryBar(this.player.Inventory);
-            this.droppedWeaponsByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
+            this.newBonusesDroppedByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
+            this.newBonusesDroppedByEnemies.Clear();
         }
 
         private void InitializeCharacters()
@@ -64,7 +66,8 @@ namespace NeltharionRPGGame.GameEngine
         private void InitializeVariables()
         {
             this.creaturesInWorld = new List<Creature>();
-            this.droppedWeaponsByEnemies = new List<Item>();
+            this.newBonusesDroppedByEnemies = new List<Item>();
+            this.allBonusesDroppedByEnemiesCopy = new List<Item>();
         }
 
         private void RemoveDeadCreatures()
@@ -82,9 +85,10 @@ namespace NeltharionRPGGame.GameEngine
                 if (creature is Enemy && !creature.IsAlive)
                 {
                     Enemy creatureAsenemy = creature as Enemy;
-                    this.droppedWeaponsByEnemies.Add(creatureAsenemy.DropBonus());
+                    this.newBonusesDroppedByEnemies.Add(creatureAsenemy.DropBonus());
                 }
             }
+            this.allBonusesDroppedByEnemiesCopy.AddRange(this.newBonusesDroppedByEnemies);
         }
 
         private void ProcessArtificialIntelligentCreatures()
@@ -138,7 +142,7 @@ namespace NeltharionRPGGame.GameEngine
 
             userInteface.OnRightMouseClicked += (sender, args) =>
             {
-                if (this.droppedWeaponsByEnemies.Count > 0)
+                if (this.allBonusesDroppedByEnemiesCopy.Count > 0)
                 {
                     MouseEventArgs userArgs = args as MouseEventArgs;
                     Item weaponPicked = GetWeaponPicked(new Point(userArgs.X, userArgs.Y));
@@ -146,7 +150,7 @@ namespace NeltharionRPGGame.GameEngine
                     if (weapponPickedSuccessfully)
                     {
                         this.painter.RemoveObject(weaponPicked);
-                        this.droppedWeaponsByEnemies.Remove(weaponPicked);
+                        this.allBonusesDroppedByEnemiesCopy.Remove(weaponPicked);
                     }
                 }
             };
@@ -177,7 +181,7 @@ namespace NeltharionRPGGame.GameEngine
         {
             Item weaponPicked = null;
 
-            foreach (var weapon in droppedWeaponsByEnemies)
+            foreach (var weapon in allBonusesDroppedByEnemiesCopy)
             {
                 bool isBelowTopBorder = playerClickPosition.Y >= weapon.TopLeftPoint.Y;
                 bool isInsideLeftBorder = playerClickPosition.X >= weapon.TopLeftPoint.X;
