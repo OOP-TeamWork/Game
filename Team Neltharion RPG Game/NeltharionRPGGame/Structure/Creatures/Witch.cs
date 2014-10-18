@@ -18,6 +18,7 @@ namespace NeltharionRPGGame
             WitchHealthPoints, WitchDefensePoints, WitchAttackPoints, WitchMovementSpeed,
             WitchAttackRange, new Sword(0, 0), new Sword(x, y))
         {
+            this.BonusWeaponHeld = ChooseRandomWeapon();
         }
 
         public override NextMoveDecision DecideNextMove()

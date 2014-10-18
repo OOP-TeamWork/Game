@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
@@ -48,6 +49,7 @@ namespace NeltharionRPGGame.GameEngine
             Weapon[] weapons = { stuff, poleArm, potion};
             var playerCharacter = new Mage(100, 100, weapons);
             var witch = new Witch(650, 150);
+            Thread.Sleep(100);
             var witch2 = new Witch(350, 150);
             var fighetr = new Fighter(300, 300);
             var fighetr1 = new Fighter(200, 320);

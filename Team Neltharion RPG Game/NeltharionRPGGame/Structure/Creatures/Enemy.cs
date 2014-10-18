@@ -40,7 +40,7 @@ namespace NeltharionRPGGame.Structure
                 return this.bonusWeaponHeld;
             }
 
-            private set
+            set
             {
                 this.bonusWeaponHeld = value;
             }
@@ -79,6 +79,26 @@ namespace NeltharionRPGGame.Structure
             }
             
             base.Move();
+        }
+
+        public Weapon ChooseRandomWeapon()
+        {
+            const int weaponsCount = 8;
+            Random rand = new Random();
+
+            Weapon[] weapons = new Weapon[weaponsCount]
+            {
+                new Axe(this.X, this.Y),
+                new Bow(this.X, this.Y),
+                new Club(this.X, this.Y),
+                new Pike(this.X, this.Y),
+                new PoleArm(this.X, this.Y),
+                new Potion(this.X, this.Y),
+                new Staff(this.X, this.Y),
+                new Sword(this.X, this.Y)
+            };
+
+            return weapons[rand.Next(0, weaponsCount)];
         }
     }
 }

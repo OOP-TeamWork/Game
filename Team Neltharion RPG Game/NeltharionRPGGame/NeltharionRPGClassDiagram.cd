@@ -6,7 +6,7 @@
       <HashCode>AAQAAAAAAAAAAAIAACgAAAAAAAAgAAAAAAgAAAEAAAA=</HashCode>
       <FileName>Controllers\KeyboardMouseController.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="NeltharionRPGGame.EntryPoint" Collapsed="true">
     <Position X="31.75" Y="3.75" Width="1.5" />
@@ -81,7 +81,7 @@
   <Class Name="NeltharionRPGGame.Structure.Character" Collapsed="true">
     <Position X="5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAQAAAEAAAAAAAAAAAgADAAAAAgAAAAA=</HashCode>
+      <HashCode>AAABAAAAAIAAAQAAAEAAAAAAAAAAAgACAAAAAgAAAAA=</HashCode>
       <FileName>Structure\Creatures\Character.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -176,7 +176,7 @@
       <HashCode>AAAAAAAAACAAAIEAAACAAAACAAAAIIAAAIAAAAAAAEA=</HashCode>
       <FileName>UI\GameWindow.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="NeltharionRPGGame.UI.PaintBrush" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="30" Y="5.75" Width="1.5" />
@@ -184,7 +184,7 @@
       <HashCode>lIACACAAAABEgCIAAABEgBAARACAAAgAAAAAAAAAgAA=</HashCode>
       <FileName>UI\PaintBrush.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="NeltharionRPGGame.IMovable" Collapsed="true">
     <Position X="30" Y="7.75" Width="1.5" />
