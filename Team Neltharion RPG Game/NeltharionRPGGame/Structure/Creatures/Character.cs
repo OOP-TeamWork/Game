@@ -5,11 +5,11 @@ namespace NeltharionRPGGame.Structure
 {
     public abstract class Character : Creature
     {
-        private Weapon[] inventory;
+        private Item[] inventory;
 
         protected Character(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
-            int attackPoints, int movementSpeed, int attackRange, Weapon[] inventory)
+            int attackPoints, int movementSpeed, int attackRange, Item[] inventory)
             : base(x, y, sizeX, sizeY, spriteType, healthPoints,
             defensePoints, attackPoints, movementSpeed, attackRange)
         {
@@ -21,7 +21,7 @@ namespace NeltharionRPGGame.Structure
             inventory[indexInventory] = null;
         }
 
-        public Weapon[] Inventory
+        public Item[] Inventory
         {
             get
             {
@@ -71,7 +71,7 @@ namespace NeltharionRPGGame.Structure
         {
         }
 
-        public bool TryPickAWeapon(Weapon weaponPicked)
+        public bool TryPickAWeapon(Item weaponPicked)
         {
             bool weaponPickedSuccessfully = false;
 

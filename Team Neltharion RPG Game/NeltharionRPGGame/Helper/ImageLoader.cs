@@ -20,6 +20,8 @@ namespace NeltharionRPGGame.Helper
         private const string PoleArmImagePath = "../../Graphics/poleArm.png";
         private const string PotionImagePath = "../../Graphics/potion.png";
         private const string StuffImagePath = "../../Graphics/stuff.png";
+        private const string BucklerImagePath = "../../Graphics/buckler.png";
+        private const string TowerShieldImagePath = "../../Graphics/towerShield.png";
 
         private static Dictionary<SpriteType, Image> GameObjectImages;
 
@@ -40,7 +42,9 @@ namespace NeltharionRPGGame.Helper
                 {SpriteType.Club, Image.FromFile(ClubImagePath)},
                 {SpriteType.DefaultWeapon, Image.FromFile(DefaulthWeaponImagePath)},
                 {SpriteType.RedHeart, Image.FromFile(RedHealthHeartImagePath)},
-                {SpriteType.BlackHeart, Image.FromFile(BlackHealthHeartImagePath)}
+                {SpriteType.BlackHeart, Image.FromFile(BlackHealthHeartImagePath)},
+                {SpriteType.Buckler, Image.FromFile(BucklerImagePath)},
+                {SpriteType.TowerShield, Image.FromFile(TowerShieldImagePath)}
             };
         }
 

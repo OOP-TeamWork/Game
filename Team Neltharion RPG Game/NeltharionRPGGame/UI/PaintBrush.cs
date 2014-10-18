@@ -56,7 +56,7 @@ namespace NeltharionRPGGame.UI
             picBox.Location = newCoordinates;
         }
 
-        public void DrawInventoryBar(Weapon[] weapons)
+        public void DrawInventoryBar(Item[] weapons)
         {
             for (int box = 0; box < WeaponBoxesCount; box++)
             {

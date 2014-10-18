@@ -14,7 +14,7 @@ namespace NeltharionRPGGame.GameEngine
     {
         private PaintBrush painter;
         private List<Creature> creaturesInWorld;
-        private List<Weapon> droppedWeaponsByEnemies;
+        private List<Item> droppedWeaponsByEnemies;
         private Character player;
         private int interval;
 
@@ -43,10 +43,10 @@ namespace NeltharionRPGGame.GameEngine
 
         private void InitializeCharacters()
         {
-            Weapon stuff = new Staff(0, 0);
-            Weapon poleArm = new PoleArm(30, 0);
-            Weapon potion = new Potion(60, 0);
-            Weapon[] weapons = { stuff, poleArm, potion};
+            Item stuff = new Staff(0, 0);
+            Item poleArm = new PoleArm(30, 0);
+            Item potion = new Potion(60, 0);
+            Item[] weapons = { stuff, poleArm, potion};
             var playerCharacter = new Mage(100, 100, weapons);
             var witch = new Witch(650, 150);
             Thread.Sleep(100);
@@ -64,7 +64,7 @@ namespace NeltharionRPGGame.GameEngine
         private void InitializeVariables()
         {
             this.creaturesInWorld = new List<Creature>();
-            this.droppedWeaponsByEnemies = new List<Weapon>();
+            this.droppedWeaponsByEnemies = new List<Item>();
         }
 
         private void RemoveDeadCreatures()
@@ -141,7 +141,7 @@ namespace NeltharionRPGGame.GameEngine
                 if (this.droppedWeaponsByEnemies.Count > 0)
                 {
                     MouseEventArgs userArgs = args as MouseEventArgs;
-                    Weapon weaponPicked = GetWeaponPicked(new Point(userArgs.X, userArgs.Y));
+                    Item weaponPicked = GetWeaponPicked(new Point(userArgs.X, userArgs.Y));
                     bool weapponPickedSuccessfully = this.player.TryPickAWeapon(weaponPicked);
                     if (weapponPickedSuccessfully)
                     {
@@ -173,9 +173,9 @@ namespace NeltharionRPGGame.GameEngine
             };
         }
 
-        private Weapon GetWeaponPicked(Point playerClickPosition)
+        private Item GetWeaponPicked(Point playerClickPosition)
         {
-            Weapon weaponPicked = null;
+            Item weaponPicked = null;
 
             foreach (var weapon in droppedWeaponsByEnemies)
             {

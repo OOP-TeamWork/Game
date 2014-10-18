@@ -4,6 +4,7 @@
     {
         Axe,
         Bow,
+        Buckler,
         Club,
         Pike,
         PoleArm,
@@ -11,6 +12,7 @@
         Mage,
         Witch,
         Fighter,
+        TowerShield,
         Stuff,
         Sword,
         DefaultWeapon,

@@ -1,6 +1,6 @@
 ﻿namespace NeltharionRPGGame.Structure
 {
-    class Pike : Weapon
+    class Pike : Item
     {
         public const SpriteType WeaponSpriteType = SpriteType.Pike;
 

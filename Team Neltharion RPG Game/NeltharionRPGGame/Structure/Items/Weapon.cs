@@ -1,12 +1,12 @@
 ﻿using System.Drawing;
 namespace NeltharionRPGGame.Structure
 {
-    public abstract class Weapon : GameObject
+    public abstract class Item : GameObject
     {
         public const int SizeX = 40;
         public const int SizeY = 40;
 
-        protected Weapon(int x, int y, SpriteType weaponSpriteType)
+        protected Item(int x, int y, SpriteType weaponSpriteType)
             : base(x, y, SizeX, SizeY, weaponSpriteType)
         {
         }

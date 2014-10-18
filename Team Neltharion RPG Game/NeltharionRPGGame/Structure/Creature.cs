@@ -16,12 +16,12 @@ namespace NeltharionRPGGame
         private int movementSpeed;
         private int attackRange;
         private bool isAlive;
-        private Weapon weaponHeld;
+        private Item weaponHeld;
         private SightDirection sightDirection;
 
         protected Creature(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
-            int attackPoints, int movementSpeed, int attackRange, Weapon weaponHeld = null)
+            int attackPoints, int movementSpeed, int attackRange, Item weaponHeld = null)
             : base(x, y, sizeX, sizeY, spriteType)
         {
             this.SpriteType = spriteType;
@@ -156,7 +156,7 @@ namespace NeltharionRPGGame
 
         public bool IsAlive { get; set; }
 
-        public Weapon WeaponHeld { get; set; }
+        public Item WeaponHeld { get; set; }
 
         public SightDirection SightDirection
         {

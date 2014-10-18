@@ -1,6 +1,7 @@
 ﻿using System;
 using NeltharionRPGGame.Helper;
 using NeltharionRPGGame.Interfaces;
+using NeltharionRPGGame.Structure.Items;
 
 namespace NeltharionRPGGame.Structure
 {
@@ -8,11 +9,11 @@ namespace NeltharionRPGGame.Structure
     {
         protected static Random RandomGenerator = new Random();
 
-        private Weapon bonusWeaponHeld;
+        private Item bonusWeaponHeld;
 
         protected Enemy(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
-            int attackPoints, int movementSpeed, int attackRange, Weapon weaponHeld, Weapon bonusWeaponHeld) 
+            int attackPoints, int movementSpeed, int attackRange, Item weaponHeld, Item bonusWeaponHeld) 
             : base(x, y, sizeX, sizeY,
             spriteType, healthPoints, defensePoints,
             attackPoints, movementSpeed, attackRange, weaponHeld)
@@ -33,7 +34,7 @@ namespace NeltharionRPGGame.Structure
             }
         }
 
-        public Weapon BonusWeaponHeld
+        public Item BonusWeaponHeld
         {
             get
             {
@@ -46,7 +47,7 @@ namespace NeltharionRPGGame.Structure
             }
         }
 
-        public Weapon DropBonus()
+        public Item DropBonus()
         {
             return this.bonusWeaponHeld;
         }
@@ -81,12 +82,12 @@ namespace NeltharionRPGGame.Structure
             base.Move();
         }
 
-        public Weapon ChooseRandomWeapon()
+        public Item ChooseRandomWeapon()
         {
-            const int weaponsCount = 8;
+            const int weaponsCount = 10;
             Random rand = new Random();
 
-            Weapon[] weapons = new Weapon[weaponsCount]
+            Item[] weapons = new Item[weaponsCount]
             {
                 new Axe(this.X, this.Y),
                 new Bow(this.X, this.Y),
@@ -95,7 +96,9 @@ namespace NeltharionRPGGame.Structure
                 new PoleArm(this.X, this.Y),
                 new Potion(this.X, this.Y),
                 new Staff(this.X, this.Y),
-                new Sword(this.X, this.Y)
+                new Sword(this.X, this.Y),
+                new Buckler(this.X, this.Y),
+                new TowerShield(this.X, this.Y)
             };
 
             return weapons[rand.Next(0, weaponsCount)];

@@ -12,6 +12,6 @@ namespace NeltharionRPGGame.Interfaces
 
         int AttackPoints { get; set; }
 
-        Weapon UseWeaponHeld();
+        Item UseWeaponHeld();
     }
 }

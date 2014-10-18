@@ -1,6 +1,6 @@
 ﻿namespace NeltharionRPGGame.Structure
 {
-    class PoleArm : Weapon
+    class PoleArm : Item
     {
         public const SpriteType WeaponSpriteType = SpriteType.PoleArm;
 

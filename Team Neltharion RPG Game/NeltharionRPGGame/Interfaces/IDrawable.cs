@@ -10,7 +10,7 @@ namespace NeltharionRPGGame.Interfaces
 
         void RedrawObject(GameObject renderableObject);
 
-        void DrawInventoryBar(Weapon[] weapons);
+        void DrawInventoryBar(Item[] weapons);
 
         void DrawHealthPointsBar(int maxHealthPoints, int healthPoints);
     }

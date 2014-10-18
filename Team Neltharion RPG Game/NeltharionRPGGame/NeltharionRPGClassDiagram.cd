@@ -88,7 +88,7 @@
   <Class Name="NeltharionRPGGame.Structure.Enemy" Collapsed="true">
     <Position X="8.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAJAAAACAAAAAAAAAAAACAAAAAgAAAAAAAgA=</HashCode>
+      <HashCode>AQAAAAAAAJAAAACAAAAAAAAAAAACAAAAAgAAAAAAAgQ=</HashCode>
       <FileName>Structure\Creatures\Enemy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -98,13 +98,6 @@
     <TypeIdentifier>
       <HashCode>AAIAAABAAAAAAAAAAAAAAEAAACAAEAAAAAAgAAACAgA=</HashCode>
       <FileName>Structure\Creatures\Fighter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="NeltharionRPGGame.Structure.Item" Collapsed="true">
-    <Position X="2.75" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAAAA=</HashCode>
-      <FileName>Structure\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Structure.Axe" Collapsed="true">
@@ -163,7 +156,7 @@
       <FileName>Structure\Items\Sword.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeltharionRPGGame.Structure.Weapon" Collapsed="true">
+  <Class Name="NeltharionRPGGame.Structure.Item" Collapsed="true">
     <Position X="19.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAAAAAAAAAIAAAAAAAIAAAAAAAVAAAAA=</HashCode>
