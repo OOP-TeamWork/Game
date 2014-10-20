@@ -47,7 +47,7 @@ namespace NeltharionRPGGame.GameEngine
         {
             Item stuff = new Staff(0, 0);
             Item poleArm = new PoleArm(30, 0);
-            Item potion = new Potion(60, 0);
+            Item potion = new Sword(60, 0);
             Item[] weapons = { stuff, poleArm, potion};
             var playerCharacter = new Mage(100, 100, weapons);
             var witch = new Witch(650, 150);
@@ -98,7 +98,8 @@ namespace NeltharionRPGGame.GameEngine
                 if (creature is Enemy)
                 {
                     Enemy enemy = creature as Enemy;
-                    NextMoveDecision decision = enemy.DecideNextMove();
+                    enemy.aiController.GetPlayerPosition(this.player);
+                    NextMoveDecision decision = enemy.aiController.DecideNextMove();
                     switch (decision)
                     {
                         case NextMoveDecision.Move:
@@ -145,12 +146,12 @@ namespace NeltharionRPGGame.GameEngine
                 if (this.allBonusesDroppedByEnemiesCopy.Count > 0)
                 {
                     MouseEventArgs userArgs = args as MouseEventArgs;
-                    Item weaponPicked = GetWeaponPicked(new Point(userArgs.X, userArgs.Y));
-                    bool weapponPickedSuccessfully = this.player.TryPickAWeapon(weaponPicked);
-                    if (weapponPickedSuccessfully)
+                    Item itemPicked = GetItemPicked(new Point(userArgs.X, userArgs.Y));
+                    bool item = this.player.TryPickAnItem(itemPicked);
+                    if (item)
                     {
-                        this.painter.RemoveObject(weaponPicked);
-                        this.allBonusesDroppedByEnemiesCopy.Remove(weaponPicked);
+                        this.painter.RemoveObject(itemPicked);
+                        this.allBonusesDroppedByEnemiesCopy.Remove(itemPicked);
                     }
                 }
             };
@@ -177,7 +178,7 @@ namespace NeltharionRPGGame.GameEngine
             };
         }
 
-        private Item GetWeaponPicked(Point playerClickPosition)
+        private Item GetItemPicked(Point playerClickPosition)
         {
             Item weaponPicked = null;
 

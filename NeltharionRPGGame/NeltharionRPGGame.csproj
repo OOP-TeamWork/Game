@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\ArtificialIntelligence.cs" />
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="Helper\GlobalData.cs" />
     <Compile Include="Helper\ImageLoader.cs" />

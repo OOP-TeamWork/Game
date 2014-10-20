@@ -1,13 +1,16 @@
 ﻿using System;
+using NeltharionRPGGame.AI;
 using NeltharionRPGGame.Helper;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure.Items;
 
 namespace NeltharionRPGGame.Structure
 {
-    public abstract class Enemy : Creature, IArtificialIntelligence
+    public abstract class Enemy : Creature
     {
         protected static Random RandomGenerator = new Random();
+
+        public ArtificialIntelligence aiController;
 
         private Item bonusWeaponHeld;
 
@@ -19,6 +22,7 @@ namespace NeltharionRPGGame.Structure
             attackPoints, movementSpeed, attackRange, weaponHeld)
         {
             this.BonusWeaponHeld = bonusWeaponHeld;
+            this.aiController = new ArtificialIntelligence(this);
         }
 
         public new bool IsAlive
@@ -52,32 +56,32 @@ namespace NeltharionRPGGame.Structure
             return this.bonusWeaponHeld;
         }
 
-        public abstract NextMoveDecision DecideNextMove();
-
         public override void Move()
         {
-            int nextRandomXPosition = RandomGenerator.Next(-1, 2);
-            int nextRandomYPosition = RandomGenerator.Next(-1, 2);
+            int nextRandomXPosition = 0;
+            int nextRandomYPosition = 0;
+            this.aiController.DecideNextPosition(out nextRandomXPosition, out nextRandomYPosition);
+            this.DirX = nextRandomXPosition;
+            this.DirY = nextRandomYPosition;
+            //if ((this.X + nextRandomXPosition) < (GlobalData.WindowWidth - this.SizeY) &&
+            //    this.X + nextRandomXPosition > 0)
+            //{
+            //    this.DirX = nextRandomXPosition;
+            //}
+            //else
+            //{
+            //    this.DirX = 0;
+            //}
 
-            if ((this.X + nextRandomXPosition) < (GlobalData.WindowWidth - this.SizeY) &&
-                this.X + nextRandomXPosition > 0)
-            {
-                this.DirX = nextRandomXPosition;
-            }
-            else
-            {
-                this.DirX = 0;
-            }
-
-            if ((this.Y + nextRandomYPosition) < (GlobalData.WindowHeight - this.SizeX) &&
-                this.Y + nextRandomYPosition > 0)
-            {
-                this.DirY = nextRandomYPosition;
-            }
-            else
-            {
-                this.DirY = 0;
-            }
+            //if ((this.Y + nextRandomYPosition) < (GlobalData.WindowHeight - this.SizeX) &&
+            //    this.Y + nextRandomYPosition > 0)
+            //{
+            //    this.DirY = nextRandomYPosition;
+            //}
+            //else
+            //{
+            //    this.DirY = 0;
+            //}
             
             base.Move();
         }

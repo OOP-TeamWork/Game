@@ -71,24 +71,33 @@ namespace NeltharionRPGGame.Structure
         {
         }
 
-        public bool TryPickAWeapon(Item weaponPicked)
+        public bool TryPickAnItem(Item itemPicked)
         {
-            bool weaponPickedSuccessfully = false;
+            bool itemPickedSuccessfully = false;
 
-            if (weaponPicked != null)
+            if (itemPicked != null)
             {
-                for (int weapon = 0; weapon < this.inventory.Length; weapon++)
+                if (!(itemPicked is Potion))
                 {
-                    if (this.inventory[weapon] == null)
+                    for (int weapon = 0; weapon < this.inventory.Length; weapon++)
                     {
-                        this.inventory[weapon] = weaponPicked;
-                        weaponPickedSuccessfully = true;
-                        break;
+                        if (this.inventory[weapon] == null)
+                        {
+                            this.inventory[weapon] = itemPicked;
+                            itemPickedSuccessfully = true;
+                            break;
+                        }
                     }
+                }
+                else
+                {
+                    // Use Potion
+                    // TODO
+                    itemPickedSuccessfully = true;
                 }
             }
 
-            return weaponPickedSuccessfully;
+            return itemPickedSuccessfully;
         }
     }
 }
