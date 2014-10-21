@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using NeltharionRPGGame.Structure.Spells;
+using NeltharionRPGGame.Structure.Items.Potions;
 
-namespace NeltharionRPGGame.Structure.Creatures
+namespace NeltharionRPGGame.Structure
 {
     public abstract class Character : Creature
     {
@@ -16,10 +15,12 @@ namespace NeltharionRPGGame.Structure.Creatures
             defensePoints, attackPoints, movementSpeed, attackRange)
         {
             this.Inventory = inventory;
-            Spells = new List<Spell>();
-        }   
+        }
 
-        List<Spell> Spells { get; set; }
+        public void DropWeapon(int indexInventory)
+        {
+            inventory[indexInventory] = null;
+        }
 
         public Item[] Inventory
         {
@@ -34,11 +35,6 @@ namespace NeltharionRPGGame.Structure.Creatures
             }
         }
 
-        public void DropWeapon(int indexInventory)
-        {
-            inventory[indexInventory] = null;
-        }
-
         public override void Move()
         {
             Timer asd = new Timer();
@@ -47,7 +43,7 @@ namespace NeltharionRPGGame.Structure.Creatures
             asd.Start();
 
             base.UpdateSightDirection();   
-            UpdateSpriteDirection();
+            base.UpdateSpriteDirection();
         }
 
         private void TakeASingleStepToDestination(object obj, EventArgs e)
@@ -77,6 +73,8 @@ namespace NeltharionRPGGame.Structure.Creatures
         {
         }
 
+
+
         public bool TryPickAnItem(Item itemPicked)
         {
             bool itemPickedSuccessfully = false;
@@ -97,8 +95,7 @@ namespace NeltharionRPGGame.Structure.Creatures
                 }
                 else
                 {
-                    // Use Potion
-                    // TODO
+                    UsePotion(itemPicked as Potion);
                     itemPickedSuccessfully = true;
                 }
             }
@@ -106,19 +103,19 @@ namespace NeltharionRPGGame.Structure.Creatures
             return itemPickedSuccessfully;
         }
 
-        public Spell CastSpell(int spellNumber, int mouseX, int mouseY)
+        private void UsePotion(Potion potion)
         {
+            if (potion is HealthPotion)
             {
-                Spell spell = null;
-                switch (spellNumber)
-                {
-                    case 0:
-                        spell = new BurningGround(mouseX, mouseY, this);
-                        break;
-                    default:
-                        break;
-                }
-                return spell;
+                base.HealthPoints += potion.ReturnBonusEffect();
+            }
+            else if (potion is DefencePotion)
+            {
+                base.DefensePoints += potion.ReturnBonusEffect();
+            }
+            else
+            {
+                base.AttackPoints += potion.ReturnBonusEffect();
             }
         }
     }

@@ -1,9 +1,8 @@
 ﻿using System;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
-using NeltharionRPGGame.Structure.Creatures;
 
-namespace NeltharionRPGGame.Controllers
+namespace NeltharionRPGGame.AI
 {
     public class ArtificialIntelligence : IArtificialIntelligence
     {

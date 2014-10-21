@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using NeltharionRPGGame.Helper;
 using NeltharionRPGGame.Interfaces;
 
 namespace NeltharionRPGGame.Controllers
@@ -13,7 +12,6 @@ namespace NeltharionRPGGame.Controllers
         public event EventHandler OnKeyTwoPressed;
         public event EventHandler OnKeyThreePressed;
         public event EventHandler OnSpacePressed; //  This Event is only for debugging usage
-        public event EventHandler OnQPressed;
 
         public KeyboardMouseController(Form form)
         {
@@ -42,11 +40,9 @@ namespace NeltharionRPGGame.Controllers
             }
         }
 
-        private void FormKeyPressed(object sender, EventArgs e)
+        private void FormKeyPressed(object sender, KeyEventArgs e)
         {
-            KeyEventArgs keyArgs = e as KeyEventArgs;
-
-            switch (keyArgs.KeyCode)
+            switch (e.KeyCode)
             {
                 case Keys.D1:
                     if (OnKeyOnePressed != null)
@@ -71,15 +67,6 @@ namespace NeltharionRPGGame.Controllers
                     {
                         this.OnSpacePressed(this, new EventArgs());
                     }
-                    break;   
-                case Keys.Q:
-                    if (OnQPressed != null)
-                    {
-                        this.OnQPressed(this, new SpellCastEventArgs(Cursor.Position.X - GlobalGameData.OffsetX,
-                            Cursor.Position.Y - GlobalGameData.OffsetY));
-                    }
-                    break;
-                default:
                     break;
             }
         }

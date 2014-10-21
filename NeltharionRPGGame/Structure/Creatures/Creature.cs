@@ -1,4 +1,6 @@
-﻿namespace NeltharionRPGGame.Structure.Creatures
+﻿using NeltharionRPGGame.Structure;
+
+namespace NeltharionRPGGame
 {
     public abstract class Creature : GameObject, IMovable
     {
@@ -211,7 +213,17 @@
             }
         }
 
-        protected abstract void UpdateSpriteDirection();
+        protected void UpdateSpriteDirection()
+        {
+            if (this.SightDirection == SightDirection.Left)
+            {
+                this.SpriteType = SpriteType.MageLeft;
+            }
+            else if (this.SightDirection == SightDirection.Right)
+            {
+                this.SpriteType = SpriteType.MageRight;
+            }
+        }
     }
 }
                                    

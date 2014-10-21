@@ -10,6 +10,5 @@ namespace NeltharionRPGGame.Interfaces
         event EventHandler OnKeyTwoPressed;
         event EventHandler OnKeyThreePressed;
         event EventHandler OnSpacePressed;
-        event EventHandler OnQPressed;
     }
 }
