@@ -44,7 +44,7 @@ namespace NeltharionRPGGame.UI
             var newCoordinates = new Point(objectToBeRedrawn.X, objectToBeRedrawn.Y);
             var picBox = GetPictureBoxByObject(objectToBeRedrawn);
 
-            picBox.Location = newCoordinates;
+            picBox.Location = newCoordinates;             
         }
 
         public void DrawInventoryBar(Item[] weapons)
@@ -97,8 +97,11 @@ namespace NeltharionRPGGame.UI
                     break;
                 }
             }
-
-            objPicBox.Image = ImageLoader.GetObjectImage(renderableObject.SpriteType);
+            
+            if (objPicBox != null)
+            {
+                objPicBox.Image = ImageLoader.GetObjectImage(renderableObject.SpriteType);  
+            }
 
             return objPicBox;
         }

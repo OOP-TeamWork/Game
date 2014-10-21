@@ -41,11 +41,6 @@ namespace NeltharionRPGGame.UI
         private void OnTimerTick(object sender, EventArgs e)
         {
             this.gameEngine.PlayNextTurn();
-            this.Text = gameEngine.player.HealthPoints.ToString();
-            this.Text += "   ";
-            this.Text += gameEngine.player.DefensePoints.ToString();
-            this.Text += "   ";
-            this.Text += gameEngine.player.AttackPoints.ToString();
         }
 
         public bool PreFilterMessage(ref Message m)

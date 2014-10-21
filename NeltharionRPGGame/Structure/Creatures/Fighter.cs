@@ -1,4 +1,4 @@
-﻿namespace NeltharionRPGGame.Structure
+﻿namespace NeltharionRPGGame.Structure.Creatures
 {
     class Fighter : Enemy
     {
@@ -16,6 +16,18 @@
             FighterHealthPoints, FighterDefensePoints, FighterAttackPoints, FighterMovementSpeed,
             FighterAttackRange, new Sword(0, 0))
         {
+        }
+
+        protected override void UpdateSpriteDirection()
+        {
+            if (this.SightDirection == SightDirection.Left)
+            {
+                this.SpriteType = SpriteType.FighterLeft;
+            }
+            else
+            {
+                this.SpriteType = SpriteType.FighterRight;
+            }
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using NeltharionRPGGame.Structure;
-
-namespace NeltharionRPGGame
+﻿namespace NeltharionRPGGame.Structure.Creatures
 {
     public class Mage : Character
     {
@@ -10,7 +8,7 @@ namespace NeltharionRPGGame
         public const int MageDefensePoints = 50;
         public const int MageAttackPoints = 150;
         public const int MageMovementSpeed = 10;
-        public const int MageAttackRange = 250;
+        public const int MageAttackRange = 550;
         public const SpriteType MageSpriteType = SpriteType.MageRight;
 
         public Mage(int x, int y, Item[] inventory)
@@ -19,5 +17,19 @@ namespace NeltharionRPGGame
         {
             base.SightDirection = SightDirection.Right;
         }
+
+        protected override void UpdateSpriteDirection()
+        {
+            if (this.SightDirection == SightDirection.Left)
+            {
+                this.SpriteType = SpriteType.MageLeft;
+            }
+            else
+            {
+                this.SpriteType = SpriteType.MageRight;
+            }
+        }
+
+        
     }
 }

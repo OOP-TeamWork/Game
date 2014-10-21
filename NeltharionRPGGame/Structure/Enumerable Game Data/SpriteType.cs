@@ -11,7 +11,8 @@
         Potion,
         MageRight,
         MageLeft,
-        Witch,
+        WitchLeft,
+        WitchRight,
         FighterRight,
         FighterLeft,
         TowerShield,
@@ -19,9 +20,7 @@
         Sword,
         DefaultWeapon,
         RedHeart,
-        HealthPotion,
-        AttackPotion,
-        DefensePotion,
-        BlackHeart
+        BlackHeart,
+        BurningGround
     }
 }

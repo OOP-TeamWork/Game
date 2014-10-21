@@ -15,6 +15,10 @@ namespace NeltharionRPGGame.Helper
         public const int HealthPointsBoxesSizeX = 40;
         public const int HealthPointsBoxesSizeY = 40;
 
+        // Spellcast offset
+        public const int OffsetX = 128;
+        public const int OffsetY = 90;
+
         static GlobalGameData()
         {
             Form currentGameWindow = Application.OpenForms.Cast<Form>().FirstOrDefault();
