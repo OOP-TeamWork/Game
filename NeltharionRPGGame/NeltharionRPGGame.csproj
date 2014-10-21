@@ -48,6 +48,7 @@
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="Helper\GlobalGameData.cs" />
     <Compile Include="Helper\ImageLoader.cs" />
+    <Compile Include="Helper\ItemGenerator.cs" />
     <Compile Include="Interfaces\IArtificialIntelligence.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IMovable.cs" />

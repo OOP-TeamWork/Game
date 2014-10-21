@@ -52,10 +52,7 @@ namespace NeltharionRPGGame.GameEngine
 
         private void InitializeCreatures()
         {
-            Item staff = new Staff(0, 0);
-            Item poleArm = new PoleArm(30, 0);
-            Item potion = new Sword(60, 0);
-            Item[] weapons = { staff, poleArm, potion};
+            Item[] weapons = { null, null, null };
 
             var playerCharacter = new Mage(100, 100, weapons);
             player = playerCharacter;
@@ -64,9 +61,15 @@ namespace NeltharionRPGGame.GameEngine
             var witch = new Witch(650, 150);
             Thread.Sleep(100);
             var witch2 = new Witch(350, 150);
+            Thread.Sleep(100);
+            var witch3 = new Witch(250, 450);
+            Thread.Sleep(100);
+            var witch4 = new Witch(150, 250);
 
             creaturesInWorld.Add(witch);
             creaturesInWorld.Add(witch2);
+            creaturesInWorld.Add(witch3);
+            creaturesInWorld.Add(witch4);
 
             var fighetr = new Fighter(300, 300);
             var fighetr1 = new Fighter(200, 320);
