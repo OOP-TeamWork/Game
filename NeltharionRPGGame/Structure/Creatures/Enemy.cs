@@ -1,10 +1,8 @@
 ﻿using System;
-using NeltharionRPGGame.AI;
-using NeltharionRPGGame.Helper;
-using NeltharionRPGGame.Interfaces;
+using NeltharionRPGGame.Controllers;
 using NeltharionRPGGame.Structure.Items;
 
-namespace NeltharionRPGGame.Structure
+namespace NeltharionRPGGame.Structure.Creatures
 {
     public abstract class Enemy : Creature
     {

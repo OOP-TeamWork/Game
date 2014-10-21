@@ -11,6 +11,7 @@ namespace NeltharionRPGGame.Helper
         private const string MageImagePath = DirPath + "mage.png";
         private const string MageFlippedImagePath = DirPath + "mage-flipped.png";
         private const string WitchImagePath = DirPath + "witch.png";
+        private const string WitchFlippedImagePath = DirPath + "witch-flipped.png";
         private const string FighterImagePath = DirPath + "fighter.png";
         private const string FighterFlippedImagePath = DirPath + "fighter-flipped.png";
         private const string SwordImagePath = DirPath + "sword.png";
@@ -26,6 +27,7 @@ namespace NeltharionRPGGame.Helper
         private const string StuffImagePath = DirPath + "staff.png";
         private const string BucklerImagePath = DirPath + "buckler.png";
         private const string TowerShieldImagePath = DirPath + "towerShield.png";
+        private const string BurningGroundSpellImage = DirPath + "fire.png";
 
         private static readonly Dictionary<SpriteType, Image> GameObjectImages;
 
@@ -35,7 +37,8 @@ namespace NeltharionRPGGame.Helper
             {
                 {SpriteType.MageRight, Image.FromFile(MageImagePath)},
                 {SpriteType.MageLeft, Image.FromFile(MageFlippedImagePath)},
-                {SpriteType.Witch, Image.FromFile(WitchImagePath)},
+                {SpriteType.WitchLeft, Image.FromFile(WitchImagePath)},
+                {SpriteType.WitchRight, Image.FromFile(WitchFlippedImagePath)},
                 {SpriteType.FighterRight, Image.FromFile(FighterImagePath)},
                 {SpriteType.FighterLeft, Image.FromFile(FighterFlippedImagePath)},
                 {SpriteType.Sword, Image.FromFile(SwordImagePath)},
@@ -50,7 +53,8 @@ namespace NeltharionRPGGame.Helper
                 {SpriteType.RedHeart, Image.FromFile(RedHealthHeartImagePath)},
                 {SpriteType.BlackHeart, Image.FromFile(BlackHealthHeartImagePath)},
                 {SpriteType.Buckler, Image.FromFile(BucklerImagePath)},
-                {SpriteType.TowerShield, Image.FromFile(TowerShieldImagePath)}
+                {SpriteType.TowerShield, Image.FromFile(TowerShieldImagePath)},
+                {SpriteType.BurningGround, Image.FromFile(BurningGroundSpellImage)}
             };
         }
 

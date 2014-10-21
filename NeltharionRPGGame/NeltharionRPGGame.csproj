@@ -52,6 +52,8 @@
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="Interfaces\ICreature.cs" />
+    <Compile Include="Interfaces\ITimeoutable.cs" />
+    <Compile Include="Structure\Spells\BurningGround.cs" />
     <Compile Include="Structure\Items\Axe.cs" />
     <Compile Include="Structure\Items\Bow.cs" />
     <Compile Include="Structure\Creatures\Character.cs" />
@@ -73,6 +75,9 @@
     <Compile Include="Structure\Items\Sword.cs" />
     <Compile Include="Structure\Items\TowerShield.cs" />
     <Compile Include="Structure\Items\Weapon.cs" />
+    <Compile Include="Structure\Spells\Spell.cs" />
+    <Compile Include="Controllers\SpellCastEventArgs.cs" />
+    <Compile Include="Structure\Spells\SpellType.cs" />
     <Compile Include="UI\PaintBrush.cs" />
     <Compile Include="UI\GameWindow.cs">
       <SubType>Form</SubType>

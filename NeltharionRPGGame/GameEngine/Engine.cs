@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using NeltharionRPGGame.Controllers;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
+using NeltharionRPGGame.Structure.Creatures;
+using NeltharionRPGGame.Structure.Spells;
 using NeltharionRPGGame.UI;
 using System.Drawing;
 
@@ -16,7 +19,8 @@ namespace NeltharionRPGGame.GameEngine
         private List<Item> newBonusesDroppedByEnemies;
         private List<Item> allBonusesDroppedByEnemiesCopy;
         private Character player;
-        private int interval;
+        private List<Spell> spellList;
+        private int interval = GameWindow.RefreshInterval;
 
         public void InitializeWorld(IInputInterface controller, PaintBrush painter)
         {
@@ -33,9 +37,10 @@ namespace NeltharionRPGGame.GameEngine
 
         public void PlayNextTurn()
         {
+            ProcessSpellBehavior();
             GetBonusesFromDeadEnemies();
             RemoveDeadCreatures();
-            ProcessArtificialIntelligentCreatures();
+            ProcessArtificialIntelligenceCreatures();
 
             this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
             this.painter.DrawInventoryBar(this.player.Inventory);
@@ -73,6 +78,7 @@ namespace NeltharionRPGGame.GameEngine
             this.creaturesInWorld = new List<Creature>();
             this.newBonusesDroppedByEnemies = new List<Item>();
             this.allBonusesDroppedByEnemiesCopy = new List<Item>();
+            this.spellList = new List<Spell>();
         }
 
         private void RemoveDeadCreatures()
@@ -90,16 +96,16 @@ namespace NeltharionRPGGame.GameEngine
             {
                 if (creature is Enemy && !creature.IsAlive)
                 {
-                    Enemy creatureAsenemy = creature as Enemy;
+                    Enemy enemy = creature as Enemy;
 
-                    this.newBonusesDroppedByEnemies.Add(creatureAsenemy.DropBonus());
+                    this.newBonusesDroppedByEnemies.Add(enemy.DropBonus());
                 }
             }
 
             this.allBonusesDroppedByEnemiesCopy.AddRange(this.newBonusesDroppedByEnemies);
         }
 
-        private void ProcessArtificialIntelligentCreatures()
+        private void ProcessArtificialIntelligenceCreatures()
         {
             foreach (Creature creature in this.creaturesInWorld)
             {
@@ -143,11 +149,11 @@ namespace NeltharionRPGGame.GameEngine
             {
                 this.MovePlayer(args);
                 // Process Weapon Usage(this.player);
-                Witch withch = this.creaturesInWorld[1] as Witch;
+                Witch witch = this.creaturesInWorld[1] as Witch;
 
-                if (withch != null)
+                if (witch != null)
                 {
-                    withch.UpdateHealthPoints(-320);
+                    witch.UpdateHealthPoints(-320);
                 }
             };
 
@@ -187,6 +193,73 @@ namespace NeltharionRPGGame.GameEngine
             {
                 PlayNextTurn();
             };
+
+            userInteface.OnQPressed += (sender, args) =>
+            {
+                var spellArgs = args as SpellCastEventArgs;
+                this.CastPlayerSpell(0, spellArgs.CastX, spellArgs.CastY);
+            };
+        }
+
+        private void CastPlayerSpell(int number, int spellX, int spellY)
+        {
+            var spell = this.player.CastSpell(0, spellX, spellY);
+            ProcessSpellCast(spell);
+        }
+
+        private void ProcessSpellCast(Spell spell)
+        {
+            var caster = spell.Caster;
+            int spellDistance = GetDistance(caster.X, caster.Y, spell.X, spell.Y);
+
+            if (spellDistance <= caster.AttackRange)
+            {
+                // damage dealing not implemented
+                this.painter.AddObject(spell);
+                this.spellList.Add(spell);
+            }
+        }
+
+        private void ProcessSpellBehavior()
+        {
+            foreach (var spell in this.spellList)
+            {
+                ProcessSpellTimeout(spell);
+            }
+        }
+
+        private void ProcessSpellTimeout(Spell spell)
+        {
+            spell.CurrentTimeout += interval;
+
+            if (spell.HasTimedOut)
+            {
+                this.painter.RemoveObject(spell);
+            }
+        }
+
+        public bool IsWithinRange(IGameObject objectA, IGameObject objectB)
+        {
+            int objectAX1 = objectA.X;
+            int objectAY1 = objectA.Y;
+            int objectAX2 = objectAX1 + objectA.SizeX;
+            int objectAY2 = objectAY1 + objectA.SizeY;
+
+            int objectBX1 = objectB.X;
+            int objectBY1 = objectB.Y;
+            int objectBX2 = objectBX1 + objectB.SizeX;
+            int objectBY2 = objectBY1 + objectB.SizeY;
+
+            return objectAX1 < objectBX2
+                && objectAX2 > objectBX1
+                && objectAY1 < objectBY2
+                && objectAY2 > objectBY1;
+        }
+
+        public int GetDistance(int x1, int y1, int x2, int y2)
+        {
+            return (int)
+                Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
         }
 
         private Item GetItemPicked(Point playerClickPosition)
