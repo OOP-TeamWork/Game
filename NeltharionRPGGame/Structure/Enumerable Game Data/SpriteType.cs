@@ -21,6 +21,9 @@
         DefaultWeapon,
         RedHeart,
         BlackHeart,
-        BurningGround
+        BurningGround,
+        HealthPotion,
+        AttackPotion,
+        DefensePotion
     }
 }

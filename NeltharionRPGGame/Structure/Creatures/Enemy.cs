@@ -1,6 +1,7 @@
 ﻿using System;
 using NeltharionRPGGame.Controllers;
 using NeltharionRPGGame.Structure.Items;
+using NeltharionRPGGame.Structure.Items.Potions;
 
 namespace NeltharionRPGGame.Structure.Creatures
 {
@@ -42,7 +43,7 @@ namespace NeltharionRPGGame.Structure.Creatures
 
         public Item ChooseRandomWeapon()
         {
-            const int weaponsCount = 10;
+            const int weaponsCount = 12;
             Random rand = new Random();
 
             Item[] weapons = new Item[weaponsCount]
@@ -52,7 +53,9 @@ namespace NeltharionRPGGame.Structure.Creatures
                 new Club(this.X, this.Y),
                 new Pike(this.X, this.Y),
                 new PoleArm(this.X, this.Y),
-                new Potion(this.X, this.Y),
+                new HealthPotion(this.X, this.Y), 
+                new DefencePotion(this.X, this.Y),
+                new AttackPotion(this.X, this.Y), 
                 new Staff(this.X, this.Y),
                 new Sword(this.X, this.Y),
                 new Buckler(this.X, this.Y),

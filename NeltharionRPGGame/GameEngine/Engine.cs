@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using NeltharionRPGGame.Controllers;
 using NeltharionRPGGame.Interfaces;
@@ -18,7 +19,7 @@ namespace NeltharionRPGGame.GameEngine
         private List<Creature> creaturesInWorld;
         private List<Item> newBonusesDroppedByEnemies;
         private List<Item> allBonusesDroppedByEnemiesCopy;
-        private Character player;
+        public Character player; // Public modifier for test only
         private List<Spell> spellList;
         private int interval = GameWindow.RefreshInterval;
 
@@ -61,6 +62,7 @@ namespace NeltharionRPGGame.GameEngine
             creaturesInWorld.Add(player);
 
             var witch = new Witch(650, 150);
+            Thread.Sleep(100);
             var witch2 = new Witch(350, 150);
 
             creaturesInWorld.Add(witch);

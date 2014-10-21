@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using NeltharionRPGGame.Structure.Spells;
+using NeltharionRPGGame.Structure.Items.Potions;
 
 namespace NeltharionRPGGame.Structure.Creatures
 {
@@ -97,8 +98,7 @@ namespace NeltharionRPGGame.Structure.Creatures
                 }
                 else
                 {
-                    // Use Potion
-                    // TODO
+                    UsePotion(itemPicked as Potion);
                     itemPickedSuccessfully = true;
                 }
             }
@@ -119,6 +119,22 @@ namespace NeltharionRPGGame.Structure.Creatures
                         break;
                 }
                 return spell;
+            }
+        }
+
+        private void UsePotion(Potion potion)
+        {
+            if (potion is HealthPotion)
+            {
+                base.HealthPoints += potion.ReturnBonusEffect();
+            }
+            else if (potion is DefencePotion)
+            {
+                base.DefensePoints += potion.ReturnBonusEffect();
+            }
+            else
+            {
+                base.AttackPoints += potion.ReturnBonusEffect();
             }
         }
     }
