@@ -10,29 +10,18 @@ namespace NeltharionRPGGame.UI
 {
     public class PaintBrush : IDrawable
     {
-        // Weapon Bar Data
-        private const int WeaponBoxSizeX = 40;
-        private const int WeaponBoxSizeY = 40;
-        private const int WeaponBoxesCount = 3;
-
-        // Health Points Bar Data
-        private const int HealthPointsBoxesCount = 3;
-        private const int HeallthPointsBoxesSizeX = 40;
-        private const int HeallthPointsBoxesSizeY = 40;
-
-        private List<PictureBox> pictureBoxes;
+        private Dictionary<GameObject, PictureBox> pictureBoxes;
         private GameWindow gameWindow;
         private PictureBox[] weaponBoxes;
         private PictureBox[] healthPointsBoxes;
 
-        public List<PictureBox> PictureBoxes { get; private set; }
-
         public void InitializeField(GameWindow window)
         {
             this.gameWindow = window;
-            this.pictureBoxes = new List<PictureBox>();
-            this.weaponBoxes = new PictureBox[WeaponBoxesCount];
-            this.healthPointsBoxes = new PictureBox[HealthPointsBoxesCount];
+            this.pictureBoxes = new Dictionary<GameObject, PictureBox>();
+            this.weaponBoxes = new PictureBox[GlobalGameData.WeaponBoxesCount];
+            this.healthPointsBoxes = new PictureBox[GlobalGameData.HealthPointsBoxesCount];
+
             CreateInventoryBar();
             CreateHealthPointsBar();
         }
@@ -45,20 +34,22 @@ namespace NeltharionRPGGame.UI
         public void RemoveObject(GameObject renderableObject)
         {
             var picBox = GetPictureBoxByObject(renderableObject);
+
             this.gameWindow.Controls.Remove(picBox);
-            this.pictureBoxes.Remove(picBox);
+            this.pictureBoxes.Remove(renderableObject);
         }
 
         public void RedrawObject(GameObject objectToBeRedrawn)
         {
             var newCoordinates = new Point(objectToBeRedrawn.X, objectToBeRedrawn.Y);
             var picBox = GetPictureBoxByObject(objectToBeRedrawn);
+
             picBox.Location = newCoordinates;
         }
 
         public void DrawInventoryBar(Item[] weapons)
         {
-            for (int box = 0; box < WeaponBoxesCount; box++)
+            for (int box = 0; box < GlobalGameData.WeaponBoxesCount; box++)
             {
                 if (weapons[box] != null)
                 {
@@ -75,7 +66,7 @@ namespace NeltharionRPGGame.UI
 
         public void DrawHealthPointsBar(int maxHealthPoints, int healthPoints)
         {
-            int firstHearthMaxValue = maxHealthPoints/HealthPointsBoxesCount;
+            int firstHearthMaxValue = maxHealthPoints / GlobalGameData.HealthPointsBoxesCount;
             int secondHearthMaxValue = firstHearthMaxValue * 2;
 
             if (healthPoints > secondHearthMaxValue)
@@ -96,19 +87,32 @@ namespace NeltharionRPGGame.UI
 
         private PictureBox GetPictureBoxByObject(IRenderable renderableObject)
         {
-            return this.pictureBoxes.First(p => p.Tag == renderableObject);
+            PictureBox objPicBox = null;
+
+            foreach (KeyValuePair<GameObject, PictureBox> pictureBox in pictureBoxes)
+            {
+                if (pictureBox.Key == renderableObject)
+                {      
+                    objPicBox = pictureBox.Value;
+                    break;
+                }
+            }
+
+            objPicBox.Image = ImageLoader.GetObjectImage(renderableObject.SpriteType);
+
+            return objPicBox;
         }
 
         private void CreateInventoryBar()
         {
             PictureBox weaponBox;
 
-            for (int field = 0; field < WeaponBoxesCount; field++)
+            for (int field = 0; field < GlobalGameData.WeaponBoxesCount; field++)
             {
                 weaponBox = new PictureBox();
 
-                int leftGameFieldOffset = field*WeaponBoxSizeX;
-                weaponBox.Size = new Size(WeaponBoxSizeX, WeaponBoxSizeY);
+                int leftGameFieldOffset = field * GlobalGameData.WeaponBoxSizeX;
+                weaponBox.Size = new Size(GlobalGameData.WeaponBoxSizeX, GlobalGameData.WeaponBoxSizeY);
                 weaponBox.Location = new Point(leftGameFieldOffset, 0);
                 weaponBox.Parent = this.gameWindow;
                 this.weaponBoxes[field] = weaponBox;
@@ -120,15 +124,15 @@ namespace NeltharionRPGGame.UI
         private void CreateHealthPointsBar()
         {
             PictureBox healthPointsBox;
-            int leftGameeFieldOffset = WeaponBoxSizeX * WeaponBoxesCount + 10;
+            int leftGameeFieldOffset = GlobalGameData.WeaponBoxSizeX * GlobalGameData.WeaponBoxesCount + 10;
 
-            for (int box = 0; box < HealthPointsBoxesCount; box++)
+            for (int box = 0; box < GlobalGameData.HealthPointsBoxesCount; box++)
             {
-                int boxXCoordinate = leftGameeFieldOffset + HeallthPointsBoxesSizeX * box;
+                int boxXCoordinate = leftGameeFieldOffset + GlobalGameData.HealthPointsBoxesSizeX * box;
 
                 healthPointsBox = new PictureBox();
                 healthPointsBox.Size = new Size(
-                    HeallthPointsBoxesSizeX, HeallthPointsBoxesSizeY);
+                    GlobalGameData.HealthPointsBoxesSizeX, GlobalGameData.HealthPointsBoxesSizeY);
                 healthPointsBox.Location = new Point(boxXCoordinate, 0);
                 healthPointsBox.Parent = this.gameWindow;
                 healthPointsBoxes[box] = healthPointsBox;
@@ -149,8 +153,8 @@ namespace NeltharionRPGGame.UI
             picBox.Size = new Size(renderableObject.SizeX, renderableObject.SizeY);
             picBox.Tag = renderableObject;
 
-            this.pictureBoxes.Add(picBox);
+            this.pictureBoxes.Add(renderableObject, picBox);
             this.gameWindow.Controls.Add(picBox);
-        } 
+        }
     }
 }

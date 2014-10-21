@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
@@ -24,9 +23,9 @@ namespace NeltharionRPGGame.GameEngine
             this.painter = painter;
             InitializeVariables();
             SubscribeToUserInput(controller);
-            InitializeCharacters();
-            creaturesInWorld
-                .ForEach(creature => this.painter.AddObject(creature));
+            InitializeCreatures();
+
+            creaturesInWorld.ForEach(creature => this.painter.AddObject(creature));
             this.painter.DrawInventoryBar(player.Inventory);
             this.painter.DrawHealthPointsBar(
                 player.MaximumHealthPoints, player.HealthPoints);
@@ -37,28 +36,34 @@ namespace NeltharionRPGGame.GameEngine
             GetBonusesFromDeadEnemies();
             RemoveDeadCreatures();
             ProcessArtificialIntelligentCreatures();
+
             this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
             this.painter.DrawInventoryBar(this.player.Inventory);
             this.newBonusesDroppedByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
+
             this.newBonusesDroppedByEnemies.Clear();
         }
 
-        private void InitializeCharacters()
+        private void InitializeCreatures()
         {
-            Item stuff = new Staff(0, 0);
+            Item staff = new Staff(0, 0);
             Item poleArm = new PoleArm(30, 0);
             Item potion = new Sword(60, 0);
-            Item[] weapons = { stuff, poleArm, potion};
+            Item[] weapons = { staff, poleArm, potion};
+
             var playerCharacter = new Mage(100, 100, weapons);
-            var witch = new Witch(650, 150);
-            Thread.Sleep(100);
-            var witch2 = new Witch(350, 150);
-            var fighetr = new Fighter(300, 300);
-            var fighetr1 = new Fighter(200, 320);
             player = playerCharacter;
             creaturesInWorld.Add(player);
+
+            var witch = new Witch(650, 150);
+            var witch2 = new Witch(350, 150);
+
             creaturesInWorld.Add(witch);
             creaturesInWorld.Add(witch2);
+
+            var fighetr = new Fighter(300, 300);
+            var fighetr1 = new Fighter(200, 320);
+                 
             creaturesInWorld.Add(fighetr);
             creaturesInWorld.Add(fighetr1);
         }
@@ -74,6 +79,7 @@ namespace NeltharionRPGGame.GameEngine
         {
             this.creaturesInWorld.Where(creature => !creature.IsAlive).ToList()
                 .ForEach(deadCreature => this.painter.RemoveObject(deadCreature));
+
             this.creaturesInWorld.RemoveAll(creature => !creature.IsAlive);
             
         }
@@ -85,9 +91,11 @@ namespace NeltharionRPGGame.GameEngine
                 if (creature is Enemy && !creature.IsAlive)
                 {
                     Enemy creatureAsenemy = creature as Enemy;
+
                     this.newBonusesDroppedByEnemies.Add(creatureAsenemy.DropBonus());
                 }
             }
+
             this.allBonusesDroppedByEnemiesCopy.AddRange(this.newBonusesDroppedByEnemies);
         }
 
@@ -100,6 +108,7 @@ namespace NeltharionRPGGame.GameEngine
                     Enemy enemy = creature as Enemy;
                     enemy.aiController.GetPlayerPosition(this.player);
                     NextMoveDecision decision = enemy.aiController.DecideNextMove();
+
                     switch (decision)
                     {
                         case NextMoveDecision.Move:
@@ -135,6 +144,7 @@ namespace NeltharionRPGGame.GameEngine
                 this.MovePlayer(args);
                 // Process Weapon Usage(this.player);
                 Witch withch = this.creaturesInWorld[1] as Witch;
+
                 if (withch != null)
                 {
                     withch.UpdateHealthPoints(-320);
@@ -148,6 +158,7 @@ namespace NeltharionRPGGame.GameEngine
                     MouseEventArgs userArgs = args as MouseEventArgs;
                     Item itemPicked = GetItemPicked(new Point(userArgs.X, userArgs.Y));
                     bool item = this.player.TryPickAnItem(itemPicked);
+
                     if (item)
                     {
                         this.painter.RemoveObject(itemPicked);

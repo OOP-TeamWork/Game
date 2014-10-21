@@ -41,27 +41,28 @@ namespace NeltharionRPGGame.Structure
             asd.Tick += TakeASingleStepToDestination;
             asd.Start();
 
-            base.UpdateSightDirection();
+            base.UpdateSightDirection();   
+            base.UpdateSpriteDirection();
         }
 
         private void TakeASingleStepToDestination(object obj, EventArgs e)
         {
-            if (this.X <= this.DirX - 30)
+            if (this.X <= this.DirX - this.SizeY / 2)
             {
                 this.X++;
             }
 
-            if (this.Y <= this.DirY - 15)
+            if (this.Y <= this.DirY - this.SizeX / 2)
             {
                 this.Y++;
             }
 
-            if (this.X > this.DirX - 30)
+            if (this.X > this.DirX - this.SizeY / 2)
             {
                 this.X--;
             }
 
-            if (this.Y > this.DirY - 15)
+            if (this.Y > this.DirY - this.SizeX / 2)
             {
                 this.Y--;
             }

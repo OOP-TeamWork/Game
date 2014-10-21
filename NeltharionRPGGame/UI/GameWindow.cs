@@ -28,10 +28,13 @@ namespace NeltharionRPGGame.UI
             timer.Tick += OnTimerTick;
           
             controller = new KeyboardMouseController(this); 
+
             PaintBrush painter = new PaintBrush();
             painter.InitializeField(this);
+
             this.gameEngine = new Engine();
             this.gameEngine.InitializeWorld(controller, painter);
+
             timer.Start();
         }
 

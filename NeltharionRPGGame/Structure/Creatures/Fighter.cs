@@ -9,12 +9,12 @@
         public const int FighterAttackPoints = 150;
         public const int FighterMovementSpeed = 1;
         public const int FighterAttackRange = 10;
-        public const SpriteType FighterSpriteType = SpriteType.Fighter;
+        public const SpriteType FighterSpriteType = SpriteType.FighterRight;
 
         public Fighter(int x, int y)
             : base(x, y, FighterSizeX, FighterSizeY, FighterSpriteType,
             FighterHealthPoints, FighterDefensePoints, FighterAttackPoints, FighterMovementSpeed,
-            FighterAttackRange, new Sword(0, 0), new Sword(0, 0))
+            FighterAttackRange, new Sword(0, 0))
         {
         }
     }

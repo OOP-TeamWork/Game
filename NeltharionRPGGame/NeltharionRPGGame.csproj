@@ -44,9 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI\ArtificialIntelligence.cs" />
+    <Compile Include="Controllers\ArtificialIntelligence.cs" />
     <Compile Include="GameEngine\Engine.cs" />
-    <Compile Include="Helper\GlobalData.cs" />
+    <Compile Include="Helper\GlobalGameData.cs" />
     <Compile Include="Helper\ImageLoader.cs" />
     <Compile Include="Interfaces\IArtificialIntelligence.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
@@ -57,7 +57,7 @@
     <Compile Include="Structure\Creatures\Character.cs" />
     <Compile Include="Structure\Items\Buckler.cs" />
     <Compile Include="Structure\Items\Club.cs" />
-    <Compile Include="Structure\Creature.cs" />
+    <Compile Include="Structure\Creatures\Creature.cs" />
     <Compile Include="Structure\Creatures\Enemy.cs" />
     <Compile Include="Structure\Creatures\Fighter.cs" />
     <Compile Include="Structure\GameObject.cs" />

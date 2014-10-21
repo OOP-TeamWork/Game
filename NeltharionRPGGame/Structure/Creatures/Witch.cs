@@ -17,9 +17,8 @@ namespace NeltharionRPGGame
         public Witch(int x, int y)
             : base(x, y, WitchSizeX, WitchSizeY, WitchSpriteType,
             WitchHealthPoints, WitchDefensePoints, WitchAttackPoints, WitchMovementSpeed,
-            WitchAttackRange, new Sword(0, 0), new Sword(x, y))
+            WitchAttackRange, new Sword(0, 0))
         {
-            this.BonusWeaponHeld = ChooseRandomWeapon();
         }
     }
 }

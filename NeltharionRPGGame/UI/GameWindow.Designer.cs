@@ -37,8 +37,9 @@ namespace NeltharionRPGGame.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(784, 406);
+            this.ClientSize = new System.Drawing.Size(1104, 589);
             this.Name = "GameWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RPG Game";
             this.Load += new System.EventHandler(this.GameWindow_Load);
             this.ResumeLayout(false);
