@@ -23,6 +23,8 @@ namespace NeltharionRPGGame.GameEngine
         public Character player; // Public modifier for test only
         private List<Spell> spellList;
         private int interval = GameWindow.RefreshInterval;
+        private Combat combat;
+        private Enemy enemy;
 
         public void InitializeWorld(IInputInterface controller, PaintBrush painter)
         {
@@ -43,7 +45,7 @@ namespace NeltharionRPGGame.GameEngine
             GetBonusesFromDeadEnemies();
             RemoveDeadCreatures();
             ProcessArtificialIntelligenceCreatures();
-
+            if (player.HealthPoints < 0) player.HealthPoints = 0;
             this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
             this.painter.DrawInventoryBar(this.player.Inventory);
             this.newBonusesDroppedByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
@@ -59,18 +61,18 @@ namespace NeltharionRPGGame.GameEngine
             player = playerCharacter;
             creaturesInWorld.Add(player);
 
-            var witch = new Witch(650, 150);
+            var witch = new Witch(850, 150);
             Thread.Sleep(100);
-            var witch2 = new Witch(350, 150);
-            Thread.Sleep(100);
-            var witch3 = new Witch(250, 450);
-            Thread.Sleep(100);
-            var witch4 = new Witch(150, 250);
+            //var witch2 = new Witch(350, 150);
+            //Thread.Sleep(100);
+            //var witch3 = new Witch(250, 450);
+            //Thread.Sleep(100);
+            //var witch4 = new Witch(150, 250);
 
             creaturesInWorld.Add(witch);
-            creaturesInWorld.Add(witch2);
-            creaturesInWorld.Add(witch3);
-            creaturesInWorld.Add(witch4);
+            //creaturesInWorld.Add(witch2);
+            //creaturesInWorld.Add(witch3);
+            //creaturesInWorld.Add(witch4);
 
             var fighetr = new Fighter(300, 300);
             var fighetr1 = new Fighter(200, 320);
@@ -127,7 +129,7 @@ namespace NeltharionRPGGame.GameEngine
                             ProcessMovement(enemy);
                             break;
                         case NextMoveDecision.UseWeaponHeld:
-                            ProcessWeaponUsage(creature);
+                            PlayerAttacked(enemy);
                             break;
                         default:
                             break;
@@ -309,5 +311,60 @@ namespace NeltharionRPGGame.GameEngine
                 ProcessMovement(player);
             }
         }
+
+        private bool CharacterInRange(Enemy enemy)
+        {
+            if (Math.Abs(player.X - enemy.X) < 1000 &&
+                Math.Abs(player.Y - enemy.Y) < 1000)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EnemyInRange()
+        {
+            if (Math.Abs(player.X - enemy.X) < player.AttackRange &&
+                Math.Abs(player.Y - enemy.Y) < player.AttackRange)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void PlayerAttacked(Enemy enemy)
+        {
+            int reducedDamage;
+            if (CharacterInRange(enemy))
+            {
+                reducedDamage = enemy.AttackPoints - player.DefensePoints;
+                player.HealthPoints -= reducedDamage;
+            }
+            else if(CharacterInRange(enemy))
+            {
+                player.HealthPoints -= enemy.AttackPoints;
+            }
+        }
+
+        public void EnemyAttacked(Character character, Enemy enemy)
+        {
+            int reducedDamage;
+            if (EnemyInRange())
+            {
+                reducedDamage = character.AttackPoints - enemy.DefensePoints;
+                enemy.HealthPoints -= reducedDamage;
+            }
+            else if( EnemyInRange())
+            {
+                enemy.HealthPoints -= character.AttackPoints;
+            }
+        }
     }
+
 }

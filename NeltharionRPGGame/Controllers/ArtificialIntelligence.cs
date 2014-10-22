@@ -1,5 +1,6 @@
 ﻿using System;
 using NeltharionRPGGame.Data;
+using NeltharionRPGGame.GameEngine;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
 using NeltharionRPGGame.Structure.Creatures;
@@ -9,6 +10,7 @@ namespace NeltharionRPGGame.Controllers
     public class ArtificialIntelligence : IArtificialIntelligence
     {
         private Enemy enemyControled;
+        private Character playerControlled;
 
         public ArtificialIntelligence(Enemy enemy)
         {
