@@ -24,6 +24,8 @@
         BurningGround,
         HealthPotion,
         AttackPotion,
-        DefensePotion
+        DefensePotion,
+        Firebolt,
+        Fireball
     }
 }

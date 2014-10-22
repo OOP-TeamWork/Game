@@ -1,4 +1,6 @@
-﻿namespace NeltharionRPGGame.Structure.Creatures
+﻿using NeltharionRPGGame.Structure.Enumerable_Game_Data;
+
+namespace NeltharionRPGGame.Structure.Creatures
 {
     public abstract class Creature : GameObject, IMovable
     {
@@ -19,7 +21,7 @@
 
         protected Creature(int x, int y, int sizeX, int sizeY,
             SpriteType spriteType, int healthPoints, int defensePoints,
-            int attackPoints, int movementSpeed, int attackRange, Item weaponHeld = null)
+            int attackPoints, int movementSpeed, int attackRange, Team team, Item weaponHeld = null)
             : base(x, y, sizeX, sizeY, spriteType)
         {
             this.SpriteType = spriteType;
@@ -30,6 +32,7 @@
             this.MovementSpeed = movementSpeed;
             this.AttackRange = attackRange;
             this.IsAlive = true;
+            this.Team = team;
             this.WeaponHeld = weaponHeld;
         }
 
@@ -165,6 +168,8 @@
         }
 
         public bool IsAlive { get; set; }
+
+        public Team Team { get; set; }
 
         public Item WeaponHeld { get; set; }
 

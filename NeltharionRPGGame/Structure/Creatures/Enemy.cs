@@ -1,6 +1,7 @@
 ﻿using System;
 using NeltharionRPGGame.Controllers;
 using NeltharionRPGGame.Helper;
+using NeltharionRPGGame.Structure.Enumerable_Game_Data;
 using NeltharionRPGGame.Structure.Items;
 using NeltharionRPGGame.Structure.Items.Potions;
 
@@ -17,7 +18,7 @@ namespace NeltharionRPGGame.Structure.Creatures
             int attackPoints, int movementSpeed, int attackRange, Item weaponHeld) 
             : base(x, y, sizeX, sizeY,
             spriteType, healthPoints, defensePoints,
-            attackPoints, movementSpeed, attackRange, weaponHeld)
+            attackPoints, movementSpeed, attackRange, Team.Scourge, weaponHeld)
         {
             this.aiController = new ArtificialIntelligence(this);
         }

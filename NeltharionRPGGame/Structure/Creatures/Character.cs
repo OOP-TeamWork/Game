@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using NeltharionRPGGame.Structure.Enumerable_Game_Data;
 using NeltharionRPGGame.Structure.Spells;
 using NeltharionRPGGame.Structure.Items.Potions;
 
@@ -14,7 +15,7 @@ namespace NeltharionRPGGame.Structure.Creatures
             SpriteType spriteType, int healthPoints, int defensePoints,
             int attackPoints, int movementSpeed, int attackRange, Item[] inventory)
             : base(x, y, sizeX, sizeY, spriteType, healthPoints,
-            defensePoints, attackPoints, movementSpeed, attackRange)
+            defensePoints, attackPoints, movementSpeed, attackRange, Team.Alliance)
         {
             this.Inventory = inventory;
             Spells = new List<Spell>();

@@ -3,6 +3,9 @@
     public enum SpellType
     {
         Damage,
-        Heal
+        Heal,
+        Fire,
+        Cold,
+        Lightning
     }
 }
