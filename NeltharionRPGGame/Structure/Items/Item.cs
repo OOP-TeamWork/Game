@@ -1,4 +1,6 @@
 ﻿using System.Drawing;
+using NeltharionRPGGame.Data;
+
 namespace NeltharionRPGGame.Structure
 {
     public abstract class Item : GameObject

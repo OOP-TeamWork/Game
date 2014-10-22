@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using NeltharionRPGGame.Structure.Enumerable_Game_Data;
+using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Structure.Spells;
 using NeltharionRPGGame.Structure.Items.Potions;
 

@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="Interfaces\ICreature.cs" />
     <Compile Include="Interfaces\IRanged.cs" />
+    <Compile Include="Interfaces\ISlowEffect.cs" />
     <Compile Include="Interfaces\ITargetSpells.cs" />
     <Compile Include="Interfaces\ITimeoutable.cs" />
     <Compile Include="Structure\Enumerable Game Data\Team.cs" />
@@ -84,16 +85,26 @@
     <Compile Include="Structure\Items\Sword.cs" />
     <Compile Include="Structure\Items\TowerShield.cs" />
     <Compile Include="Structure\Items\Item.cs" />
+    <Compile Include="Structure\Spells\Defiance.cs" />
+    <Compile Include="Structure\Spells\ColdSpell.cs" />
     <Compile Include="Structure\Spells\DefensiveSpell.cs" />
+    <Compile Include="Structure\Spells\ShiverArmor.cs" />
     <Compile Include="Structure\Spells\Fireball.cs" />
     <Compile Include="Structure\Spells\Firebolt.cs" />
     <Compile Include="Structure\Spells\FireSpell.cs" />
+    <Compile Include="Structure\Spells\FrostNova.cs" />
+    <Compile Include="Structure\Spells\GlacialSpike.cs" />
+    <Compile Include="Structure\Spells\Icebolt.cs" />
+    <Compile Include="Structure\Spells\ChargedBolt.cs" />
+    <Compile Include="Structure\Spells\LightningSpell.cs" />
     <Compile Include="Structure\Spells\Meteor.cs" />
     <Compile Include="Structure\Spells\OffensiveSpell.cs" />
-    <Compile Include="Structure\Spells\SelfTargetedDefensiveSpells.cs" />
+    <Compile Include="Structure\Spells\PartyDefenceSpell.cs" />
+    <Compile Include="Structure\Spells\SelfDefenceSpell.cs" />
     <Compile Include="Structure\Spells\Spell.cs" />
     <Compile Include="Controllers\SpellCastEventArgs.cs" />
-    <Compile Include="Structure\Spells\SpellType.cs" />
+    <Compile Include="Structure\Enumerable Game Data\SpellType.cs" />
+    <Compile Include="Structure\Spells\Teleport.cs" />
     <Compile Include="Structure\Spells\UtilitySpell.cs" />
     <Compile Include="UI\PaintBrush.cs" />
     <Compile Include="UI\GameWindow.cs">
@@ -121,7 +132,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="NeltharionRPGClassDiagram.cd" />
+    <None Include="NeltharionRPGDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,4 +1,5 @@
 ﻿using System;
+using NeltharionRPGGame.Data;
 
 namespace NeltharionRPGGame.Structure
 {

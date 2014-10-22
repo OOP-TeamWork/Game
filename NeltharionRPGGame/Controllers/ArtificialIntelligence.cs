@@ -1,4 +1,5 @@
 ﻿using System;
+using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
 using NeltharionRPGGame.Structure.Creatures;

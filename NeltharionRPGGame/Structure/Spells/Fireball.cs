@@ -1,4 +1,5 @@
-﻿using NeltharionRPGGame.Interfaces;
+﻿using NeltharionRPGGame.Data;
+using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure.Creatures;
 
 namespace NeltharionRPGGame.Structure.Spells
@@ -13,7 +14,7 @@ namespace NeltharionRPGGame.Structure.Spells
         public const int FireballMaxAreaEffect = 100;
 
         public Fireball(int x, int y, Character caster)
-            : base(x, y, FireballSizeX, FireballSizeY, caster, SpellType.Fire,
+            : base(x, y, FireballSizeX, FireballSizeY, caster,
             SpriteType.Fireball, FireballMaximumTimeout, FireballAttackPower, FireballRange)
         {
             this.AreaOfEffect = FireballMaxAreaEffect;

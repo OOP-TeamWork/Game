@@ -1,4 +1,4 @@
-﻿namespace NeltharionRPGGame.Structure.Enumerable_Game_Data
+﻿namespace NeltharionRPGGame.Data
 {
     public enum Team
     {

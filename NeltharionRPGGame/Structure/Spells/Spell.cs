@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NeltharionRPGGame.Interfaces;
+﻿using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Structure.Creatures;
 
 namespace NeltharionRPGGame.Structure.Spells

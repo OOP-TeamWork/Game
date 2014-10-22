@@ -1,4 +1,6 @@
-﻿namespace NeltharionRPGGame.Structure.Items.Potions
+﻿using NeltharionRPGGame.Data;
+
+namespace NeltharionRPGGame.Structure.Items.Potions
 {
     class AttackPotion : Potion
     {

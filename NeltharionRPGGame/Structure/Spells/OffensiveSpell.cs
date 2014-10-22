@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure.Creatures;
 

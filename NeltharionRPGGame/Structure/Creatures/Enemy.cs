@@ -1,9 +1,7 @@
 ﻿using System;
 using NeltharionRPGGame.Controllers;
+using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Helper;
-using NeltharionRPGGame.Structure.Enumerable_Game_Data;
-using NeltharionRPGGame.Structure.Items;
-using NeltharionRPGGame.Structure.Items.Potions;
 
 namespace NeltharionRPGGame.Structure.Creatures
 {

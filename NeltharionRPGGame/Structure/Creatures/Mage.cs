@@ -1,4 +1,6 @@
-﻿namespace NeltharionRPGGame.Structure.Creatures
+﻿using NeltharionRPGGame.Data;
+
+namespace NeltharionRPGGame.Structure.Creatures
 {
     public class Mage : Character
     {

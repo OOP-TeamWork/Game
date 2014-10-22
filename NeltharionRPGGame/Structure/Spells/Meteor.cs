@@ -1,4 +1,5 @@
-﻿using NeltharionRPGGame.Interfaces;
+﻿using NeltharionRPGGame.Data;
+using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure.Creatures;
 
 namespace NeltharionRPGGame.Structure.Spells
@@ -13,8 +14,8 @@ namespace NeltharionRPGGame.Structure.Spells
         public const int MeteorMaxRangeEffect = 300;
 
         public Meteor(int x, int y, Character caster)
-            : base(x, y, MeteorSizeX, MeteorSizeY, caster, SpellType.Fire,
-            SpriteType.Fireball, MeteorMaximumTimeout, MeteorAttackPower, MeteorRange)
+            : base(x, y, MeteorSizeX, MeteorSizeY, caster,
+            SpriteType.Meteor, MeteorMaximumTimeout, MeteorAttackPower, MeteorRange)
         {
             this.AreaOfEffect = MeteorMaxRangeEffect;
         }

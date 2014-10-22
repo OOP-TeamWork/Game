@@ -1,21 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure.Creatures;
 
 namespace NeltharionRPGGame.Structure.Spells
 {
-    public abstract class DefensiveSpell : Spell, ITargetSpells
+    public abstract class DefensiveSpell : Spell, ITimeoutable
     {
+        private int currentTimeout;
+
         protected DefensiveSpell(int x, int y, int sizeX,
             int sizeY, Character caster, SpellType spellType,
             SpriteType spriteType, int defenseBonus, int healthBonus,
-            int movementSpeedBonus) 
+            int movementSpeedBonus, int timeout) 
             : base(x, y, sizeX, sizeY, caster, spellType, spriteType)
         {
             this.DefenseBonus = defenseBonus;
             this.HealthBonus = healthBonus;
             this.MovementSpeedBonus = movementSpeedBonus;
+            this.MaximumTimeout = timeout;
         }
 
         public int DefenseBonus { get; set; }
@@ -24,11 +26,25 @@ namespace NeltharionRPGGame.Structure.Spells
 
         public int MovementSpeedBonus { get; set; }
 
-        public virtual IEnumerable<Creature> GetTargets(IEnumerable<Creature> targetList)
-        {
-            var targets = targetList.Where(t => t.Team == this.Caster.Team).ToList();
+        public int MaximumTimeout { get; set; }
 
-            return targets;
+        public int CurrentTimeout
+        {
+            get
+            {
+                return this.currentTimeout;
+            }
+            set
+            {
+                if (value >= this.MaximumTimeout)
+                {
+                    this.HasTimedOut = true;
+                }
+
+                this.currentTimeout = value;
+            }
         }
+
+        public bool HasTimedOut { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace NeltharionRPGGame.Structure.Items
+﻿using NeltharionRPGGame.Data;
+
+namespace NeltharionRPGGame.Structure.Items
 {
     class TowerShield : Item
     {

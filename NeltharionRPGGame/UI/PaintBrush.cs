@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
+using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Helper;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;

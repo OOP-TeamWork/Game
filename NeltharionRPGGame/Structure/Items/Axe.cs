@@ -1,4 +1,6 @@
-﻿namespace NeltharionRPGGame.Structure
+﻿using NeltharionRPGGame.Data;
+
+namespace NeltharionRPGGame.Structure
 {
     class Axe : Item
     {

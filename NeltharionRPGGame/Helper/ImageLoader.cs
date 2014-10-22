@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Structure;
 
 namespace NeltharionRPGGame.Helper

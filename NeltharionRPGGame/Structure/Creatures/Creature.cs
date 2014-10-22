@@ -1,4 +1,4 @@
-﻿using NeltharionRPGGame.Structure.Enumerable_Game_Data;
+﻿using NeltharionRPGGame.Data;
 
 namespace NeltharionRPGGame.Structure.Creatures
 {

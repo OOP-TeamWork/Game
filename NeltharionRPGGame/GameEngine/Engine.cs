@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using NeltharionRPGGame.Controllers;
+using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
 using NeltharionRPGGame.Structure.Creatures;
@@ -229,17 +230,22 @@ namespace NeltharionRPGGame.GameEngine
         {
             foreach (var spell in this.spellList)
             {
-                ProcessSpellTimeout(spell);
+                ITimeoutable timeOutSpell = spell as ITimeoutable;
+
+                if (timeOutSpell != null)
+                {
+                    ProcessSpellTimeout(timeOutSpell);
+                }
             }
         }
 
-        private void ProcessSpellTimeout(Spell spell)
+        private void ProcessSpellTimeout(ITimeoutable spell)
         {
             spell.CurrentTimeout += interval;
 
             if (spell.HasTimedOut)
             {
-                this.painter.RemoveObject(spell);
+                this.painter.RemoveObject((Spell) spell);
             }
         }
 

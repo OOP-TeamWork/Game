@@ -4,17 +4,19 @@ using NeltharionRPGGame.Structure.Creatures;
 
 namespace NeltharionRPGGame.Structure.Spells
 {
-    public class FireSpell : OffensiveSpell, ITimeoutable
+    public class ColdSpell : OffensiveSpell, ISlowEffect, ITimeoutable
     {
         private int currentTimeout;
 
-        public FireSpell(int x, int y, int sizeX, int sizeY,
+        public ColdSpell(int x, int y, int sizeX, int sizeY,
             Character caster, SpriteType spriteType,
-            int maximumTimeout, int power, int range) 
-            : base(x, y, sizeX, sizeY, caster, SpellType.Fire, spriteType, power, range)
+            int power, int range, int slowEffect) 
+            : base(x, y, sizeX, sizeY, caster, SpellType.Cold, spriteType, power, range)
         {
-            this.MaximumTimeout = maximumTimeout;
+            this.SlowEffect = slowEffect;
         }
+
+        public int SlowEffect { get; set; }
 
         public int MaximumTimeout { get; set; }
 

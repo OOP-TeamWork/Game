@@ -1,7 +1,8 @@
-﻿namespace NeltharionRPGGame.Structure
+﻿namespace NeltharionRPGGame.Data
 {
     public enum SpriteType
     {
+        None,
         Axe,
         Bow,
         Buckler,
@@ -26,6 +27,13 @@
         AttackPotion,
         DefensePotion,
         Firebolt,
-        Fireball
+        Fireball,
+        Meteor,
+        Icebolt,
+        FrostNova,
+        GlacialSpike,
+        ChargedBolt,
+        ShiverArmor,
+        DefianceAura
     }
 }

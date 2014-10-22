@@ -1,4 +1,5 @@
-﻿using NeltharionRPGGame.Structure.Creatures;
+﻿using NeltharionRPGGame.Data;
+using NeltharionRPGGame.Structure.Creatures;
 
 namespace NeltharionRPGGame.Structure.Spells
 {
@@ -8,10 +9,10 @@ namespace NeltharionRPGGame.Structure.Spells
         public const int FireboltSizeY = 20;
         public const int FireboltAttackPower = 70;
         public const int FireboltRange = 400;
-        public const int FireboltMaximumTimeout = 2;
+        public const int FireboltMaximumTimeout = 1;
 
         public Firebolt(int x, int y, Character caster)
-            : base(x, y, FireboltSizeX, FireboltSizeY, caster, SpellType.Fire,
+            : base(x, y, FireboltSizeX, FireboltSizeY, caster,
             SpriteType.Firebolt, FireboltMaximumTimeout, FireboltAttackPower, FireboltRange)
         {
         }

@@ -1,4 +1,4 @@
-﻿namespace NeltharionRPGGame.Structure
+﻿namespace NeltharionRPGGame.Data
 {
     public enum SightDirection
     {
