@@ -59,6 +59,8 @@
     <Compile Include="Interfaces\ITargetSpells.cs" />
     <Compile Include="Interfaces\ITimeoutable.cs" />
     <Compile Include="Structure\Combat.cs" />
+    <Compile Include="Structure\Creatures\Paladin.cs" />
+    <Compile Include="Structure\Creatures\Viking.cs" />
     <Compile Include="Structure\Enumerable Game Data\Team.cs" />
     <Compile Include="Structure\Items\Potions\AttackPotion.cs" />
     <Compile Include="Structure\Items\Potions\DefencePotion.cs" />

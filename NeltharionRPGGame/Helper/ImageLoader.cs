@@ -11,6 +11,10 @@ namespace NeltharionRPGGame.Helper
 
         private const string MageImagePath = DirPath + "mage.png";
         private const string MageFlippedImagePath = DirPath + "mage-flipped.png";
+        private const string PaladinImagePath = DirPath + "paladin.png";
+        private const string PaladinFlippedImagePath = DirPath + "paladin-flipped.png";
+        private const string VikingImagePath = DirPath + "viking.png";
+        private const string VikingFlippedImagePath = DirPath + "viking-flipped.png";
         private const string WitchImagePath = DirPath + "witch.png";
         private const string WitchFlippedImagePath = DirPath + "witch-flipped.png";
         private const string FighterImagePath = DirPath + "fighter.png";
@@ -40,6 +44,10 @@ namespace NeltharionRPGGame.Helper
             {
                 {SpriteType.MageRight, Image.FromFile(MageImagePath)},
                 {SpriteType.MageLeft, Image.FromFile(MageFlippedImagePath)},
+                {SpriteType.PaladinRight, Image.FromFile(PaladinImagePath)},
+                {SpriteType.PaladinLeft, Image.FromFile(PaladinFlippedImagePath)},
+                {SpriteType.VikingRight, Image.FromFile(VikingImagePath)},
+                {SpriteType.VikingLeft, Image.FromFile(VikingFlippedImagePath)},
                 {SpriteType.WitchLeft, Image.FromFile(WitchImagePath)},
                 {SpriteType.WitchRight, Image.FromFile(WitchFlippedImagePath)},
                 {SpriteType.FighterRight, Image.FromFile(FighterImagePath)},

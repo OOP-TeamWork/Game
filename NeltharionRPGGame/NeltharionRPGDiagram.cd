@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="NeltharionRPGGame.Controllers.ArtificialIntelligence" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="62" Y="0.5" Width="1.5" />
+    <Position X="66.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAIAAAAAAAAAJAAAAAAAAAAAAAAAAAgg=</HashCode>
+      <HashCode>AAAAAAACAAAAAIAAAAAAAAAJAAAAAAAAAAAAABAAAgg=</HashCode>
       <FileName>Controllers\ArtificialIntelligence.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="NeltharionRPGGame.Controllers.KeyboardMouseController" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="67.25" Y="1.5" Width="1.5" />
+    <Position X="71.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAIAACgAgAAAAAAgAAAAAAgAAAEAAAA=</HashCode>
       <FileName>Controllers\KeyboardMouseController.cs</FileName>
@@ -17,14 +17,14 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="NeltharionRPGGame.Controllers.SpellCastEventArgs" Collapsed="true">
-    <Position X="67.25" Y="2.5" Width="1.5" />
+    <Position X="71.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\SpellCastEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.EntryPoint" Collapsed="true">
-    <Position X="65.5" Y="0.5" Width="1.5" />
+    <Position X="69.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>EntryPoint.cs</FileName>
@@ -39,54 +39,54 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="NeltharionRPGGame.GameEngine.Engine" Collapsed="true">
-    <Position X="63.75" Y="0.5" Width="1.5" />
+    <Position X="68" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BEAARBBUAAAAIAAAEEAACICgAABAIFABhAAAAACBAAI=</HashCode>
+      <HashCode>BEAARBBUAABAIAEAEEAACJCgAABAIFABhAAAACKBAAI=</HashCode>
       <FileName>GameEngine\Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Helper.GlobalGameData" Collapsed="true">
-    <Position X="62" Y="1.5" Width="1.5" />
+    <Position X="66.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAgAAAAABCACAAAAwAgAAAAAAAAADAAAAAAAAAAAA=</HashCode>
       <FileName>Helper\GlobalGameData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Helper.ImageLoader" Collapsed="true">
-    <Position X="63.75" Y="1.5" Width="1.5" />
+    <Position X="68" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAEAEAQcABCAECAAECAABAIQAKAAAgAAABAACAEA=</HashCode>
+      <HashCode>AAAIAEAEAQcABCAECAAECAABAIQAKAAAgAAABEJCIEA=</HashCode>
       <FileName>Helper\ImageLoader.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Helper.ItemGenerator" Collapsed="true">
-    <Position X="65.5" Y="1.5" Width="1.5" />
+    <Position X="69.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Helper\ItemGenerator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Properties.Resources" Collapsed="true">
-    <Position X="63.75" Y="2.5" Width="1.5" />
+    <Position X="68" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Properties.Settings" Collapsed="true">
-    <Position X="65.5" Y="2.5" Width="1.5" />
+    <Position X="69.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Structure.Creatures.Character" Collapsed="true">
-    <Position X="55" Y="3.25" Width="1.5" />
+    <Position X="57" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAQAAAEAAAAAAAEAAAoACAAAACgAAAAA=</HashCode>
       <FileName>Structure\Creatures\Character.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Structure.Creatures.Creature" Collapsed="true">
-    <Position X="57.25" Y="1.75" Width="1.5" />
+    <Position X="59.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BQAIAAEAQIABAUAADQgAAQAoIggEACAIFAAwAQEAAQA=</HashCode>
       <FileName>Structure\Creatures\Creature.cs</FileName>
@@ -94,14 +94,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="NeltharionRPGGame.Structure.Creatures.Enemy" Collapsed="true">
-    <Position X="58.25" Y="3.25" Width="1.5" />
+    <Position X="62.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAJAAAACgAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Structure\Creatures\Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Structure.Creatures.Fighter" Collapsed="true">
-    <Position X="59.5" Y="4.75" Width="1.5" />
+    <Position X="63.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAABAAAAAAAAACAAAAEAAACAAEAAAAAAgAAACAAA=</HashCode>
       <FileName>Structure\Creatures\Fighter.cs</FileName>
@@ -115,7 +115,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.Structure.Creatures.Witch" Collapsed="true">
-    <Position X="57.25" Y="4.75" Width="1.5" />
+    <Position X="61.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAGAAAAAABACAAAAAAEAAAgAAAAAEgAAAAAAAA=</HashCode>
       <FileName>Structure\Creatures\Witch.cs</FileName>
@@ -230,7 +230,7 @@
   <Class Name="NeltharionRPGGame.Structure.Spells.BurningGround" Collapsed="true">
     <Position X="30.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAABCAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Structure\Spells\BurningGround.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -376,7 +376,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="NeltharionRPGGame.UI.GameWindow" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="67.25" Y="0.5" Width="1.5" />
+    <Position X="71.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAIEAAACAAAACAAAAIIAAAIAAAAAAAEA=</HashCode>
       <FileName>UI\GameWindow.cs</FileName>
@@ -384,29 +384,43 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="NeltharionRPGGame.UI.PaintBrush" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="62" Y="2.5" Width="1.5" />
+    <Position X="66.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>hIAAACAAAAAEgAIAAAAAABAARACAAAgAAAAAAAAAgAA=</HashCode>
       <FileName>UI\PaintBrush.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
+  <Class Name="NeltharionRPGGame.Structure.Creatures.Paladin" Collapsed="true">
+    <Position X="57" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAACAACAAAAAAAAAAABAACAAAAAABIEAA=</HashCode>
+      <FileName>Structure\Creatures\Paladin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeltharionRPGGame.Structure.Creatures.Viking" Collapsed="true">
+    <Position X="59" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAEAAAAAAAAnAgAAAAAUAAAAA=</HashCode>
+      <FileName>Structure\Creatures\Viking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="NeltharionRPGGame.IMovable" Collapsed="true">
-    <Position X="62" Y="4.5" Width="1.5" />
+    <Position X="66.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAAAAwAAAAAAA=</HashCode>
       <FileName>Interfaces\IMovable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="NeltharionRPGGame.Interfaces.IAreaEffect" Collapsed="true">
-    <Position X="62" Y="3.75" Width="1.5" />
+    <Position X="66.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IAreaEffect.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="NeltharionRPGGame.Interfaces.IArtificialIntelligence" Collapsed="true">
-    <Position X="63.75" Y="3.75" Width="1.5" />
+    <Position X="68" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Interfaces\IArtificialIntelligence.cs</FileName>
@@ -420,7 +434,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="NeltharionRPGGame.Interfaces.IDrawable" Collapsed="true">
-    <Position X="65.5" Y="3.75" Width="1.5" />
+    <Position X="69.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BIAAACAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IDrawable.cs</FileName>
@@ -434,77 +448,77 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="NeltharionRPGGame.Interfaces.IInputInterface" Collapsed="true">
-    <Position X="67.25" Y="3.75" Width="1.5" />
+    <Position X="71.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAIAACAAgAAAAAAgAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Interfaces\IInputInterface.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="NeltharionRPGGame.Interfaces.IRanged" Collapsed="true">
-    <Position X="63.75" Y="4.5" Width="1.5" />
+    <Position X="68" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IRanged.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="NeltharionRPGGame.Interfaces.IRenderable" Collapsed="true">
-    <Position X="65.5" Y="4.5" Width="1.5" />
+    <Position X="69.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Interfaces\IRenderable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="NeltharionRPGGame.Interfaces.ISlowEffect" Collapsed="true">
-    <Position X="67.25" Y="4.5" Width="1.5" />
+    <Position X="71.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Interfaces\ISlowEffect.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="NeltharionRPGGame.Interfaces.ITargetSpells" Collapsed="true">
-    <Position X="62" Y="5.25" Width="1.5" />
+    <Position X="66.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\ITargetSpells.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="NeltharionRPGGame.Interfaces.ITimeoutable" Collapsed="true">
-    <Position X="63.75" Y="5.25" Width="1.5" />
+    <Position X="68" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>Interfaces\ITimeoutable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="NeltharionRPGGame.Data.NextMoveDecision" Collapsed="true">
-    <Position X="62" Y="6.25" Width="1.5" />
+    <Position X="66.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Structure\Enumerable Game Data\NextMoveDecision.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="NeltharionRPGGame.Data.SightDirection" Collapsed="true">
-    <Position X="63.75" Y="6.25" Width="1.5" />
+    <Position X="68" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAA=</HashCode>
       <FileName>Structure\Enumerable Game Data\SightDirection.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="NeltharionRPGGame.Data.SpellType" Collapsed="true">
-    <Position X="65.5" Y="6.25" Width="1.5" />
+    <Position X="69.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACEAAEAAACgAAAQAAAAAAAEAAAAAAAAAAAIAAA=</HashCode>
       <FileName>Structure\Enumerable Game Data\SpellType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="NeltharionRPGGame.Data.SpriteType" Collapsed="true">
-    <Position X="67.25" Y="6.25" Width="1.5" />
+    <Position X="71.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgEgAAAIkAAQFQQKEBEAABAEAGIAQGAAEQAQAAGBEAI=</HashCode>
+      <HashCode>AgEgAAAIkAAQFQQKEBEACBAEAGIAQGAIEwAQAAGBEAI=</HashCode>
       <FileName>Structure\Enumerable Game Data\SpriteType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="NeltharionRPGGame.Data.Team" Collapsed="true">
-    <Position X="62" Y="7" Width="1.5" />
+    <Position X="66.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Structure\Enumerable Game Data\Team.cs</FileName>
