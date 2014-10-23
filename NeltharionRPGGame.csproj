@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D53FB3E-59C9-4DC1-B450-8814488F8572}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NeltharionRPGGame</RootNamespace>
+    <AssemblyName>NeltharionRPGGame</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CombatSystem\Combat.cs" />
+    <Compile Include="Controllers\ArtificialIntelligence.cs" />
+    <Compile Include="CustomEvents\EndGameEventArgs.cs" />
+    <Compile Include="CustomEvents\EndGameEventHandler.cs" />
+    <Compile Include="CustomEvents\SpellCastEventArgs.cs" />
+    <Compile Include="CustomExceptions\UserControlDisabledException.cs" />
+    <Compile Include="GameEngine\Engine.cs" />
+    <Compile Include="Helper\GlobalGameData.cs" />
+    <Compile Include="Helper\ImageLoader.cs" />
+    <Compile Include="Helper\ItemGenerator.cs" />
+    <Compile Include="Interfaces\IAreaEffect.cs" />
+    <Compile Include="Interfaces\IArtificialIntelligence.cs" />
+    <Compile Include="Interfaces\IGameObject.cs" />
+    <Compile Include="Interfaces\IMovable.cs" />
+    <Compile Include="Interfaces\ICreature.cs" />
+    <Compile Include="Interfaces\IRanged.cs" />
+    <Compile Include="Interfaces\ISlowEffect.cs" />
+    <Compile Include="Interfaces\ITargetSpells.cs" />
+    <Compile Include="Interfaces\ITimeoutable.cs" />
+    <Compile Include="Structure\Creatures\Paladin.cs" />
+    <Compile Include="Structure\Creatures\Viking.cs" />
+    <Compile Include="Structure\Enumerable Game Data\Team.cs" />
+    <Compile Include="Structure\Items\Potions\AttackPotion.cs" />
+    <Compile Include="Structure\Items\Potions\DefencePotion.cs" />
+    <Compile Include="Structure\Items\Potions\HealthPotion.cs" />
+    <Compile Include="Structure\Items\Potions\Potion.cs" />
+    <Compile Include="Structure\Items\Weapons\Axe.cs" />
+    <Compile Include="Structure\Items\Weapons\Bow.cs" />
+    <Compile Include="Structure\Items\Weapons\Buckler.cs" />
+    <Compile Include="Structure\Items\Weapons\Club.cs" />
+    <Compile Include="Structure\Items\Weapons\Item.cs" />
+    <Compile Include="Structure\Items\Weapons\Pike.cs" />
+    <Compile Include="Structure\Items\Weapons\PoleArm.cs" />
+    <Compile Include="Structure\Items\Weapons\Staff.cs" />
+    <Compile Include="Structure\Items\Weapons\Sword.cs" />
+    <Compile Include="Structure\Items\Weapons\TowerShield.cs" />
+    <Compile Include="Structure\Items\Weapons\Weapon.cs" />
+    <Compile Include="Structure\Spells\Aura.cs" />
+    <Compile Include="Structure\Spells\BurningGround.cs" />
+    <Compile Include="Structure\Creatures\Character.cs" />
+    <Compile Include="Structure\Creatures\Creature.cs" />
+    <Compile Include="Structure\Creatures\Enemy.cs" />
+    <Compile Include="Structure\Creatures\Fighter.cs" />
+    <Compile Include="Structure\GameObject.cs" />
+    <Compile Include="Structure\Creatures\Mage.cs" />
+    <Compile Include="Structure\Enumerable Game Data\NextMoveDecision.cs" />
+    <Compile Include="Structure\Enumerable Game Data\SightDirection.cs" />
+    <Compile Include="Structure\Enumerable Game Data\SpriteType.cs" />
+    <Compile Include="Controllers\KeyboardMouseController.cs" />
+    <Compile Include="Structure\Spells\Defiance.cs" />
+    <Compile Include="Structure\Spells\ColdSpell.cs" />
+    <Compile Include="Structure\Spells\DefensiveSpell.cs" />
+    <Compile Include="Structure\Spells\ShiverArmor.cs" />
+    <Compile Include="Structure\Spells\Fireball.cs" />
+    <Compile Include="Structure\Spells\Firebolt.cs" />
+    <Compile Include="Structure\Spells\FireSpell.cs" />
+    <Compile Include="Structure\Spells\FrostNova.cs" />
+    <Compile Include="Structure\Spells\GlacialSpike.cs" />
+    <Compile Include="Structure\Spells\Icebolt.cs" />
+    <Compile Include="Structure\Spells\ChargedBolt.cs" />
+    <Compile Include="Structure\Spells\LightningSpell.cs" />
+    <Compile Include="Structure\Spells\Meteor.cs" />
+    <Compile Include="Structure\Spells\OffensiveSpell.cs" />
+    <Compile Include="Structure\Spells\PartyDefenceSpell.cs" />
+    <Compile Include="Structure\Spells\SelfDefenceSpell.cs" />
+    <Compile Include="Structure\Spells\Spell.cs" />
+    <Compile Include="Structure\Enumerable Game Data\SpellType.cs" />
+    <Compile Include="Structure\Spells\Teleport.cs" />
+    <Compile Include="Structure\Spells\UtilitySpell.cs" />
+    <Compile Include="UI\PaintBrush.cs" />
+    <Compile Include="UI\GameWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GameWindow.Designer.cs">
+      <DependentUpon>GameWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IRenderable.cs" />
+    <Compile Include="Interfaces\IDrawable.cs" />
+    <Compile Include="Interfaces\IInputInterface.cs" />
+    <Compile Include="EntryPoint.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structure\Creatures\Witch.cs" />
+    <Compile Include="UI\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\GameWindow.resx">
+      <DependentUpon>GameWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="NeltharionRPGDiagram.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\mage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
