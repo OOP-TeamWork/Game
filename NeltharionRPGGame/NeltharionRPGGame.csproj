@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CombatSystem\Combat.cs" />
     <Compile Include="Controllers\ArtificialIntelligence.cs" />
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="Helper\GlobalGameData.cs" />
@@ -58,9 +59,10 @@
     <Compile Include="Interfaces\ISlowEffect.cs" />
     <Compile Include="Interfaces\ITargetSpells.cs" />
     <Compile Include="Interfaces\ITimeoutable.cs" />
-    <Compile Include="Structure\Combat.cs" />
     <Compile Include="Structure\Creatures\Paladin.cs" />
     <Compile Include="Structure\Creatures\Viking.cs" />
+    <Compile Include="Structure\CustomEvents\EndGameEventArgs.cs" />
+    <Compile Include="Structure\CustomEvents\EndGameEventHandler.cs" />
     <Compile Include="Structure\Enumerable Game Data\Team.cs" />
     <Compile Include="Structure\Items\Potions\AttackPotion.cs" />
     <Compile Include="Structure\Items\Potions\DefencePotion.cs" />
@@ -154,7 +156,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Graphics\bg.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

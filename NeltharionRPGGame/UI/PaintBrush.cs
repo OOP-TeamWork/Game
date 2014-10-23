@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using NeltharionRPGGame.Data;
@@ -114,13 +113,12 @@ namespace NeltharionRPGGame.UI
             for (int field = 0; field < GlobalGameData.WeaponBoxesCount; field++)
             {
                 weaponBox = new PictureBox();
-
                 int leftGameFieldOffset = field * GlobalGameData.WeaponBoxSizeX;
                 weaponBox.Size = new Size(GlobalGameData.WeaponBoxSizeX, GlobalGameData.WeaponBoxSizeY);
-                weaponBox.Location = new Point(leftGameFieldOffset, 0);
+                weaponBox.Location = new Point(leftGameFieldOffset, 20);
                 weaponBox.Parent = this.gameWindow;
+                weaponBox.BackColor = Color.Transparent;
                 this.weaponBoxes[field] = weaponBox;
-
                 this.gameWindow.Controls.Add(weaponBox);
             }
         }
@@ -133,14 +131,13 @@ namespace NeltharionRPGGame.UI
             for (int box = 0; box < GlobalGameData.HealthPointsBoxesCount; box++)
             {
                 int boxXCoordinate = leftGameeFieldOffset + GlobalGameData.HealthPointsBoxesSizeX * box;
-
                 healthPointsBox = new PictureBox();
                 healthPointsBox.Size = new Size(
                     GlobalGameData.HealthPointsBoxesSizeX, GlobalGameData.HealthPointsBoxesSizeY);
-                healthPointsBox.Location = new Point(boxXCoordinate, 0);
+                healthPointsBox.Location = new Point(boxXCoordinate, 15);
                 healthPointsBox.Parent = this.gameWindow;
+                healthPointsBox.BackColor = Color.Transparent;
                 healthPointsBoxes[box] = healthPointsBox;
-
                 this.gameWindow.Controls.Add(healthPointsBox);
             }
         }

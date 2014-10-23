@@ -8,31 +8,36 @@ using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
 using NeltharionRPGGame.Structure.Creatures;
+using NeltharionRPGGame.Structure.CustomEvents;
 using NeltharionRPGGame.Structure.Spells;
 using NeltharionRPGGame.UI;
 using System.Drawing;
+using NeltharionRPGGame.CombatSystem;
 
 namespace NeltharionRPGGame.GameEngine
 {
     public class Engine
     {
         private PaintBrush painter;
+        private Combat combatSystem;
+
+        public Character player; // Public modifier for test only
         private List<Creature> creaturesInWorld;
         private List<Item> newBonusesDroppedByEnemies;
-        private List<Item> allBonusesDroppedByEnemiesCopy;
-        public Character player; // Public modifier for test only
+        private List<Item> allBonusesDroppedByEnemies;
         private List<Spell> spellList;
         private int interval = GameWindow.RefreshInterval;
-        private Combat combat;
         private Enemy enemy;
+
+        public event EndGameEventHandler endGame;
 
         public void InitializeWorld(IInputInterface controller, PaintBrush painter)
         {
+            this.combatSystem = new Combat();
             this.painter = painter;
             InitializeVariables();
             SubscribeToUserInput(controller);
             InitializeCreatures();
-
             creaturesInWorld.ForEach(creature => this.painter.AddObject(creature));
             this.painter.DrawInventoryBar(player.Inventory);
             this.painter.DrawHealthPointsBar(
@@ -41,6 +46,15 @@ namespace NeltharionRPGGame.GameEngine
 
         public void PlayNextTurn()
         {
+            if (!player.IsAlive)
+            {
+                OnEndGAme("Game Over");
+            }
+            else if (creaturesInWorld.Count - 1 == 0) // No Enemies Left
+            {
+                OnEndGAme("You Win");
+            }
+
             ProcessSpellBehavior();
             GetBonusesFromDeadEnemies();
             RemoveDeadCreatures();
@@ -49,34 +63,31 @@ namespace NeltharionRPGGame.GameEngine
             this.creaturesInWorld.ForEach(creature => this.painter.RedrawObject(creature));
             this.painter.DrawInventoryBar(this.player.Inventory);
             this.newBonusesDroppedByEnemies.ForEach(weapon => this.painter.AddObject(weapon));
-
             this.newBonusesDroppedByEnemies.Clear();
+        }
+
+        public void OnEndGAme(string message)
+        {
+            if (endGame != null)
+            {
+                EndGameEventArgs args = new EndGameEventArgs(message);
+                endGame(this, args);
+            }
         }
 
         private void InitializeCreatures()
         {
-            Item[] weapons = { null, null, null };
-
+            Item[] weapons = {null, null, null};
             var playerCharacter = new Mage(100, 100, weapons);
             player = playerCharacter;
             creaturesInWorld.Add(player);
-
             var witch = new Witch(850, 150);
             Thread.Sleep(100);
-            //var witch2 = new Witch(350, 150);
-            //Thread.Sleep(100);
-            //var witch3 = new Witch(250, 450);
-            //Thread.Sleep(100);
-            //var witch4 = new Witch(150, 250);
-
             creaturesInWorld.Add(witch);
-            //creaturesInWorld.Add(witch2);
-            //creaturesInWorld.Add(witch3);
-            //creaturesInWorld.Add(witch4);
 
-            var fighetr = new Fighter(300, 300);
+            var fighetr = new Fighter(500, 300);
             var fighetr1 = new Fighter(200, 320);
-                 
+
             creaturesInWorld.Add(fighetr);
             creaturesInWorld.Add(fighetr1);
         }
@@ -85,7 +96,7 @@ namespace NeltharionRPGGame.GameEngine
         {
             this.creaturesInWorld = new List<Creature>();
             this.newBonusesDroppedByEnemies = new List<Item>();
-            this.allBonusesDroppedByEnemiesCopy = new List<Item>();
+            this.allBonusesDroppedByEnemies = new List<Item>();
             this.spellList = new List<Spell>();
         }
 
@@ -95,7 +106,7 @@ namespace NeltharionRPGGame.GameEngine
                 .ForEach(deadCreature => this.painter.RemoveObject(deadCreature));
 
             this.creaturesInWorld.RemoveAll(creature => !creature.IsAlive);
-            
+
         }
 
         private void GetBonusesFromDeadEnemies()
@@ -110,7 +121,7 @@ namespace NeltharionRPGGame.GameEngine
                 }
             }
 
-            this.allBonusesDroppedByEnemiesCopy.AddRange(this.newBonusesDroppedByEnemies);
+            this.allBonusesDroppedByEnemies.AddRange(this.newBonusesDroppedByEnemies);
         }
 
         private void ProcessArtificialIntelligenceCreatures()
@@ -129,7 +140,7 @@ namespace NeltharionRPGGame.GameEngine
                             ProcessMovement(enemy);
                             break;
                         case NextMoveDecision.UseWeaponHeld:
-                            PlayerAttacked(enemy);
+                            combatSystem.PlayerAttacked(enemy, this.player);
                             break;
                         default:
                             break;
@@ -143,31 +154,27 @@ namespace NeltharionRPGGame.GameEngine
             moveableObj.Move();
         }
 
-        private void ProcessWeaponUsage(Creature creature)
-        {
-            creature.UseWeaponHeld();
-            // CombatSystem(this.player);
-            // This system will check if there are
-            // targets to attack
-        }
-       
+
+
         private void SubscribeToUserInput(IInputInterface userInteface)
         {
             userInteface.OnLeftMouseClicked += (sender, args) =>
             {
-                this.MovePlayer(args);
-                // Process Weapon Usage(this.player);
-                Witch witch = this.creaturesInWorld[1] as Witch;
-
-                if (witch != null)
+                foreach (Creature creature in creaturesInWorld)
                 {
-                    witch.UpdateHealthPoints(-320);
+                    if (creature is Enemy)
+                    {
+                        Enemy creatureAsEnemy = creature as Enemy;
+                        combatSystem.EnemyAttacked(this.player, creatureAsEnemy);
+                    }
                 }
+
+                this.MovePlayer(args);
             };
 
             userInteface.OnRightMouseClicked += (sender, args) =>
             {
-                if (this.allBonusesDroppedByEnemiesCopy.Count > 0)
+                if (this.allBonusesDroppedByEnemies.Count > 0)
                 {
                     MouseEventArgs userArgs = args as MouseEventArgs;
                     Item itemPicked = GetItemPicked(new Point(userArgs.X, userArgs.Y));
@@ -176,7 +183,7 @@ namespace NeltharionRPGGame.GameEngine
                     if (item)
                     {
                         this.painter.RemoveObject(itemPicked);
-                        this.allBonusesDroppedByEnemiesCopy.Remove(itemPicked);
+                        this.allBonusesDroppedByEnemies.Remove(itemPicked);
                     }
                 }
             };
@@ -222,7 +229,6 @@ namespace NeltharionRPGGame.GameEngine
 
             if (spellDistance <= caster.AttackRange)
             {
-                // damage dealing not implemented
                 this.painter.AddObject(spell);
                 this.spellList.Add(spell);
             }
@@ -264,22 +270,22 @@ namespace NeltharionRPGGame.GameEngine
             int objectBY2 = objectBY1 + objectB.SizeY;
 
             return objectAX1 < objectBX2
-                && objectAX2 > objectBX1
-                && objectAY1 < objectBY2
-                && objectAY2 > objectBY1;
+                   && objectAX2 > objectBX1
+                   && objectAY1 < objectBY2
+                   && objectAY2 > objectBY1;
         }
 
         public int GetDistance(int x1, int y1, int x2, int y2)
         {
             return (int)
-                Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                Math.Sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
         }
 
         private Item GetItemPicked(Point playerClickPosition)
         {
             Item weaponPicked = null;
 
-            foreach (var weapon in allBonusesDroppedByEnemiesCopy)
+            foreach (var weapon in allBonusesDroppedByEnemies)
             {
                 bool isBelowTopBorder = playerClickPosition.Y >= weapon.TopLeftPoint.Y;
                 bool isInsideLeftBorder = playerClickPosition.X >= weapon.TopLeftPoint.X;
@@ -311,60 +317,5 @@ namespace NeltharionRPGGame.GameEngine
                 ProcessMovement(player);
             }
         }
-
-        private bool CharacterInRange(Enemy enemy)
-        {
-            if (Math.Abs(player.X - enemy.X) < 1000 &&
-                Math.Abs(player.Y - enemy.Y) < 1000)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool EnemyInRange()
-        {
-            if (Math.Abs(player.X - enemy.X) < player.AttackRange &&
-                Math.Abs(player.Y - enemy.Y) < player.AttackRange)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void PlayerAttacked(Enemy enemy)
-        {
-            int reducedDamage;
-            if (CharacterInRange(enemy))
-            {
-                reducedDamage = enemy.AttackPoints - player.DefensePoints;
-                player.HealthPoints -= reducedDamage;
-            }
-            else if(CharacterInRange(enemy))
-            {
-                player.HealthPoints -= enemy.AttackPoints;
-            }
-        }
-
-        public void EnemyAttacked(Character character, Enemy enemy)
-        {
-            int reducedDamage;
-            if (EnemyInRange())
-            {
-                reducedDamage = character.AttackPoints - enemy.DefensePoints;
-                enemy.HealthPoints -= reducedDamage;
-            }
-            else if( EnemyInRange())
-            {
-                enemy.HealthPoints -= character.AttackPoints;
-            }
-        }
     }
-
 }

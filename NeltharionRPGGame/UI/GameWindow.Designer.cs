@@ -36,6 +36,7 @@ namespace NeltharionRPGGame.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::NeltharionRPGGame.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1104, 589);
             this.Name = "GameWindow";

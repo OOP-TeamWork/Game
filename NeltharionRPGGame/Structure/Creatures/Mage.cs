@@ -6,7 +6,7 @@ namespace NeltharionRPGGame.Structure.Creatures
     {
         public const int MageSizeX = 130;
         public const int MageSizeY = 130;
-        public const int MageHealthPoints = 300;
+        public const int MageHealthPoints = 300000;
         public const int MageDefensePoints = 50;
         public const int MageAttackPoints = 150;
         public const int MageMovementSpeed = 10;
@@ -30,8 +30,6 @@ namespace NeltharionRPGGame.Structure.Creatures
             {
                 this.SpriteType = SpriteType.MageRight;
             }
-        }
-
-        
+        }  
     }
 }

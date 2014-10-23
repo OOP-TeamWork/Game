@@ -36,6 +36,12 @@ namespace NeltharionRPGGame.UI
             this.gameEngine.InitializeWorld(controller, painter);
 
             timer.Start();
+
+            gameEngine.endGame += (o, args) =>
+            {
+                timer.Stop();
+                MessageBox.Show(args.Message);
+            };
         }
 
         private void OnTimerTick(object sender, EventArgs e)
