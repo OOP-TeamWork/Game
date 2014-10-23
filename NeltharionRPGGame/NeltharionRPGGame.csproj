@@ -46,6 +46,10 @@
   <ItemGroup>
     <Compile Include="CombatSystem\Combat.cs" />
     <Compile Include="Controllers\ArtificialIntelligence.cs" />
+    <Compile Include="CustomEvents\EndGameEventArgs.cs" />
+    <Compile Include="CustomEvents\EndGameEventHandler.cs" />
+    <Compile Include="CustomEvents\SpellCastEventArgs.cs" />
+    <Compile Include="CustomExceptions\UserControlDisabledException.cs" />
     <Compile Include="GameEngine\Engine.cs" />
     <Compile Include="Helper\GlobalGameData.cs" />
     <Compile Include="Helper\ImageLoader.cs" />
@@ -61,8 +65,6 @@
     <Compile Include="Interfaces\ITimeoutable.cs" />
     <Compile Include="Structure\Creatures\Paladin.cs" />
     <Compile Include="Structure\Creatures\Viking.cs" />
-    <Compile Include="Structure\CustomEvents\EndGameEventArgs.cs" />
-    <Compile Include="Structure\CustomEvents\EndGameEventHandler.cs" />
     <Compile Include="Structure\Enumerable Game Data\Team.cs" />
     <Compile Include="Structure\Items\Potions\AttackPotion.cs" />
     <Compile Include="Structure\Items\Potions\DefencePotion.cs" />
@@ -107,7 +109,6 @@
     <Compile Include="Structure\Spells\PartyDefenceSpell.cs" />
     <Compile Include="Structure\Spells\SelfDefenceSpell.cs" />
     <Compile Include="Structure\Spells\Spell.cs" />
-    <Compile Include="Controllers\SpellCastEventArgs.cs" />
     <Compile Include="Structure\Enumerable Game Data\SpellType.cs" />
     <Compile Include="Structure\Spells\Teleport.cs" />
     <Compile Include="Structure\Spells\UtilitySpell.cs" />

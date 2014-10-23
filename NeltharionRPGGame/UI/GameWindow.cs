@@ -40,6 +40,7 @@ namespace NeltharionRPGGame.UI
             gameEngine.endGame += (o, args) =>
             {
                 timer.Stop();
+                controller.ControllerEnabled = false;
                 MessageBox.Show(args.Message);
             };
         }

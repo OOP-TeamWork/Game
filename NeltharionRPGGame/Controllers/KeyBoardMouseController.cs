@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using NeltharionRPGGame.CustomEvents;
 using NeltharionRPGGame.Helper;
 using NeltharionRPGGame.Interfaces;
 
@@ -7,6 +8,15 @@ namespace NeltharionRPGGame.Controllers
 {
     public class KeyboardMouseController : IInputInterface
     {
+        private bool controllerEnabled;
+
+        public KeyboardMouseController(Form form)
+        {
+            form.KeyDown += FormKeyPressed;
+            form.MouseClick += MouseClicked;
+            this.controllerEnabled = true;
+        }
+
         public event EventHandler OnLeftMouseClicked;
         public event EventHandler OnRightMouseClicked;
         public event EventHandler OnKeyOnePressed;
@@ -15,10 +25,10 @@ namespace NeltharionRPGGame.Controllers
         public event EventHandler OnSpacePressed; //  This Event is only for debugging usage
         public event EventHandler OnQPressed;
 
-        public KeyboardMouseController(Form form)
+        public bool ControllerEnabled
         {
-            form.KeyDown += FormKeyPressed;
-            form.MouseClick += MouseClicked;
+            get { return controllerEnabled; }
+            set { controllerEnabled = value; }
         }
 
         public void MouseClicked(object sender, MouseEventArgs e)

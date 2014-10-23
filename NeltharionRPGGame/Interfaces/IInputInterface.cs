@@ -4,6 +4,8 @@ namespace NeltharionRPGGame.Interfaces
 {
     public interface IInputInterface
     {
+        bool ControllerEnabled { get; set; }
+
         event EventHandler OnLeftMouseClicked;
         event EventHandler OnRightMouseClicked;
         event EventHandler OnKeyOnePressed;

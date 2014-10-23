@@ -4,11 +4,12 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using NeltharionRPGGame.Controllers;
+using NeltharionRPGGame.CustomEvents;
+using NeltharionRPGGame.CustomExceptions;
 using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Interfaces;
 using NeltharionRPGGame.Structure;
 using NeltharionRPGGame.Structure.Creatures;
-using NeltharionRPGGame.Structure.CustomEvents;
 using NeltharionRPGGame.Structure.Spells;
 using NeltharionRPGGame.UI;
 using System.Drawing;
@@ -152,6 +153,11 @@ namespace NeltharionRPGGame.GameEngine
 
         private void SubscribeToUserInput(IInputInterface userInteface)
         {
+            if (!userInteface.ControllerEnabled)
+            {
+                throw new UserControlDisabledException();
+            }
+
             userInteface.OnLeftMouseClicked += (sender, args) =>
             {
                 foreach (Creature creature in creaturesInWorld)
