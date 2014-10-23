@@ -153,7 +153,7 @@ namespace NeltharionRPGGame.UI
             picBox.Location = new Point(renderableObject.X, renderableObject.Y);
             picBox.Size = new Size(renderableObject.SizeX, renderableObject.SizeY);
             picBox.Tag = renderableObject;
-
+            picBox.BorderStyle = BorderStyle.None;
             this.pictureBoxes.Add(renderableObject, picBox);
             this.gameWindow.Controls.Add(picBox);
         }

@@ -77,19 +77,17 @@ namespace NeltharionRPGGame.GameEngine
 
         private void InitializeCreatures()
         {
-            Item[] weapons = {null, null, null};
-            var playerCharacter = new Mage(100, 100, weapons);
+            Item[] playerInventory = {null, null, null};
+            var playerCharacter = new Mage(100, 100, playerInventory);
             player = playerCharacter;
             creaturesInWorld.Add(player);
             var witch = new Witch(850, 150);
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
             creaturesInWorld.Add(witch);
-
-            var fighetr = new Fighter(500, 300);
-            var fighetr1 = new Fighter(200, 320);
-
-            creaturesInWorld.Add(fighetr);
-            creaturesInWorld.Add(fighetr1);
+            var firstFighter = new Fighter(500, 300);
+            var secondFighter = new Fighter(200, 320);
+            creaturesInWorld.Add(firstFighter);
+            creaturesInWorld.Add(secondFighter);
         }
 
         private void InitializeVariables()
@@ -104,9 +102,7 @@ namespace NeltharionRPGGame.GameEngine
         {
             this.creaturesInWorld.Where(creature => !creature.IsAlive).ToList()
                 .ForEach(deadCreature => this.painter.RemoveObject(deadCreature));
-
             this.creaturesInWorld.RemoveAll(creature => !creature.IsAlive);
-
         }
 
         private void GetBonusesFromDeadEnemies()
@@ -131,7 +127,7 @@ namespace NeltharionRPGGame.GameEngine
                 if (creature is Enemy)
                 {
                     Enemy enemy = creature as Enemy;
-                    enemy.aiController.GetPlayerPosition(this.player);
+                    enemy.aiController.GetPlayerData(this.player);
                     NextMoveDecision decision = enemy.aiController.DecideNextMove();
 
                     switch (decision)
@@ -153,8 +149,6 @@ namespace NeltharionRPGGame.GameEngine
         {
             moveableObj.Move();
         }
-
-
 
         private void SubscribeToUserInput(IInputInterface userInteface)
         {

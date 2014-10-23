@@ -39,5 +39,10 @@ namespace NeltharionRPGGame.Structure.Creatures
 
             base.Move();
         }
+
+        protected override void UpdateSightDirection()
+        {
+            base.UpdateSightDirection();
+        }
     }
 }

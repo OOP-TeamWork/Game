@@ -1,8 +1,6 @@
 ﻿using System;
 using NeltharionRPGGame.Data;
-using NeltharionRPGGame.GameEngine;
 using NeltharionRPGGame.Interfaces;
-using NeltharionRPGGame.Structure;
 using NeltharionRPGGame.Structure.Creatures;
 
 namespace NeltharionRPGGame.Controllers
@@ -21,6 +19,8 @@ namespace NeltharionRPGGame.Controllers
 
         public int PlayerPositionY { get; set; }
 
+        public SightDirection PlayerSightDirection { get; set; }
+
         public NextMoveDecision DecideNextMove()
         {
             bool isPlayerInRange = IsPlayerInRange();
@@ -35,10 +35,11 @@ namespace NeltharionRPGGame.Controllers
             }
         }
 
-        public void GetPlayerPosition(Character player)
+        public void GetPlayerData(Character player)
         {
             this.PlayerPositionX = player.X;
             this.PlayerPositionY = player.Y;
+            this.PlayerSightDirection = player.SightDirection;
         }
 
         public void DecideNextPosition(out int positionX, out int positionY)

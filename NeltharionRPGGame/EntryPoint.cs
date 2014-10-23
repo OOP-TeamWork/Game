@@ -11,7 +11,11 @@ namespace NeltharionRPGGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameWindow());
+            SplashScreen splashScreen = new SplashScreen();
+            if (splashScreen.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new GameWindow());
+            }
         }
     }
 }

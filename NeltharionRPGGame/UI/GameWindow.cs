@@ -53,6 +53,8 @@ namespace NeltharionRPGGame.UI
             this.Text += gameEngine.player.DefensePoints.ToString();
             this.Text += "   ";
             this.Text += gameEngine.player.AttackPoints.ToString();
+            this.Text += "   ";
+            this.Text += gameEngine.player.SightDirection;
         }
 
         public bool PreFilterMessage(ref Message m)

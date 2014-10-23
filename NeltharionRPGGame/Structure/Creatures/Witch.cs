@@ -22,13 +22,13 @@ namespace NeltharionRPGGame.Structure.Creatures
 
         protected override void UpdateSpriteDirection()
         {
-            if (this.SightDirection == SightDirection.Left)
+            if (this.aiController.PlayerSightDirection == SightDirection.Left)
             {
-                this.SpriteType = SpriteType.WitchLeft;
+                this.SpriteType = SpriteType.WitchRight;
             }
             else
             {
-                this.SpriteType = SpriteType.WitchRight;
+                this.SpriteType = SpriteType.WitchLeft;
             }
         }
     }

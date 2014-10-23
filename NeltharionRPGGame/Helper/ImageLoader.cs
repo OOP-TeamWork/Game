@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using NeltharionRPGGame.Data;
-using NeltharionRPGGame.Structure;
 
 namespace NeltharionRPGGame.Helper
 {
@@ -17,8 +16,8 @@ namespace NeltharionRPGGame.Helper
         private const string VikingFlippedImagePath = DirPath + "viking-flipped.png";
         private const string WitchImagePath = DirPath + "witch.png";
         private const string WitchFlippedImagePath = DirPath + "witch-flipped.png";
-        private const string FighterImagePath = DirPath + "fighter.png";
-        private const string FighterFlippedImagePath = DirPath + "fighter-flipped.png";
+        private const string FighterImagePath = DirPath + "fighter-flipped.png";
+        private const string FighterFlippedImagePath = DirPath + "fighter.png";
         private const string SwordImagePath = DirPath + "sword.png";
         private const string DefaulthWeaponImagePath = DirPath + "default.png";
         private const string RedHealthHeartImagePath = DirPath + "redHeart.png";
