@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using NeltharionRPGGame.Data;
-using NeltharionRPGGame.Structure.Items.Weapons;
 using NeltharionRPGGame.Structure.Spells;
 using NeltharionRPGGame.Structure.Items.Potions;
 

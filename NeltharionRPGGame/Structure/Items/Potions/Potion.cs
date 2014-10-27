@@ -1,5 +1,4 @@
 ﻿using NeltharionRPGGame.Data;
-using NeltharionRPGGame.Structure.Items.Weapons;
 
 namespace NeltharionRPGGame.Structure.Items.Potions
 {

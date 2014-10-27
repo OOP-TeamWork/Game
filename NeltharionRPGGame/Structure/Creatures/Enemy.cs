@@ -2,7 +2,6 @@
 using NeltharionRPGGame.Controllers;
 using NeltharionRPGGame.Data;
 using NeltharionRPGGame.Helper;
-using NeltharionRPGGame.Structure.Items.Weapons;
 
 namespace NeltharionRPGGame.Structure.Creatures
 {
